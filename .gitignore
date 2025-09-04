@@ -1,0 +1,39 @@
+# Core OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node / Frontend
+node_modules/
+public/build/
+public/hot
+public/storage
+
+# Composer
+vendor/
+composer.lock
+
+# Laravel runtime
+storage/*.key
+storage/app/private
+storage/app/public
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*.php
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Coverage / reports
+coverage/
+clover.xml
+
+# Misc
+*.log
+*.sqlite
+/.phpunit.result.cache

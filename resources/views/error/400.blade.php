@@ -1,0 +1,43 @@
+@extends('layouts.base', ['title' => 'Error 400'])
+
+@section('css')
+@endsection
+
+@section('content')
+
+<div class="auth-bg d-flex min-vh-100">
+    <div class="row g-0 justify-content-center w-100 m-xxl-5 px-xxl-4 m-3">
+        <div class="col-xxl-3 col-lg-5 col-md-6">
+            <a href="{{ route('any', ['index'])}}" class="auth-brand d-flex justify-content-center mb-2">
+                <img src="/images/logo-dark.png" alt="dark logo" height="26" class="logo-dark">
+                <img src="/images/logo.png" alt="logo light" height="26" class="logo-light">
+            </a>
+
+            <p class="fw-semibold mb-4 text-center text-muted fs-15">CRM rozhraní</p>
+
+            <div class="card overflow-hidden text-center p-xxl-4 p-3 mb-0">
+
+                <div class="text-center">
+                    <h1 class="text-error">400</h1>
+                    <h3 class="mt-3 mb-2">Chybný požadavek</h3>
+                    <p class="text-muted mb-3">Server nerozuměl požadavku kvůli neplatné syntaxi. Zkontrolujte vstupy a zkuste to znovu.</p>
+                    <a href="{{ route('crm.dashboard') }}" class="btn btn-danger">
+                        <i class="ti ti-home fs-16 me-1"></i> Zpět na CRM Dashboard
+                    </a>
+                </div>
+
+            </div>
+            <p class="mt-4 text-center mb-0">
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> © E S L a.s.
+            </p>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('scripts')
+
+@endsection

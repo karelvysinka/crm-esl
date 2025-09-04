@@ -1,0 +1,61 @@
+site_name: CRM Documentation
+# Public canonical URL (adjust if different environment)
+site_url: https://ce1.opent2.com/crm-docs/
+repo_name: crm-esl
+nav:
+  - Index: index.md
+  - Changelog: 01-intro/changelog.md
+  - Jak CRM funguje: 01-intro/how-it-works.md
+  - Architektura:
+    - Přehled: 02-architecture/overview.md
+  - Infrastruktura: 02-architecture/infrastructure.md
+  - Git Publikace: 02-architecture/git-publishing.md
+  - Testovací Strategie: 02-architecture/testing-strategy.md
+  - Doména:
+    - Model: 03-domain/domain-model.md
+  - ERD (gen): 16-generated/erd.md
+  - Model Fields (gen): 16-generated/model-fields.md
+  - Moduly:
+    - Ops: 04-modules/ops.md
+  - Integrace:
+    - ActiveCampaign: 05-integrations/activecampaign.md
+    - Qdrant: 05-integrations/qdrant.md
+    - Embeddings: 05-integrations/embeddings-providers.md
+  - Runtime:
+    - Routy (gen): 16-generated/routes.md
+    - Schedule (gen): 16-generated/schedule.md
+    - Job Katalog (gen): 16-generated/jobs.md
+    - ENV Matrix (gen): 16-generated/env-matrix.md
+  - Navigace (gen): 16-generated/navigation.md
+  - DB Schema (gen): 16-generated/db-schema.md
+  - Permissions (gen): 16-generated/permissions.md
+  - Backup Report (latest): 16-generated/backup-report-latest.md
+  - Runbook:
+    - Ops: 13-runbooks/ops-runbook.md
+  - ADR:
+    - MkDocs Adopce: 12-adr/ADR-20250904-mkdocs-adopce.md
+  - Ops Modul: 12-adr/ADR-20250904-ops-modul.md
+  - Knowledge Subsystem: 12-adr/ADR-20250904-knowledge-subsystem.md
+  - Permissions Model: 12-adr/ADR-20250904-permissions-model.md
+  - Checklists:
+    - PR Checklist: 14-checklists/pr-checklist.md
+  - Templates:
+    - ADR Template: 15-templates/adr-template.md
+    - Module Template: 15-templates/module.md
+theme:
+  name: material
+  language: cs
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - footnotes
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+plugins:
+  - search
+use_directory_urls: true

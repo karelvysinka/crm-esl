@@ -1,0 +1,1655 @@
+
+<!doctype html>
+<html lang="cs" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/">
+      
+      
+      
+        <link rel="next" href="01-intro/changelog/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>CRM Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crm-dokumentace" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+    <a href="." title="CRM Documentation" class="md-header__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRM Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="CRM Documentation" class="md-nav__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CRM Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jak-udrzovat-dokumentaci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jak udržovat dokumentaci
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-prompt-kopiruj-vloz-do-nastroje" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Prompt (kopíruj &amp; vlož do nástroje)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rychly-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rychlý start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sekce-stav" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sekce (stav)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konvence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konvence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prikazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Příkazy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dalsi-kroky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Další kroky
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-intro/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-intro/how-it-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jak CRM funguje
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architektura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architektura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Přehled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-architecture/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastruktura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-architecture/git-publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Publikace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-architecture/testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testovací Strategie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Doména
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Doména
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-domain/domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/erd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERD (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/model-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Fields (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Moduly
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Moduly
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-modules/ops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrace
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Integrace
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-integrations/activecampaign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ActiveCampaign
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-integrations/qdrant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Qdrant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-integrations/embeddings-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routy (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Job Katalog (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/env-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENV Matrix (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigace (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/db-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB Schema (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="16-generated/backup-report-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backup Report (latest)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runbook
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Runbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="13-runbooks/ops-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADR
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            ADR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-adr/ADR-20250904-mkdocs-adopce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Adopce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-adr/ADR-20250904-ops-modul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops Modul
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-adr/ADR-20250904-knowledge-subsystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Knowledge Subsystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12-adr/ADR-20250904-permissions-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Checklists
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            Checklists
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="14-checklists/pr-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PR Checklist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_24">
+            <span class="md-nav__icon md-icon"></span>
+            Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="15-templates/adr-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="15-templates/module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jak-udrzovat-dokumentaci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jak udržovat dokumentaci
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-prompt-kopiruj-vloz-do-nastroje" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI Prompt (kopíruj &amp; vlož do nástroje)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rychly-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rychlý start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sekce-stav" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sekce (stav)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konvence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konvence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prikazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Příkazy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dalsi-kroky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Další kroky
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="crm-dokumentace">CRM Dokumentace<a class="headerlink" href="#crm-dokumentace" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Tato stránka obsahuje okamžitý návod jak dokumentaci správně udržovat a také připravený AI prompt pro kontextové dotazy / generování.</p>
+</blockquote>
+<h2 id="jak-udrzovat-dokumentaci">Jak udržovat dokumentaci<a class="headerlink" href="#jak-udrzovat-dokumentaci" title="Permanent link">&para;</a></h2>
+<p>Principy:
+1. Single Source of Truth: Generované reference v <code>docs/16-generated</code> NIKDY ručně needitovat (úpravy pouze přes kód / generátor v <code>DocsRefresh</code> nebo meta soubory).
+2. Viditelnost Diffů: Každá změna modelů / rout / jobů → vždy <code>php artisan docs:refresh</code> před commitem (CI failne pokud chybí diff commit).
+3. Popisy Menu: Texty sekcí a položek v CRM menu udržovat v <code>docs/_meta/menu.php</code> (generátor vytvoří tabulky v <code>navigation.md</code>).
+4. Strukturované Rozhodnutí: Každé významné arch / procesní rozhodnutí → přidat ADR do <code>docs/12-adr</code> (použij šablonu <code>15-templates/adr-template.md</code>).
+5. Modulová Dokumentace: Každý nový modul má vlastní soubor v <code>docs/04-modules</code> + doplnění do <code>mkdocs.yml</code> + případně sekci v "Jak CRM funguje".
+6. Generované Artefakty: Přidání nového typu generovaného výstupu → rozšířit třídu <code>app/Console/Commands/DocsRefresh.php</code> a přidat do nav v <code>mkdocs.yml</code>.
+7. Review Cadence: Minimálně 1× týdně projít (a) počet výskytů <code>_(popis chybí)_</code> v <code>navigation.md</code>, (b) zastaralé ADR (doplnit superseded), (c) změny schématu vs. DB Schema (gen).
+8. Minimální Metadata Modelů: Při přidání modelu doplnit <code>$fillable</code>, <code>$casts</code> a stručný PHPDoc (první řádek se promítne v job katalogu / budoucích generátorech).
+9. Alerting &amp; Observability: Při přidání nové ops aktivity logovat přes <code>OpsActivity</code> pro budoucí metriky.
+10. AI Ready: Preferovat krátké, deklarativní odstavce před dlouhými esejemi – usnadňuje extrakci kontextu pro AI.</p>
+<p>Workflow (rychlý check‑list před PR):
+- [ ] Změny kódu ovlivňují routy / joby / schedule / modely?
+    - Ano → spustit <code>php artisan docs:refresh</code>.
+- [ ] Přibyly nové menu položky? → aktualizovat <code>docs/_meta/menu.php</code>.
+- [ ] Nové rozhodnutí? → ADR.
+- [ ] Nový modul / integrace? → modulový soubor + <code>.env.example</code> proměnné + sekce v How it Works.
+- [ ] Build statického webu (volitelné lokálně) <code>bash scripts/docs/build.sh</code>.</p>
+<p>Nejčastější chyby &amp; prevence:
+| Chyba | Prevence |
+|-------|----------|
+| Chybějící commit generovaných souborů | Spustit <code>docs:refresh</code> před push (CI detekuje) |
+| Rozbitá navigace (mkdocs) | Po editaci <code>mkdocs.yml</code> rychle spustit lokální build |
+| Nezdokumentovaná nová route | Přidat popis do <code>menu.php</code> (jinak <em>(popis chybí)</em>) |
+| Zapomenuté ADR | Před merge zkontrolovat difflog / PR konverzaci |</p>
+<p>Základní adresářové role:
+| Cesta | Účel |
+|-------|------|
+| <code>docs/01-intro</code> | Vysvětlující vstupní přehled (How it works) |
+| <code>docs/02-architecture</code> | Architektonické diagramy / přehledy |
+| <code>docs/03-domain</code> | Doménový model, ERD reference odkazy |
+| <code>docs/04-modules</code> | Modulové dokumenty (ruční) |
+| <code>docs/12-adr</code> | Architecture Decision Records |
+| <code>docs/13-runbooks</code> | Operativní runbooky |
+| <code>docs/14-checklists</code> | Kontrolní seznamy |
+| <code>docs/15-templates</code> | Šablony (ADR, modul) |
+| <code>docs/16-generated</code> | Auto generované reference |
+| <code>docs/_meta</code> | Konfig / mapování pro generátory |</p>
+<h2 id="ai-prompt-kopiruj-vloz-do-nastroje">AI Prompt (kopíruj &amp; vlož do nástroje)<a class="headerlink" href="#ai-prompt-kopiruj-vloz-do-nastroje" title="Permanent link">&para;</a></h2>
+<p>Použij tento prompt pro AI agenta, aby efektivně doplňoval / aktualizoval dokumentaci.</p>
+<div class="highlight"><pre><span></span><code>SYSTEM CONTEXT:
+Jsi technický dokumentační asistent pro Laravel CRM projekt. Dodržuj existující strukturu MkDocs.
+
+REPO DOKUMENTAČNÍ ZDROJE (priority):
+1. How it Works: docs/01-intro/how-it-works.md (business &amp; flow context)
+2. Domain Model + ERD + Model Fields: docs/03-domain/*.md + docs/16-generated/erd.md + model-fields.md + db-schema.md
+3. Menu / Navigace: docs/16-generated/navigation.md + meta popisy v docs/_meta/menu.php
+4. Ops / Runbooks: docs/04-modules/ops.md + docs/13-runbooks/ops-runbook.md
+5. ADR: docs/12-adr (rozhodnutí – respektuj, pokud nejsou superseded)
+6. Generované reference: docs/16-generated (NEedituj ručně)
+
+POŽADAVKY NA TVORBU / ÚPRAVY:
+- Pokud změna vyžaduje generovaný soubor, navrhni úpravu kódu (DocsRefresh) místo ruční editace.
+- Stručné věcné formulace, první odstavec každé nové sekce = summary pro embedding.
+- Každý nový modul: soubor v docs/04-modules + aktualizace mkdocs.yml + případný záznam v How it Works.
+- Nové rozhodnutí: vytvoř ADR dle šablony docs/15-templates/adr-template.md.
+- U menu položek: pokud přidáváš nebo rozšiřuješ route, doplň popis do docs/_meta/menu.php.
+
+KONTROLY PŘED HOTOVO:
+1. Je potřeba spustit `php artisan docs:refresh`? (routy / modely / joby / schedule změny)
+2. Byl upraven `mkdocs.yml` pokud přibyly ruční stránky?
+3. Zůstaly někde placeholdery &quot;(popis chybí)&quot; které lze doplnit?
+4. Potřebuje změna ADR (nové nebo superseded)?
+
+VÝSTUP:
+- Seznam přesných souborů k vytvoření/úpravě.
+- Stručné shrnutí proč.
+- Návrh patchů (diff styl) NEobsahující generované 16-generated*.md soubory.
+
+Bezpečnost: Neunikat tajné hodnoty z .env ani credentials.
+</code></pre></div>
+<hr />
+<p>Profesní interní dokumentace generovaná z Markdown + automatických výpisů.</p>
+<h2 id="rychly-start">Rychlý start<a class="headerlink" href="#rychly-start" title="Permanent link">&para;</a></h2>
+<ol>
+<li><code>php artisan docs:refresh</code> – regenerace referencí.</li>
+<li><code>bash scripts/docs/build.sh</code> – build HTML (vyžaduje Docker).</li>
+<li>Otevři <code>site/index.html</code> nebo publikované <code>/crm-docs/</code>.</li>
+</ol>
+<h2 id="sekce-stav">Sekce (stav)<a class="headerlink" href="#sekce-stav" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Architektura – skeleton.</li>
+<li>Moduly – Ops hotovo; další TBD.</li>
+<li>Runtime – generované (routy, schedule, jobs, env matrix).</li>
+<li>Runbook – udržován v <code>docs/13-runbooks</code>.</li>
+</ul>
+<h2 id="konvence">Konvence<a class="headerlink" href="#konvence" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Složka <code>docs/16-generated</code> = auto output (commitovat). </li>
+<li>Ručně psané soubory: modulové, ADR, architektura.</li>
+</ul>
+<h2 id="prikazy">Příkazy<a class="headerlink" href="#prikazy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Účel</th>
+<th>Příkaz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regenerace</td>
+<td><code>php artisan docs:refresh</code></td>
+</tr>
+<tr>
+<td>Build HTML</td>
+<td><code>bash scripts/docs/build.sh</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dalsi-kroky">Další kroky<a class="headerlink" href="#dalsi-kroky" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Doplnit modul ActiveCampaign, Knowledge.</li>
+<li>Zavést ADR první sady.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

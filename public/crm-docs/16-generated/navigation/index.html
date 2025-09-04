@@ -1,0 +1,2379 @@
+
+<!doctype html>
+<html lang="cs" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/16-generated/navigation/">
+      
+      
+        <link rel="prev" href="../env-matrix/">
+      
+      
+        <link rel="next" href="../db-schema/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Navigace (gen) - CRM Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#navigace-generovano" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+    <a href="../.." title="CRM Documentation" class="md-header__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRM Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Navigace (gen)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CRM Documentation" class="md-nav__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CRM Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-intro/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-intro/how-it-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jak CRM funguje
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architektura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architektura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Přehled
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Infrastruktura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/git-publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Publikace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/testing-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testovací Strategie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Doména
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Doména
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-domain/domain-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERD (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model Fields (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Moduly
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Moduly
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-modules/ops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrace
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Integrace
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-integrations/activecampaign/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ActiveCampaign
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-integrations/qdrant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Qdrant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-integrations/embeddings-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Runtime
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routy (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schedule (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jobs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Job Katalog (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../env-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ENV Matrix (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Navigace (gen)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigace (gen)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kontakty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kontakty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leady" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leady
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prilezitosti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Příležitosti
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ukoly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Úkoly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projekty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projekty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Base
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marketing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge docs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leads-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leads kanban
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opportunities-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opportunities pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DB Schema (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions (gen)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup-report-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backup Report (latest)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runbook
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Runbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../13-runbooks/ops-runbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ADR
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            ADR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-adr/ADR-20250904-mkdocs-adopce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Adopce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-adr/ADR-20250904-ops-modul/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ops Modul
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-adr/ADR-20250904-knowledge-subsystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Knowledge Subsystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../12-adr/ADR-20250904-permissions-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissions Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Checklists
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            Checklists
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../14-checklists/pr-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PR Checklist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_24" >
+        
+          
+          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Templates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_24">
+            <span class="md-nav__icon md-icon"></span>
+            Templates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-templates/adr-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ADR Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../15-templates/module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firmy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kontakty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kontakty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leady" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leady
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prilezitosti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Příležitosti
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ukoly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Úkoly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projekty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Projekty
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge Base
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marketing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knowledge docs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leads-kanban" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leads kanban
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opportunities-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opportunities pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Orders
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="navigace-generovano">Navigace (generováno)<a class="headerlink" href="#navigace-generovano" title="Permanent link">&para;</a></h1>
+<p><em>Automatický přehled položek CRM menu (GET routy s prefixem <code>/crm</code>). Popisy lze doplnit v <code>docs/_meta/menu.php</code>.</em></p>
+<h2 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h2>
+<p>Výchozí přehled (widgety, stav synchronizací, klíčové KPI).</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>crm.dashboard</td>
+<td>Hlavní přehled a rychlé akce.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="firmy">Firmy<a class="headerlink" href="#firmy" title="Permanent link">&para;</a></h2>
+<p>Evidence firem (profil, revenue, průmysl) – vstup do detailu vztahů.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/companies</code></td>
+<td>companies.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/companies/create</code></td>
+<td>companies.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/companies/{company}</code></td>
+<td>companies.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/companies/{company}/edit</code></td>
+<td>companies.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="kontakty">Kontakty<a class="headerlink" href="#kontakty" title="Permanent link">&para;</a></h2>
+<p>Evidence osob navázaných na firmy, segmentace a marketing status.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/contacts</code></td>
+<td>contacts.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/contacts/create</code></td>
+<td>contacts.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/contacts/{contact}</code></td>
+<td>contacts.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/contacts/{contact}/edit</code></td>
+<td>contacts.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="leady">Leady<a class="headerlink" href="#leady" title="Permanent link">&para;</a></h2>
+<p>Potenciální příležitosti před kvalifikací (kanban/pipeline varianty).</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/leads</code></td>
+<td>leads.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/leads/create</code></td>
+<td>leads.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/leads/{lead}</code></td>
+<td>leads.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/leads/{lead}/edit</code></td>
+<td>leads.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="prilezitosti">Příležitosti<a class="headerlink" href="#prilezitosti" title="Permanent link">&para;</a></h2>
+<p>Obchodní příležitosti s fázemi, pravděpodobností a predikcí closingu.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/opportunities</code></td>
+<td>opportunities.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/opportunities/create</code></td>
+<td>opportunities.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/opportunities/{opportunity}</code></td>
+<td>opportunities.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/opportunities/{opportunity}/edit</code></td>
+<td>opportunities.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ukoly">Úkoly<a class="headerlink" href="#ukoly" title="Permanent link">&para;</a></h2>
+<p>Operativní práce navázaná na entity (polymorfní taskable).</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/tasks</code></td>
+<td>tasks.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/tasks/create</code></td>
+<td>tasks.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/tasks/{task}</code></td>
+<td>tasks.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/tasks/{task}/edit</code></td>
+<td>tasks.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="projekty">Projekty<a class="headerlink" href="#projekty" title="Permanent link">&para;</a></h2>
+<p>Dlouhodobější iniciativy agregující úkoly a obchodní kontext.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/projects</code></td>
+<td>projects.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/projects/create</code></td>
+<td>projects.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/projects/{project}</code></td>
+<td>projects.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/projects/{project}/edit</code></td>
+<td>projects.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="knowledge-base">Knowledge Base<a class="headerlink" href="#knowledge-base" title="Permanent link">&para;</a></h2>
+<p>Znalostní báze (dokumenty, chunking, vektorové vyhledávání).</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/knowledge</code></td>
+<td>knowledge.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/knowledge/create</code></td>
+<td>knowledge.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/knowledge/search/ajax</code></td>
+<td>knowledge.search</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/knowledge/{knowledge}/edit</code></td>
+<td>knowledge.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="marketing">Marketing<a class="headerlink" href="#marketing" title="Permanent link">&para;</a></h2>
+<p>Strategie, exekuce, analytika, nastavení marketingu.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/marketing</code></td>
+<td>marketing.dashboard</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/analytika/ab-testovani</code></td>
+<td>marketing.analytics.ab</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/analytika/ai-sentiment</code></td>
+<td>marketing.analytics.sentiment</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/analytika/atribuce</code></td>
+<td>marketing.analytics.attribution</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/analytika/cross-channel</code></td>
+<td>marketing.analytics.cross</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/analytika/seo</code></td>
+<td>marketing.analytics.seo</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/cileni/databaze-kontaktu</code></td>
+<td>marketing.target.contacts</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/cileni/lead-nurturing</code></td>
+<td>marketing.target.nurturing</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/cileni/segmentace</code></td>
+<td>marketing.target.segments</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/automatizace</code></td>
+<td>marketing.exec.automation</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/email-marketing</code></td>
+<td>marketing.exec.email</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/influenceri-partneri</code></td>
+<td>marketing.exec.influencers</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/kampane</code></td>
+<td>marketing.exec.campaigns</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/knihovna-obsahu</code></td>
+<td>marketing.exec.content</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/landing-pages</code></td>
+<td>marketing.exec.landing</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/exekuce/reklamy</code></td>
+<td>marketing.exec.ads</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/nastaveni/ai-sablony</code></td>
+<td>marketing.settings.ai</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/nastaveni/importy</code></td>
+<td>settings.imports</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/nastaveni/integrace-api</code></td>
+<td>marketing.settings.integrations</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/nastaveni/lead-scoring</code></td>
+<td>marketing.settings.scoring</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/nastaveni/role-prava</code></td>
+<td>marketing.settings.roles</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/strategie/budget</code></td>
+<td>marketing.strategy.budget</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/strategie/kalendar</code></td>
+<td>marketing.strategy.calendar</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/strategie/persony</code></td>
+<td>marketing.strategy.personas</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/strategie/swot</code></td>
+<td>marketing.strategy.swot</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/marketing/strategie/trendy-ai</code></td>
+<td>marketing.strategy.trends</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="chat">Chat<a class="headerlink" href="#chat" title="Permanent link">&para;</a></h2>
+<p>Konverzační AI / uživatelské relace.</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/chat</code></td>
+<td>crm.chat</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/chat/sessions</code></td>
+<td></td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/chat/sessions/{id}/messages</code></td>
+<td></td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/chat/stream</code></td>
+<td></td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h2>
+<p>Admin konfigurace (ActiveCampaign, Backup, Qdrant, Tools, Chat, integrace).</p>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/system/activecampaign</code></td>
+<td>system.ac.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/activecampaign/runs</code></td>
+<td>system.ac.runs</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/apps</code></td>
+<td>system.apps.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/backup</code></td>
+<td>system.backup.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/backup/download/{path}</code></td>
+<td>system.backup.download</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/chat</code></td>
+<td>system.chat.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/chat/diagnostics</code></td>
+<td>system.chat.diagnostics</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/chat/lookup</code></td>
+<td>system.chat.lookup</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/qdrant</code></td>
+<td>system.qdrant.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/system/tools</code></td>
+<td>system.tools.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="deals">Deals<a class="headerlink" href="#deals" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deals</code></td>
+<td>deals.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/deals/create</code></td>
+<td>deals.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/deals/{deal}</code></td>
+<td>deals.show</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/deals/{deal}/edit</code></td>
+<td>deals.edit</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="knowledge-docs">Knowledge docs<a class="headerlink" href="#knowledge-docs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/knowledge-docs</code></td>
+<td>knowledge.docs.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/knowledge-docs/create</code></td>
+<td>knowledge.docs.create</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="leads-kanban">Leads kanban<a class="headerlink" href="#leads-kanban" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/leads-kanban</code></td>
+<td>leads.kanban</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="opportunities-pipeline">Opportunities pipeline<a class="headerlink" href="#opportunities-pipeline" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/opportunities-pipeline</code></td>
+<td>opportunities.pipeline</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ops">Ops<a class="headerlink" href="#ops" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/ops</code></td>
+<td>ops.dashboard</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/ops/history</code></td>
+<td>ops.history.index</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/ops/metrics</code></td>
+<td>ops.metrics</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="orders">Orders<a class="headerlink" href="#orders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/orders/{order}/items</code></td>
+<td></td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Route name</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/search/customers</code></td>
+<td>search.customers</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+<tr>
+<td><code>/search/taskables</code></td>
+<td>search.taskables</td>
+<td><em>(popis chybí)</em></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

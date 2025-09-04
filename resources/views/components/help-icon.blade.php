@@ -1,0 +1,1 @@
+<span class="ms-1 align-middle" style="cursor:help" title="{{ $text }}">❓</span>

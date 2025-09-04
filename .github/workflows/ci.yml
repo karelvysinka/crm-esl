@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, pcntl, pdo_mysql, curl, zip
+          coverage: none
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Copy env
+        run: cp .env.example .env || true
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Run tests
+        run: vendor/bin/phpunit --no-coverage
+
+      - name: Lint (Pint)
+        run: |
+          if [ -f vendor/bin/pint ]; then vendor/bin/pint --test || true; fi
+      - name: Generate Docs
+        run: |
+          php artisan docs:refresh --no-permissions || true
+      - name: Check docs diff
+        run: |
+          git add docs/16-generated || true
+          if ! git diff --cached --quiet; then
+            echo "Generated docs are outdated. Run 'composer docs' and commit changes." >&2
+            git diff --cached --name-only
+            exit 1
+          fi
+      - name: Validate Changelog
+        run: |
+          php scripts/validate-changelog.php
