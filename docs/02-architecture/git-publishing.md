@@ -249,6 +249,8 @@ V repozitáři je workflow `.github/workflows/release.yml`, které při push tag
 2. Vygeneruje release notes z changelogu (`release:notes`).
 3. Vytvoří GitHub Release s těmito poznámkami.
 
+Navíc krok "Validate changelog entry" ověří, že v `docs/01-intro/changelog.md` existuje nadpis pro daný tag – pokud ne, workflow selže (chrání před zapomenutým záznamem).
+
 Postup pro nový release:
 ```
 php artisan changelog:add ADDED "Nová funkce Y" --details="..." --impact="..."
