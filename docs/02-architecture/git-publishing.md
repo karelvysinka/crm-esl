@@ -251,6 +251,28 @@ V repozitáři je workflow `.github/workflows/release.yml`, které při push tag
 
 Navíc krok "Validate changelog entry" ověří, že v `docs/01-intro/changelog.md` existuje nadpis pro daný tag – pokud ne, workflow selže (chrání před zapomenutým záznamem).
 
+### Ruční rebuild statické dokumentace
+Markdown změny (např. nový changelog) se projeví na webu až po přebuildění MkDocs do `public/crm-docs`.
+
+Použij skript:
+
+```
+scripts/build-docs.sh
+```
+
+Co dělá:
+1. Spustí `php artisan docs:refresh` (vygeneruje referenční sekce).
+2. Spustí kontejner `squidfunk/mkdocs-material` a buildne statický web.
+
+Výstup: `public/crm-docs/index.html` + ostatní.
+
+Po buildu ověř:
+```
+grep -q "vX.Y.Z" public/crm-docs/01-intro/changelog/index.html && echo OK
+```
+
+Pokud nasazení běží v Dockeru, stačí rebuild uvnitř aplikačního kontejneru a Nginx okamžitě servíruje nové soubory.
+
 Postup pro nový release:
 ```
 php artisan changelog:add ADDED "Nová funkce Y" --details="..." --impact="..."
