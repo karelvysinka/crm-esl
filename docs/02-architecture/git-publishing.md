@@ -85,3 +85,177 @@ Možné budoucí kroky:
 
 ---
 Aktualizace této stránky musí proběhnout při změně release procesu nebo bezpečnostních zásad.
+
+## 11. Krok za krokem: První privátní GitHub nasazení
+
+Pokud nemůže asistovat automatizace, postupuj ručně podle těchto přesných kroků.
+
+### Předpoklady
+- Na serveru je projekt (už inicializovaný `git init` a první commit – hotovo).
+- Máš GitHub účet a právo vytvářet repozitáře v organizaci / pod svým účtem.
+
+### Varianta A: Push z lokální stanice (doporučeno)
+1. Stáhni si projekt ze serveru (nebo vyvíjej lokálně) – ověř že složka obsahuje `.git`.
+2. Na GitHubu vytvoř repozitář:
+	- Web UI: `+` (vpravo nahoře) → `New repository`.
+	- `Repository name`: např. `crm-esl`.
+	- Visibility: `Private`.
+	- Nezaškrtávej auto‐inicializační README / .gitignore (už je v projektu).
+	- Vytvoř.
+3. Přidej remote a push:
+	```bash
+	git remote add origin git@github.com:ORG_OR_USER/crm-esl.git
+	git push -u origin main
+	```
+4. Ověř v UI, že soubory jsou online.
+
+### Varianta B: Push přímo ze serveru (deploy key)
+1. Na serveru vygeneruj dedikovaný klíč:
+	```bash
+	ssh-keygen -t ed25519 -C "crm-esl-deploy" -f ~/.ssh/id_crm_esl
+	```
+2. Přidej do `~/.ssh/config`:
+	```
+	Host github-crm
+	  HostName github.com
+	  User git
+	  IdentityFile ~/.ssh/id_crm_esl
+	  IdentitiesOnly yes
+	```
+3. Zobraz public klíč a zkopíruj:
+	```bash
+	cat ~/.ssh/id_crm_esl.pub
+	```
+4. GitHub repo → Settings → Deploy keys → Add deploy key (název např. `server-initial`) — povol *Write access* (jen pokud ze serveru budeš pushovat).
+5. Přidej remote a push:
+	```bash
+	git remote add origin git@github-crm:ORG_OR_USER/crm-esl.git
+	git push -u origin main
+	```
+
+### (Alternativa) HTTPS s PAT
+Použij jen pokud SSH není možné:
+```bash
+git remote add origin https://github.com/ORG_OR_USER/crm-esl.git
+git push -u origin main
+```
+Při promptu zadej Personal Access Token (PAT) místo hesla (doporuč rozsah `repo` + expiration). 
+
+### Po prvním push – základní hardening
+1. Repo → Settings → General → "Allow forking" vypnout (pokud nechceš forky).
+2. Repo → Settings → Branches → Add rule `main`:
+	- Require pull request before merging.
+	- Require status checks (později až testy běží).
+3. Repo → Settings → Actions → General → Povolit Actions pro privátní.
+4. Repo → Settings → Secrets and variables → Actions → Add secrets (např. `PROD_SSH_HOST`, `PROD_SSH_USER`, atd. – dle budoucího CD).
+
+### Tagování první verze
+```bash
+git tag -a v0.1.1 -m "Initial private release"
+git push origin v0.1.1
+```
+Na GitHubu → Releases → Draft new release → vyber tag `v0.1.1`. 
+Changelog poslední položku získáš:
+```bash
+awk '/^### \[/ {if (c++) exit} {print}' docs/01-intro/changelog.md
+```
+Výstup vlož do release notes (můžeš odstranit interní sekce pokud chceš kratší text pro veřejné uživatele).
+
+### Přidání nové změny do changelogu před další verzí
+```bash
+php artisan changelog:add ADDED "Nový modul X" --details="Backend + UI" --impact="Uživatel: nové funkce; Provoz: žádný"
+git add docs/01-intro/changelog.md
+git commit -m "docs: changelog pro modul X"
+```
+
+### Rychlá kontrola že nic citlivého neuniklo
+```bash
+grep -R "API_KEY" -n . | head
+grep -R "SECRET" -n . | head
+grep -R "PASSWORD" -n . | head
+```
+Pokud najdeš reálné hodnoty (ne placeholdery), odeber a přidej do `.env`.
+
+### Minimální rollback (pokud něco rozbiješ v main)
+```bash
+git revert <SHA-problematic-commit>
+git push origin main
+```
+Pokud šlo o release tag, vytvoř následně novou PATCH verzi s opravou (např. v0.1.2).
+
+### Nejčastější chyby & řešení
+| Problém | Příčina | Oprava |
+|---------|---------|--------|
+| Permission denied (publickey) | Špatný klíč nebo není na GitHubu | Zkontroluj `ssh -T git@github.com` |
+| PAT authentication failed | Špatný scope nebo expirovaný token | Vytvoř nový PAT se scope `repo` |
+| CI nevidí `.env` | Chybí `.env.example` | Přítomno – doplnit nové klíče dle potřeby |
+| Changelog gate selže | Nesprávný TYPE / pořadí | Spusť validator lokálně `php scripts/validate-changelog.php` |
+
+### Co NEcommitovat nikdy
+- Skutečné API klíče, hesla, privátní SSH klíče.
+- Dumpy databází (použij artefakt / priv storage).
+- Velké binárky (>100MB) – použij Git LFS nebo externí storage.
+
+---
+Tento návod rozšířil původní sekce – při změně procesu aktualizuj souběžně Release Checklist.
+
+## 12. Automatizované Release Notes
+
+Pro generování textu pro GitHub Release použij artisan příkaz:
+
+Získat nejnovější záznam (včetně nadpisu):
+```
+php artisan release:notes
+```
+
+Jen obsah bez nadpisu (vhodné pro GitHub Release body):
+```
+php artisan release:notes --no-heading
+```
+
+Konkrétní verze:
+```
+php artisan release:notes v0.1.1
+```
+
+Uložit do souboru (CI pipeline artefakt):
+```
+php artisan release:notes v0.1.1 --output=release_notes.md
+```
+
+### Integrace do CI (příklad tag workflow výstupu)
+Přidej job, který při push tagu vygeneruje poznámky:
+```yaml
+	release-notes:
+		if: startsWith(github.ref, 'refs/tags/')
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v4
+			- uses: shivammathur/setup-php@v2
+				with:
+					php-version: '8.3'
+			- run: composer install --no-interaction --prefer-dist --no-scripts
+			- name: Generate notes
+				run: php artisan release:notes ${GITHUB_REF#refs/tags/} --no-heading --output=release_notes.md
+			- name: Show notes
+				run: cat release_notes.md
+```
+
+GitHub Release lze následně vytvořit ručně a vložit generovaný obsah, nebo doplnit akci typu `softprops/action-gh-release` a předat `body_path: release_notes.md`.
+
+### Automatizovaná Release Akce
+V repozitáři je workflow `.github/workflows/release.yml`, které při push tagu `v*.*.*`:
+1. Spustí instalaci závislostí.
+2. Vygeneruje release notes z changelogu (`release:notes`).
+3. Vytvoří GitHub Release s těmito poznámkami.
+
+Postup pro nový release:
+```
+php artisan changelog:add ADDED "Nová funkce Y" --details="..." --impact="..."
+git add docs/01-intro/changelog.md
+git commit -m "docs: changelog pro Y"
+VERSION=v0.1.2
+git tag -a $VERSION -m "Release $VERSION"
+git push origin main $VERSION
+```
+Workflow automaticky založí Release. Ověř na GitHubu v sekci Releases.
