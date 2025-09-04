@@ -40,6 +40,35 @@ Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orienta
 
 ## Poslední změny
 
+### [2025-09-04] v0.1.2 (CHANGED)
+#### Shrnutí
+Zavedena automatizovaná release pipeline, generátor release notes a povinná validace changelogu v CI.
+
+#### Detaily
+- Přidán příkaz `php artisan release:notes` pro extrakci poznámek z changelogu.
+- Workflow `.github/workflows/release.yml` publikuje GitHub Release při tagu `v*.*.*` (SemVer).
+- Doplněn krok validace: kontrola existence položky pro daný tag v `docs/01-intro/changelog.md` (chrání konzistenci historie).
+- Rozšířen dokument `git-publishing.md` (sekce: Automatizovaná Release Akce + validace changelogu).
+- Governance changelogu: příkaz `changelog:add` + skript `scripts/validate-changelog.php` popsaný již dříve – nyní napojen i na release flow.
+- CI (`.github/workflows/ci.yml`) nadále hlídá aktuálnost dokumentace a strukturu changelogu.
+
+#### Dopady
+- Uživatel: Transparentnější vydání – každé označené verzí má okamžitě public release notes.
+- Provoz / infra: Snížení manuální práce při releasu, menší riziko opomenutí kroků.
+- Bezpečnost / compliance: Traceability verzí + auditní stopa změn CI konfigurace.
+
+#### Migrace / Kroky
+1. Není potřeba DB migrace.
+2. Při přípravě další verze nejprve `php artisan changelog:add`, poté commit & tag.
+3. Ověřit lokálně `php artisan release:notes vX.Y.Z` před push tagu.
+
+#### Odkazy
+- `.github/workflows/release.yml`
+- `app/Console/Commands/ReleaseNotes.php`
+- `docs/02-architecture/git-publishing.md`
+- `scripts/validate-changelog.php`
+- `app/Console/Commands/ChangelogAdd.php`
+
 ### [2025-09-04] v0.1.1 (FIXED)
 #### Shrnutí
 Opraven 419 (Page Expired) při přihlášení – doplněna web middleware vrstva (session & CSRF).
