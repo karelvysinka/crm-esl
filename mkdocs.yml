@@ -9,6 +9,7 @@ nav:
   - Architektura:
     - Přehled: 02-architecture/overview.md
   - Infrastruktura: 02-architecture/infrastructure.md
+  - Adminto Šablona: 02-architecture/adminto-template.md
   - Git Publikace: 02-architecture/git-publishing.md
   - Testovací Strategie: 02-architecture/testing-strategy.md
   - Doména:
