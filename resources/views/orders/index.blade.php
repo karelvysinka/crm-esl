@@ -186,26 +186,31 @@
   })();
   @if(isset($chart))
   (function(){
-    if(!window.ApexCharts) return;
-    const options = {
-      chart:{ type:'line', height:200, toolbar:{show:false}, fontFamily:'inherit' },
-      stroke:{ curve:'smooth', width:3 },
-      series:[
-        { name:'Objednávky', type:'column', data:@json($chart['orders']) },
-        { name:'Tržby (CZK)', type:'line', data:@json($chart['revenue']) }
-      ],
-      labels:@json($chart['labels']),
-      xaxis:{ categories:@json($chart['labels']), labels:{ style:{ fontSize:'11px' } } },
-      yaxis:[
-        { labels:{ style:{ fontSize:'11px' } }, title:{ text:'Objednávky', style:{ fontSize:'11px' } }, min:0 },
-        { opposite:true, labels:{ style:{ fontSize:'11px' } }, title:{ text:'CZK', style:{ fontSize:'11px' } }, min:0 }
-      ],
-      colors:['#35b8e0','#188ae2'],
-      legend:{ position:'top', horizontalAlign:'right', fontSize:'11px' },
-      grid:{ strokeDashArray:4 },
-      tooltip:{ shared:true }
-    };
-    try { new ApexCharts(document.querySelector('#orders-12m-chart'), options).render(); } catch(e) { console.error(e); }
+    function renderChart(){
+      const options = {
+        chart:{ type:'line', height:200, toolbar:{show:false}, fontFamily:'inherit' },
+        stroke:{ curve:'smooth', width:3 },
+        series:[
+          { name:'Objednávky', type:'column', data:@json($chart['orders']) },
+          { name:'Tržby (CZK)', type:'line', data:@json($chart['revenue']) }
+        ],
+        labels:@json($chart['labels']),
+        xaxis:{ categories:@json($chart['labels']), labels:{ style:{ fontSize:'11px' } } },
+        yaxis:[
+          { labels:{ style:{ fontSize:'11px' } }, title:{ text:'Objednávky', style:{ fontSize:'11px' } }, min:0 },
+          { opposite:true, labels:{ style:{ fontSize:'11px' } }, title:{ text:'CZK', style:{ fontSize:'11px' } }, min:0 }
+        ],
+        colors:['#35b8e0','#188ae2'],
+        legend:{ position:'top', horizontalAlign:'right', fontSize:'11px' },
+        grid:{ strokeDashArray:4 },
+        tooltip:{ shared:true }
+      };
+      try { new ApexCharts(document.querySelector('#orders-12m-chart'), options).render(); } catch(e) { console.error(e); }
+    }
+    if(window.ApexCharts) { renderChart(); }
+    else {
+      const s=document.createElement('script'); s.src='https://cdn.jsdelivr.net/npm/apexcharts'; s.onload=renderChart; document.head.appendChild(s);
+    }
   })();
   @endif
 </script>
