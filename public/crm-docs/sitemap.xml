@@ -81,6 +81,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ce1.opent2.com/crm-docs/07-orders/implementation-plan/</loc>
+         <lastmod>2025-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ce1.opent2.com/crm-docs/07-orders/overview/</loc>
+         <lastmod>2025-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ce1.opent2.com/crm-docs/07-runtime/jobs-catalog/</loc>
          <lastmod>2025-09-06</lastmod>
          <changefreq>daily</changefreq>

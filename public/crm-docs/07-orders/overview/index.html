@@ -6,15 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Stav implementace modulu objednávek (scraping), současné chování, příkazy a pending kroky.">
       
       
-        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/16-generated/routes/">
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/07-orders/overview/">
       
       
-        <link rel="prev" href="../../06-products/implementation-plan/">
-      
-      
-        <link rel="next" href="../schedule/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Routy (gen) - CRM Documentation</title>
+        <title>Objednávky - Přehled - CRM Documentation</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#routy-generovano" class="md-skip">
+        <a href="#objednavky-aktualni-stav" class="md-skip">
           Přeskočit obsah
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Routy (gen)
+              Objednávky - Přehled
             
           </span>
         </div>
@@ -459,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../erd/" class="md-nav__link">
+      <a href="../../16-generated/erd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../model-fields/" class="md-nav__link">
+      <a href="../../16-generated/model-fields/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -748,19 +746,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
         
           
           <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
@@ -774,7 +770,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
             Runtime
@@ -785,19 +781,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../16-generated/routes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -806,7 +793,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -819,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedule/" class="md-nav__link">
+      <a href="../../16-generated/schedule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jobs/" class="md-nav__link">
+      <a href="../../16-generated/jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -861,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../env-matrix/" class="md-nav__link">
+      <a href="../../16-generated/env-matrix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -889,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../navigation/" class="md-nav__link">
+      <a href="../../16-generated/navigation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -909,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db-schema/" class="md-nav__link">
+      <a href="../../16-generated/db-schema/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permissions/" class="md-nav__link">
+      <a href="../../16-generated/permissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup-report-latest/" class="md-nav__link">
+      <a href="../../16-generated/backup-report-latest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1315,6 +1301,215 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cile-mvp-dosazeno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cíle (MVP dosaženo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zdroje-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zdroje dat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zdroje dat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detail-objednavky-klicova-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail objednávky – klíčová pole
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polozky-aktualni-persist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Položky (aktuální persist)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datovy-model-realizovany-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datový model (realizovaný subset)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datový model (realizovaný subset)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-orders-aktivni-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka orders (aktivní pole)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-order_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka order_items
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-order_state_changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka order_state_changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategie-synchronizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategie synchronizace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detekce-zmen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detekce změn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapovani-stavu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapování stavů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologie-scrapingu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologie scrapingu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting-setrnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting &amp; šetrnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chybove-scenare-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chybové scénáře &amp; retry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observabilita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observabilita
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postupna-adopce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Postupná adopce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budouci-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budoucí rozšíření
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stav-funkcionalit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stav funkcionalit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poznamky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poznámky
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1328,1139 +1523,386 @@
                   
 
 
-<h1 id="routy-generovano">Routy (generováno)<a class="headerlink" href="#routy-generovano" title="Permanent link">&para;</a></h1>
+<h1 id="objednavky-aktualni-stav">Objednávky (aktuální stav)<a class="headerlink" href="#objednavky-aktualni-stav" title="Permanent link">&para;</a></h1>
+<p>Modul je nasazen: full import, incremental (každých 5 min), denní reconcile, parsování položek (produkt/doprava/platba), hash detekce změn, timeline stavů (sekvence kódů), integritní metriky. Původní rozsáhlejší návrh byl zúžen – adresy, fakturační a váhová data jsou odložena.</p>
+<h2 id="cile-mvp-dosazeno">Cíle (MVP dosaženo)<a class="headerlink" href="#cile-mvp-dosazeno" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Persistovat základ objednávky + položky + sekvenci stavů.</li>
+<li>Jednorázově nahrát historii (full import) a poté udržovat kontinuální tok.</li>
+<li>Minimalizovat počet requestů (page 1 + jemný jitter) a detekovat změny přes hash.</li>
+<li>Poskytnout audit (OpsActivity) pro běhy a metriky integrity.</li>
+</ul>
+<h2 id="zdroje-dat">Zdroje dat<a class="headerlink" href="#zdroje-dat" title="Permanent link">&para;</a></h2>
+<p>Listing: <code>/admin/order/?grid-page=N</code> (desc podle vytvoření). Interní edit ID extrahováno z odkazu <code>/admin/order/edit/{id}</code> → uložené jako <code>external_edit_id</code> (stabilní klíč do detailu a záložky položek <code>/admin/order/edit/{id}/tab-ite</code>).</p>
+<p>Pozorované sloupce ve výpisu (page 1, 20 / page):
+| Sloupec UI | Popis | Interní pole (navrh) | Poznámka |
+|------------|-------|-----------------------|----------|
+| Fakturováno | Ikona / text (Nefakturováno) | <code>invoiced</code> (bool) | Získáme ze souhrnu detailu. |
+| Vytvořeno | Datum+čas <code>dd.mm.yyyy HH:MM</code> | <code>created_at_raw</code> | Převod na UTC / timestamp. |
+| Číslo | Číslo objednávky (např. <code>2025000129</code>) | <code>order_number</code> | Unikátní, lexikálně i číselně roste. |
+| Jméno a příjmení | Jméno + (firma) | <code>customer_name</code>, <code>company_name</code> | Firma je v detailu v IČ/DIČ části. |
+| Doprava | Název dopravy | <code>shipping_method</code> | Např. <code>DPD</code>, <code>TopTrans</code>, <code>Osobní odběr Praha</code>. |
+| Platba | Název platby | <code>payment_method</code> | Např. <code>Dobírka</code>, <code>Platba převodem</code>. |
+| Počet položek | Počet řádků (produkt + doprava + platba) | <code>items_count</code> | Číslo zahrnuje všechny tři typy. |
+| Celkem | Částka s měnou | <code>total_amount</code>, <code>currency</code> | Parsovat čísla s mezerami + čárka -&gt; desetinná tečka. |
+| Stavy (S P V O C Č Z) | Zkratky stavů | <code>state_codes</code> (array) | Zachovat pořadí; mapovat na enum tabulku. |
+| Vyřízeno (V) | Finální flag | <code>is_completed</code> (bool) | Písmeno <code>V</code> ve vyřízené kolonce. |</p>
+<h3 id="detail-objednavky-klicova-pole">Detail objednávky – klíčová pole<a class="headerlink" href="#detail-objednavky-klicova-pole" title="Permanent link">&para;</a></h3>
+<p>Z pozorovaného DOM (souhrn + adresy + položky):</p>
 <table>
 <thead>
 <tr>
-<th>Metoda</th>
-<th>URI</th>
-<th>Název</th>
-<th>Middleware</th>
-<th>Akce</th>
+<th>Oblast</th>
+<th>Pole</th>
+<th>Návrh sloupce</th>
+<th>Poznámka</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GET</td>
-<td>/</td>
-<td>root</td>
-<td>web</td>
-<td>RoutingController@index</td>
+<td>Hlavička</td>
+<td>Čas vytvoření</td>
+<td><code>created_at</code></td>
+<td>Přesné sekundové razítko.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>apps/user-contacts</td>
-<td>apps.users.index</td>
-<td>web,auth</td>
-<td>UserManagementController@index</td>
+<td>Hlavička</td>
+<td>E-mail</td>
+<td><code>customer_email</code></td>
+<td>Unikátnost nevyžadujeme.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>apps/user-profile</td>
-<td>apps.me.show</td>
-<td>web,auth</td>
-<td>ProfileController@show</td>
+<td>Hlavička</td>
+<td>Telefon</td>
+<td><code>customer_phone</code></td>
+<td>Normalizace +420? ponechat raw.</td>
 </tr>
 <tr>
-<td>POST</td>
-<td>apps/user-profile</td>
-<td>apps.me.update</td>
-<td>web,auth</td>
-<td>ProfileController@update</td>
+<td>Hlavička</td>
+<td>Celková hmotnost</td>
+<td><code>weight_kg</code> (DECIMAL(8,3))</td>
+<td>Může být NULL.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>apps/user-profile/{user}</td>
-<td>apps.users.edit</td>
-<td>web,auth</td>
-<td>UserManagementController@edit</td>
+<td>Doplňující</td>
+<td>Měna</td>
+<td><code>currency</code></td>
+<td>Např. <code>CZK</code>, <code>EUR</code>.</td>
 </tr>
 <tr>
-<td>POST</td>
-<td>apps/user-profile/{user}</td>
-<td>apps.users.update</td>
-<td>web,auth</td>
-<td>UserManagementController@update</td>
+<td>Doplňující</td>
+<td>IP adresa</td>
+<td><code>customer_ip</code></td>
+<td>IPv4/6 TEXT(45).</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm</td>
-<td>crm.dashboard</td>
-<td>web,auth</td>
-<td>Closure</td>
+<td>Doplňující</td>
+<td>Registrovaný</td>
+<td><code>is_registered_customer</code></td>
+<td>bool.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm/chat</td>
-<td>crm.chat</td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@page</td>
+<td>Fakturační</td>
+<td>IČO</td>
+<td><code>company_vat_id_local</code></td>
+<td>(IČO)</td>
 </tr>
 <tr>
-<td>POST</td>
-<td>crm/chat/messages</td>
+<td>Fakturační</td>
+<td>DIČ</td>
+<td><code>company_vat_id</code></td>
+<td>(DIČ) velikost 32.</td>
+</tr>
+<tr>
+<td>Fakturační</td>
+<td>Jméno</td>
+<td><code>billing_name</code></td>
 <td></td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@postMessage</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm/chat/sessions</td>
+<td>Fakturační</td>
+<td>Ulice / Město / PSČ / Země</td>
+<td><code>billing_street</code>, <code>billing_city</code>, <code>billing_postcode</code>, <code>billing_country</code></td>
 <td></td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@sessions</td>
 </tr>
 <tr>
-<td>POST</td>
-<td>crm/chat/sessions</td>
-<td></td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@createSession</td>
+<td>Dodací</td>
+<td>Název / adresa</td>
+<td><code>shipping_name</code>, <code>shipping_street</code>, ...</td>
+<td>Může se shodovat s fakturační.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm/chat/sessions/{id}/messages</td>
-<td></td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@history</td>
+<td>Ceny souhrn</td>
+<td>Cena bez DPH</td>
+<td><code>subtotal_ex_vat_cents</code></td>
+<td>Odvozeno z položek, fallback z UI.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm/chat/stream</td>
-<td></td>
-<td>web,auth,throttle:30,1</td>
-<td>ChatController@stream</td>
+<td>Ceny souhrn</td>
+<td>Cena s DPH</td>
+<td><code>total_vat_cents</code></td>
+<td>Hlavní částka.</td>
 </tr>
 <tr>
-<td>GET</td>
-<td>crm/companies</td>
-<td>companies.index</td>
-<td>web,auth</td>
-<td>CompanyController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/companies</td>
-<td>companies.store</td>
-<td>web,auth</td>
-<td>CompanyController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/companies/create</td>
-<td>companies.create</td>
-<td>web,auth</td>
-<td>CompanyController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/companies/{company}</td>
-<td>companies.destroy</td>
-<td>web,auth</td>
-<td>CompanyController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/companies/{company}</td>
-<td>companies.show</td>
-<td>web,auth</td>
-<td>CompanyController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/companies/{company}</td>
-<td>companies.update</td>
-<td>web,auth</td>
-<td>CompanyController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/companies/{company}/edit</td>
-<td>companies.edit</td>
-<td>web,auth</td>
-<td>CompanyController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/contacts</td>
-<td>contacts.index</td>
-<td>web,auth</td>
-<td>ContactController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/contacts</td>
-<td>contacts.store</td>
-<td>web,auth</td>
-<td>ContactController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/contacts/create</td>
-<td>contacts.create</td>
-<td>web,auth</td>
-<td>ContactController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/contacts/{contact}</td>
-<td>contacts.destroy</td>
-<td>web,auth</td>
-<td>ContactController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/contacts/{contact}</td>
-<td>contacts.show</td>
-<td>web,auth</td>
-<td>ContactController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/contacts/{contact}</td>
-<td>contacts.update</td>
-<td>web,auth</td>
-<td>ContactController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/contacts/{contact}/edit</td>
-<td>contacts.edit</td>
-<td>web,auth</td>
-<td>ContactController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/deals</td>
-<td>deals.index</td>
-<td>web,auth</td>
-<td>DealController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/deals</td>
-<td>deals.store</td>
-<td>web,auth</td>
-<td>DealController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/deals/create</td>
-<td>deals.create</td>
-<td>web,auth</td>
-<td>DealController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/deals/{deal}</td>
-<td>deals.destroy</td>
-<td>web,auth</td>
-<td>DealController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/deals/{deal}</td>
-<td>deals.show</td>
-<td>web,auth</td>
-<td>DealController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/deals/{deal}</td>
-<td>deals.update</td>
-<td>web,auth</td>
-<td>DealController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/deals/{deal}/edit</td>
-<td>deals.edit</td>
-<td>web,auth</td>
-<td>DealController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge</td>
-<td>knowledge.index</td>
-<td>web,auth</td>
-<td>KnowledgeController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/knowledge</td>
-<td>knowledge.store</td>
-<td>web,auth</td>
-<td>KnowledgeController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge-docs</td>
-<td>knowledge.docs.index</td>
-<td>web,auth</td>
-<td>KnowledgeDocumentsController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/knowledge-docs</td>
-<td>knowledge.docs.store</td>
-<td>web,auth</td>
-<td>KnowledgeDocumentsController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge-docs/create</td>
-<td>knowledge.docs.create</td>
-<td>web,auth</td>
-<td>KnowledgeDocumentsController@create</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/knowledge-docs/{id}/purge</td>
-<td>knowledge.docs.purge</td>
-<td>web,auth</td>
-<td>KnowledgeDocumentsController@purge</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/knowledge-docs/{id}/reindex</td>
-<td>knowledge.docs.reindex</td>
-<td>web,auth</td>
-<td>KnowledgeDocumentsController@reindex</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge/create</td>
-<td>knowledge.create</td>
-<td>web,auth</td>
-<td>KnowledgeController@create</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge/search/ajax</td>
-<td>knowledge.search</td>
-<td>web,auth</td>
-<td>KnowledgeController@search</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/knowledge/{knowledge}</td>
-<td>knowledge.destroy</td>
-<td>web,auth</td>
-<td>KnowledgeController@destroy</td>
-</tr>
-<tr>
-<td>PUT</td>
-<td>crm/knowledge/{knowledge}</td>
-<td>knowledge.update</td>
-<td>web,auth</td>
-<td>KnowledgeController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/knowledge/{knowledge}/edit</td>
-<td>knowledge.edit</td>
-<td>web,auth</td>
-<td>KnowledgeController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/leads</td>
-<td>leads.index</td>
-<td>web,auth</td>
-<td>LeadController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/leads</td>
-<td>leads.store</td>
-<td>web,auth</td>
-<td>LeadController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/leads-kanban</td>
-<td>leads.kanban</td>
-<td>web,auth</td>
-<td>LeadController@kanban</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/leads/create</td>
-<td>leads.create</td>
-<td>web,auth</td>
-<td>LeadController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/leads/{lead}</td>
-<td>leads.destroy</td>
-<td>web,auth</td>
-<td>LeadController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/leads/{lead}</td>
-<td>leads.show</td>
-<td>web,auth</td>
-<td>LeadController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/leads/{lead}</td>
-<td>leads.update</td>
-<td>web,auth</td>
-<td>LeadController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/leads/{lead}/edit</td>
-<td>leads.edit</td>
-<td>web,auth</td>
-<td>LeadController@edit</td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td>crm/leads/{lead}/status</td>
-<td>leads.update-status</td>
-<td>web,auth</td>
-<td>LeadController@updateStatus</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/leads/{lead}/status</td>
-<td></td>
-<td>web,auth</td>
-<td>LeadController@updateStatus</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing</td>
-<td>marketing.dashboard</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/analytika/ab-testovani</td>
-<td>marketing.analytics.ab</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/analytika/ai-sentiment</td>
-<td>marketing.analytics.sentiment</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/analytika/atribuce</td>
-<td>marketing.analytics.attribution</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/analytika/cross-channel</td>
-<td>marketing.analytics.cross</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/analytika/seo</td>
-<td>marketing.analytics.seo</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/cileni/databaze-kontaktu</td>
-<td>marketing.target.contacts</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/cileni/lead-nurturing</td>
-<td>marketing.target.nurturing</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/cileni/segmentace</td>
-<td>marketing.target.segments</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/automatizace</td>
-<td>marketing.exec.automation</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/email-marketing</td>
-<td>marketing.exec.email</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/influenceri-partneri</td>
-<td>marketing.exec.influencers</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/kampane</td>
-<td>marketing.exec.campaigns</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/knihovna-obsahu</td>
-<td>marketing.exec.content</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/landing-pages</td>
-<td>marketing.exec.landing</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/exekuce/reklamy</td>
-<td>marketing.exec.ads</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/nastaveni/ai-sablony</td>
-<td>marketing.settings.ai</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/nastaveni/importy</td>
-<td>settings.imports</td>
-<td>web,auth</td>
-<td>ImportsController@index</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/nastaveni/integrace-api</td>
-<td>marketing.settings.integrations</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/nastaveni/lead-scoring</td>
-<td>marketing.settings.scoring</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/nastaveni/role-prava</td>
-<td>marketing.settings.roles</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/strategie/budget</td>
-<td>marketing.strategy.budget</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/strategie/kalendar</td>
-<td>marketing.strategy.calendar</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/strategie/persony</td>
-<td>marketing.strategy.personas</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/strategie/swot</td>
-<td>marketing.strategy.swot</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/marketing/strategie/trendy-ai</td>
-<td>marketing.strategy.trends</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/opportunities</td>
-<td>opportunities.index</td>
-<td>web,auth</td>
-<td>OpportunityController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/opportunities</td>
-<td>opportunities.store</td>
-<td>web,auth</td>
-<td>OpportunityController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/opportunities-pipeline</td>
-<td>opportunities.pipeline</td>
-<td>web,auth</td>
-<td>OpportunityController@pipeline</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/opportunities/create</td>
-<td>opportunities.create</td>
-<td>web,auth</td>
-<td>OpportunityController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/opportunities/{opportunity}</td>
-<td>opportunities.destroy</td>
-<td>web,auth</td>
-<td>OpportunityController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/opportunities/{opportunity}</td>
-<td>opportunities.show</td>
-<td>web,auth</td>
-<td>OpportunityController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/opportunities/{opportunity}</td>
-<td>opportunities.update</td>
-<td>web,auth</td>
-<td>OpportunityController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/opportunities/{opportunity}/edit</td>
-<td>opportunities.edit</td>
-<td>web,auth</td>
-<td>OpportunityController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/ops</td>
-<td>ops.dashboard</td>
-<td>web,auth,can:ops.view</td>
-<td>DashboardController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/ops/actions/{action}</td>
-<td>ops.action</td>
-<td>web,auth,can:ops.execute,throttle:ops-actions</td>
-<td>ActionController@run</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/ops/history</td>
-<td>ops.history.index</td>
-<td>web,auth,can:ops.view</td>
-<td>HistoryController@index</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/ops/metrics</td>
-<td>ops.metrics</td>
-<td>web,auth,can:ops.view</td>
-<td>MetricsController</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/orders</td>
-<td>orders.index</td>
-<td>web,auth,can:orders.view</td>
-<td>OrderController@index</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/orders/{order}</td>
-<td>orders.show</td>
-<td>web,auth,can:orders.view</td>
-<td>OrderController@show</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/orders/{order}/items</td>
-<td></td>
-<td>web,auth</td>
-<td>OrderItemsController@show</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/products</td>
-<td>products.index</td>
-<td>web,auth,can:products.view</td>
-<td>ProductController@index</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/products/{product}</td>
-<td>products.show</td>
-<td>web,auth,can:products.view</td>
-<td>ProductController@show</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/projects</td>
-<td>projects.index</td>
-<td>web,auth</td>
-<td>ProjectController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/projects</td>
-<td>projects.store</td>
-<td>web,auth</td>
-<td>ProjectController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/projects/create</td>
-<td>projects.create</td>
-<td>web,auth</td>
-<td>ProjectController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/projects/{project}</td>
-<td>projects.destroy</td>
-<td>web,auth</td>
-<td>ProjectController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/projects/{project}</td>
-<td>projects.show</td>
-<td>web,auth</td>
-<td>ProjectController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/projects/{project}</td>
-<td>projects.update</td>
-<td>web,auth</td>
-<td>ProjectController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/projects/{project}/edit</td>
-<td>projects.edit</td>
-<td>web,auth</td>
-<td>ProjectController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/search/customers</td>
-<td>search.customers</td>
-<td>web,auth</td>
-<td>SearchController@customers</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/search/taskables</td>
-<td>search.taskables</td>
-<td>web,auth</td>
-<td>SearchController@taskables</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/activecampaign</td>
-<td>system.ac.index</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/import</td>
-<td>system.ac.import</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@importBatch</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/import-10</td>
-<td>system.ac.import10</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@importTen</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/import-all</td>
-<td>system.ac.importAll</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@importAll</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/reset-offset</td>
-<td>system.ac.resetOffset</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@resetOffset</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/run-batch</td>
-<td>system.ac.runBatch</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@runBatch</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/activecampaign/runs</td>
-<td>system.ac.runs</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@runs</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/test</td>
-<td>system.ac.test</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@test</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/activecampaign/toggle</td>
-<td>system.ac.toggle</td>
-<td>web,auth</td>
-<td>ActiveCampaignController@toggleAuto</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/agentv2/enable</td>
-<td>system.agentv2.enable</td>
-<td>web,auth</td>
-<td>AgentV2SetupController@enable</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/apps</td>
-<td>system.apps.index</td>
-<td>web,auth</td>
-<td>AppsController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/apps</td>
-<td>system.apps.store</td>
-<td>web,auth</td>
-<td>AppsController@store</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/apps/{appLink}</td>
-<td>system.apps.update</td>
-<td>web,auth</td>
-<td>AppsController@update</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/apps/{appLink}/delete</td>
-<td>system.apps.destroy</td>
-<td>web,auth</td>
-<td>AppsController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/backup</td>
-<td>system.backup.index</td>
-<td>web,auth</td>
-<td>BackupController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/backup/clean</td>
-<td>system.backup.clean</td>
-<td>web,auth</td>
-<td>BackupController@clean</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/backup/download/{path}</td>
-<td>system.backup.download</td>
-<td>web,auth</td>
-<td>BackupController@download</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/backup/run</td>
-<td>system.backup.run</td>
-<td>web,auth</td>
-<td>BackupController@run</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/chat</td>
-<td>system.chat.index</td>
-<td>web,auth</td>
-<td>ChatSettingsController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/chat</td>
-<td>system.chat.save</td>
-<td>web,auth</td>
-<td>ChatSettingsController@save</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/chat/backfill</td>
-<td>system.chat.backfill</td>
-<td>web,auth</td>
-<td>ChatSettingsController@backfillNormalized</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/chat/diagnostics</td>
-<td>system.chat.diagnostics</td>
-<td>web,auth</td>
-<td>ChatSettingsController@diagnostics</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/chat/lookup</td>
-<td>system.chat.lookup</td>
-<td>web,auth</td>
-<td>ChatSettingsController@lookup</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/chat/test</td>
-<td>system.chat.test</td>
-<td>web,auth</td>
-<td>ChatSettingsController@test</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/migrate</td>
-<td>system.migrate</td>
-<td>web,auth</td>
-<td>MaintenanceController@migrate</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/qdrant</td>
-<td>system.qdrant.index</td>
-<td>web,auth</td>
-<td>QdrantController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/qdrant/purge-reindex</td>
-<td>system.qdrant.purgeReindex</td>
-<td>web,auth</td>
-<td>QdrantMaintenanceController@purgeReindex</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/qdrant/recreate</td>
-<td>system.qdrant.recreate</td>
-<td>web,auth</td>
-<td>QdrantMaintenanceController@recreate</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/qdrant/save</td>
-<td>system.qdrant.save</td>
-<td>web,auth</td>
-<td>QdrantController@save</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/qdrant/test</td>
-<td>system.qdrant.test</td>
-<td>web,auth</td>
-<td>QdrantController@test</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/qdrant/verify</td>
-<td>system.qdrant.verify</td>
-<td>web,auth</td>
-<td>QdrantController@verify</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/system/tools</td>
-<td>system.tools.index</td>
-<td>web,auth</td>
-<td>ToolsController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/tools/playwright/save</td>
-<td>system.tools.playwright.save</td>
-<td>web,auth</td>
-<td>ToolsController@savePlaywright</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/tools/playwright/test</td>
-<td>system.tools.playwright.test</td>
-<td>web,auth</td>
-<td>ToolsController@testPlaywright</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/system/tools/playwright/toggle</td>
-<td>system.tools.playwright.toggle</td>
-<td>web,auth</td>
-<td>ToolsController@togglePlaywright</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/tasks</td>
-<td>tasks.index</td>
-<td>web,auth</td>
-<td>TaskController@index</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>crm/tasks</td>
-<td>tasks.store</td>
-<td>web,auth</td>
-<td>TaskController@store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/tasks/create</td>
-<td>tasks.create</td>
-<td>web,auth</td>
-<td>TaskController@create</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>crm/tasks/{task}</td>
-<td>tasks.destroy</td>
-<td>web,auth</td>
-<td>TaskController@destroy</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/tasks/{task}</td>
-<td>tasks.show</td>
-<td>web,auth</td>
-<td>TaskController@show</td>
-</tr>
-<tr>
-<td>PUT,PATCH</td>
-<td>crm/tasks/{task}</td>
-<td>tasks.update</td>
-<td>web,auth</td>
-<td>TaskController@update</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>crm/tasks/{task}/edit</td>
-<td>tasks.edit</td>
-<td>web,auth</td>
-<td>TaskController@edit</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>index</td>
-<td>index</td>
-<td>web,auth</td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>login</td>
-<td>login</td>
-<td>web,nocache</td>
-<td>AuthController@showLogin</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>login</td>
-<td>login.attempt</td>
-<td>web,rotate.session</td>
-<td>AuthController@login</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>logout</td>
-<td>logout</td>
-<td>web</td>
-<td>AuthController@logout</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>storage/{path}</td>
-<td>storage.local</td>
-<td></td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>up</td>
-<td></td>
-<td></td>
-<td>Closure</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>{any}</td>
-<td>any</td>
-<td>web</td>
-<td>RoutingController@root</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>{first}/{second}</td>
-<td>second</td>
-<td>web</td>
-<td>RoutingController@secondLevel</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>{first}/{second}/{third}</td>
-<td>third</td>
-<td>web</td>
-<td>RoutingController@thirdLevel</td>
+<td>Položky</td>
+<td>Produkt / varianta</td>
+<td><code>order_items</code> (separátní tabulka)</td>
+<td>Každý řádek + řádky dopravy/platby.</td>
 </tr>
 </tbody>
 </table>
+<h3 id="polozky-aktualni-persist">Položky (aktuální persist)<a class="headerlink" href="#polozky-aktualni-persist" title="Permanent link">&para;</a></h3>
+<p>Záložka <code>/tab-ite</code>: interní ID řádku, produkt/varianta kódy, název, množství, jednotka, cena/ks s DPH, DPH %, sleva %, celkem ex/s DPH. Persistujeme subset nutný pro výpočet a zobrazení.</p>
+<table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Sloupec</th>
+<th>Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vazba</td>
+<td><code>order_id</code></td>
+<td>BIGINT FK</td>
+</tr>
+<tr>
+<td>Interní ID řádku</td>
+<td><code>external_item_id</code></td>
+<td>BIGINT / VARCHAR(16)</td>
+</tr>
+<tr>
+<td>Název</td>
+<td><code>name</code></td>
+<td>VARCHAR(255)</td>
+</tr>
+<tr>
+<td>Product code</td>
+<td><code>product_code</code></td>
+<td>VARCHAR(64) NULL</td>
+</tr>
+<tr>
+<td>Variant code</td>
+<td><code>variant_code</code></td>
+<td>VARCHAR(64) NULL</td>
+</tr>
+<tr>
+<td>Specifikace</td>
+<td><code>specification</code></td>
+<td>VARCHAR(255) NULL</td>
+</tr>
+<tr>
+<td>Množství</td>
+<td><code>quantity</code></td>
+<td>INT UNSIGNED</td>
+</tr>
+<tr>
+<td>Jednotka</td>
+<td><code>unit</code></td>
+<td>VARCHAR(16) NULL</td>
+</tr>
+<tr>
+<td>Cena za kus s DPH</td>
+<td><code>unit_price_vat_cents</code></td>
+<td>INT UNSIGNED</td>
+</tr>
+<tr>
+<td>DPH %</td>
+<td><code>vat_rate_percent</code></td>
+<td>TINYINT UNSIGNED</td>
+</tr>
+<tr>
+<td>Sleva %</td>
+<td><code>discount_percent</code></td>
+<td>TINYINT UNSIGNED NULL</td>
+</tr>
+<tr>
+<td>Celkem bez DPH</td>
+<td><code>total_ex_vat_cents</code></td>
+<td>INT UNSIGNED</td>
+</tr>
+<tr>
+<td>Celkem s DPH</td>
+<td><code>total_vat_cents</code></td>
+<td>INT UNSIGNED</td>
+</tr>
+<tr>
+<td>Typ řádku</td>
+<td><code>line_type</code></td>
+<td>ENUM(product, shipping, payment, other)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datovy-model-realizovany-subset">Datový model (realizovaný subset)<a class="headerlink" href="#datovy-model-realizovany-subset" title="Permanent link">&para;</a></h2>
+<h3 id="tabulka-orders-aktivni-pole">Tabulka <code>orders</code> (aktivní pole)<a class="headerlink" href="#tabulka-orders-aktivni-pole" title="Permanent link">&para;</a></h3>
+<p><code>order_number</code>, <code>external_edit_id</code>, <code>order_created_at</code>, <code>total_vat_cents</code>, <code>currency</code>, <code>is_completed</code>, <code>source_raw_hash</code>, <code>last_state_code</code> (+ timestamps). Adresy, fakturace, IP, váha – odloženo.</p>
+<h3 id="tabulka-order_items">Tabulka <code>order_items</code><a class="headerlink" href="#tabulka-order_items" title="Permanent link">&para;</a></h3>
+<p>Viz návrh výše + index <code>(order_id)</code> a <code>(product_code)</code>, <code>(variant_code)</code> pro rychlé mapování později.</p>
+<h3 id="tabulka-order_state_changes">Tabulka <code>order_state_changes</code><a class="headerlink" href="#tabulka-order_state_changes" title="Permanent link">&para;</a></h3>
+<p>Sekvenční append; <code>changed_at</code> zatím jednotný timestamp (čas detekce). Přesnější granularita pending.</p>
+<h2 id="strategie-synchronizace">Strategie synchronizace<a class="headerlink" href="#strategie-synchronizace" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Full import (<code>orders:import-full</code>) – inicializační historie.</li>
+<li>Incremental (<code>orders:sync-incremental</code>) – každých 5 min stránka 1.</li>
+<li>Reconcile (<code>orders:reconcile-recent</code>) – denní dorovnání prvních 5 stránek.</li>
+<li>Backfill (<code>orders:backfill-items</code>) – doplnění starších bez produktové položky.</li>
+</ol>
+<h2 id="detekce-zmen">Detekce změn<a class="headerlink" href="#detekce-zmen" title="Permanent link">&para;</a></h2>
+<p>Hash = SHA1(hlavička + HTML blok stavů + záložka položek). Změna → diff položek (md5 name|line_type|unit_price|qty|total) + append stavů; přepočtená meta integrita logována.</p>
+<h2 id="mapovani-stavu">Mapování stavů<a class="headerlink" href="#mapovani-stavu" title="Permanent link">&para;</a></h2>
+<p>Pozorované kódy: <code>S P V O C Č Z</code> + <code>V</code> (Vyřízeno). <code>config/order_states.php</code> uchovává raw; labely a kategorizace (logistika, platba) TBD.
+| Kód | Label příklad | Typ | Finální? |
+|-----|---------------|-----|----------|
+| S | Stornováno / nebo Stav „Přijato“? (ověřit přes detail) | status | ne |
+| P | Přijato | status | ne |
+| V | Vyskladněno | logistika | ne |
+| O | Odesláno | logistika | ne |
+| C | Čeká se na platbu | platba | ne |
+| Č | Částečně? / (nutné ověření) | status | ne |
+| Z | Zaplaceno | platba | ne |
+| (Vyřízeno) | Vyřízeno | final | ano |</p>
+<p>Do potvrzení mapujeme konzervativně – ukládáme raw sekvenci, UI může později zobrazit „neznámý kód“.</p>
+<h2 id="technologie-scrapingu">Technologie scrapingu<a class="headerlink" href="#technologie-scrapingu" title="Permanent link">&para;</a></h2>
+<p>HTTP klient + DOM parser (Symfony HttpClient + DomCrawler). Záložka položek se načítá extra requestem na <code>/tab-ite</code>. Headless fallback plánován (flag <code>ORDERS_SCRAPE_HEADLESS</code>).</p>
+<p>Kroky loginu:
+1. GET <code>/admin/</code> → získání přihlašovacího formuláře (hidden token / cookie start).
+2. POST credentials (username, password, CSRF hidden input) → uložení cookies do persistent store (filesystem <code>storage/app/sessions/orders-sync.json</code>).
+3. Reuse cookies pro další GET.
+4. Na 401 / redirect na login → re-login (max 3x).</p>
+<p>Knihovny: <code>symfony/http-client</code> + <code>symfony/dom-crawler</code> + <code>masterminds/html5</code> (robust parsing) nebo nativní <code>DOMDocument</code> s fallback.</p>
+<p>Fallback režim: pokud se změní markup zásadně → přepneme na plnohodnotný headless (spustitelné přes externí service) – definovat feature flag <code>ORDERS_SCRAPE_HEADLESS=1</code>.</p>
+<h2 id="rate-limiting-setrnost">Rate limiting &amp; šetrnost<a class="headerlink" href="#rate-limiting-setrnost" title="Permanent link">&para;</a></h2>
+<p>Incremental: 1 listing + (detaily jen nových / změněných). Jitter 200–500 ms. Full import manuálně / plán volitelně weekly.</p>
+<h2 id="chybove-scenare-retry">Chybové scénáře &amp; retry<a class="headerlink" href="#chybove-scenare-retry" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Scénář</th>
+<th>Reakce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Timeout / 5xx</td>
+<td>Exponenciální backoff (1s, 3s, 9s) max 3 pokusy stránka → log error + pokračuj další stránkou.</td>
+</tr>
+<tr>
+<td>HTML struktura neodpovídá</td>
+<td>Raise structured <code>ParseStructureException</code> → stop job, OpsActivity critical.</td>
+</tr>
+<tr>
+<td>Duplicita order_number (teoreticky)</td>
+<td>Log warn, ignorovat duplikát.</td>
+</tr>
+<tr>
+<td>Měna neparsovatelná</td>
+<td>Fallback currency=UI default (CZK) + log.</td>
+</tr>
+<tr>
+<td>Číslo obsahuje suffix <code>(1.Mája)</code></td>
+<td>Uložit raw do <code>order_number_raw</code>, extrahovat base numerickou sekvenci do <code>order_number_seq</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bezpecnost">Bezpečnost<a class="headerlink" href="#bezpecnost" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Credentials pouze v <code>.env</code> (<code>ORDERS_SYNC_USER</code>, <code>ORDERS_SYNC_PASSWORD</code>).</li>
+<li>Žádný plaintext v logu (maskovat heslo, session id).</li>
+<li>User-agent vlastní identifikátor <code>CRM OrdersSyncBot/1.0 (+contact)</code>.</li>
+<li>Ochrana proti SSRF – povolit pouze host <code>www.esl.cz</code> / <code>esl.cz</code>.</li>
+</ul>
+<h2 id="observabilita">Observabilita<a class="headerlink" href="#observabilita" title="Permanent link">&para;</a></h2>
+<p>OpsActivity: <code>orders.full_import</code>, <code>orders.incremental_sync</code>, <code>orders.reconcile_recent</code>. Metriky integrit <code>integrity_mismatches</code>. Budoucí: Prometheus export.</p>
+<h2 id="postupna-adopce">Postupná adopce<a class="headerlink" href="#postupna-adopce" title="Permanent link">&para;</a></h2>
+<p>Fáze 1 – minimální schema + full import.
+Fáze 2 – incremental + detail fetch + state changes.
+Fáze 3 – optimalizace, metriky, UI listing v CRM.
+Fáze 4 – reporting &amp; notifikace (nové velké objednávky, zpožděné platby).</p>
+<h2 id="edge-cases">Edge Cases<a class="headerlink" href="#edge-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Multi-měna (EUR) – per-order currency (zatím jednotné CZK v datech).</li>
+<li>Řádky dopravy / platby – zahrnuty do počet položek a total.</li>
+<li>Odstranění objednávky – neznačíme smazání (historická zachovanost).</li>
+<li>Potenciální suffix v čísle – zatím nepozorován.</li>
+</ul>
+<h2 id="budouci-rozsireni">Budoucí rozšíření<a class="headerlink" href="#budouci-rozsireni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Napojení na fakturační systém (match invoice numbers / PDF archiv).</li>
+<li>SLA metriky (čas od objednávky do vyskladnění / zaplacení / vyřízení).</li>
+<li>Notifikační kanál (Slack / e-mail) pro objednávky nad prahovou hodnotu.</li>
+</ul>
+<hr />
+<h2 id="stav-funkcionalit">Stav funkcionalit<a class="headerlink" href="#stav-funkcionalit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Oblast</th>
+<th>Stav</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full import</td>
+<td>HOTOVO</td>
+</tr>
+<tr>
+<td>Incremental sync</td>
+<td>HOTOVO</td>
+</tr>
+<tr>
+<td>Reconcile scan</td>
+<td>HOTOVO</td>
+</tr>
+<tr>
+<td>Diff položek (hash)</td>
+<td>HOTOVO</td>
+</tr>
+<tr>
+<td>Timeline stavů</td>
+<td>ZÁKLAD (bez přesných časů z detailu)</td>
+</tr>
+<tr>
+<td>Denormalizace last_state_code</td>
+<td>HOTOVO</td>
+</tr>
+<tr>
+<td>UI listing + detail</td>
+<td>HOTOVO (subset polí)</td>
+</tr>
+<tr>
+<td>Integrity kontrola (sum items vs total)</td>
+<td>LOGOVÁNO (OpsActivity)</td>
+</tr>
+<tr>
+<td>Rozšířené adresy / fakturační data</td>
+<td>ODLOŽENO</td>
+</tr>
+<tr>
+<td>Mapování stavů (labely)</td>
+<td>ČÁSTEČNĚ (raw)</td>
+</tr>
+<tr>
+<td>Observabilita (retry counts)</td>
+<td>ZÁKLAD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="poznamky">Poznámky<a class="headerlink" href="#poznamky" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Rozšíření adres lze přidat non-breaking migrací.</li>
+<li>Přesnější timestamps stavů: potřebné reverse engineering detailu (pending).</li>
+<li>Budoucí odstranění fallback heuristiky položek po delším provozu.</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 

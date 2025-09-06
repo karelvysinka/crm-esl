@@ -1358,6 +1358,10 @@
   CONTACT ||--o{ CONTACTIDENTITY : has_many
   CONTACT ||--o{ TASK : morph_many
   PRODUCTGROUP ||--o{ PRODUCTGROUP : has_many
+  ORDERITEM }o--|| ORDER : belongs_to
+  ORDERSTATECHANGE }o--|| ORDER : belongs_to
+  ORDER ||--o{ ORDERITEM : has_many
+  ORDER ||--o{ ORDERSTATECHANGE : has_many
   CONTACTCUSTOMFIELD }o--|| CONTACT : belongs_to
   PRODUCTPRICECHANGE }o--|| PRODUCT : belongs_to
   PROJECT }o--|| COMPANY : belongs_to
@@ -1531,6 +1535,31 @@
     string eshop_url
     string parent_id
   }
+  ORDERITEM {
+    string order_id
+    string external_item_id
+    string name
+    string product_code
+    string variant_code
+    string specification
+    integer quantity
+    string unit
+    integer unit_price_vat_cents
+    integer vat_rate_percent
+    integer discount_percent
+    integer total_ex_vat_cents
+    integer total_vat_cents
+    string line_type
+    string currency
+  }
+  ORDERSTATECHANGE {
+    string order_id
+    string old_code
+    string new_code
+    datetime changed_at
+    datetime detected_at
+    string source_snapshot_hash
+  }
   APPLINK {
     string name
     string url
@@ -1543,6 +1572,17 @@
     string email
     string password
     string is_admin
+  }
+  ORDER {
+    string order_number
+    datetime order_created_at
+    string total_vat_cents
+    string currency
+    datetime fetched_at
+    string source_raw_hash
+    boolean is_completed
+    string last_state_code
+    string external_edit_id
   }
   CONTACTCUSTOMFIELD {
     string contact_id

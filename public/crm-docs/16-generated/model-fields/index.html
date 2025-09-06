@@ -624,6 +624,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#orderitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrderItem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderstatechange" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrderStateChange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applink" class="md-nav__link">
     <span class="md-ellipsis">
       AppLink
@@ -636,6 +654,15 @@
   <a href="#user" class="md-nav__link">
     <span class="md-ellipsis">
       User
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order
     </span>
   </a>
   
@@ -1674,6 +1701,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#orderitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrderItem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderstatechange" class="md-nav__link">
+    <span class="md-ellipsis">
+      OrderStateChange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applink" class="md-nav__link">
     <span class="md-ellipsis">
       AppLink
@@ -1686,6 +1731,15 @@
   <a href="#user" class="md-nav__link">
     <span class="md-ellipsis">
       User
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Order
     </span>
   </a>
   
@@ -2481,6 +2535,112 @@
 </tr>
 </tbody>
 </table>
+<h2 id="orderitem">OrderItem<a class="headerlink" href="#orderitem" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Typ (cast)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_id</td>
+<td></td>
+</tr>
+<tr>
+<td>external_item_id</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td></td>
+</tr>
+<tr>
+<td>product_code</td>
+<td></td>
+</tr>
+<tr>
+<td>variant_code</td>
+<td></td>
+</tr>
+<tr>
+<td>specification</td>
+<td></td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>unit</td>
+<td></td>
+</tr>
+<tr>
+<td>unit_price_vat_cents</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>vat_rate_percent</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>discount_percent</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>total_ex_vat_cents</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>total_vat_cents</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>line_type</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="orderstatechange">OrderStateChange<a class="headerlink" href="#orderstatechange" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Typ (cast)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_id</td>
+<td></td>
+</tr>
+<tr>
+<td>old_code</td>
+<td></td>
+</tr>
+<tr>
+<td>new_code</td>
+<td></td>
+</tr>
+<tr>
+<td>changed_at</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>detected_at</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>source_snapshot_hash</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="applink">AppLink<a class="headerlink" href="#applink" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -2535,6 +2695,53 @@
 </tr>
 <tr>
 <td>is_admin</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="order">Order<a class="headerlink" href="#order" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pole</th>
+<th>Typ (cast)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_number</td>
+<td></td>
+</tr>
+<tr>
+<td>order_created_at</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>total_vat_cents</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td></td>
+</tr>
+<tr>
+<td>fetched_at</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>source_raw_hash</td>
+<td></td>
+</tr>
+<tr>
+<td>is_completed</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>last_state_code</td>
+<td></td>
+</tr>
+<tr>
+<td>external_edit_id</td>
 <td></td>
 </tr>
 </tbody>
