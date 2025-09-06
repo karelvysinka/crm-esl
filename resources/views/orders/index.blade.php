@@ -66,6 +66,20 @@
     <h5 class="header-title mb-0">Seznam objednávek</h5>
     <div class="small text-muted">Zobrazeno {{ $orders->firstItem() }}–{{ $orders->lastItem() }}</div>
   </div>
+  @if(isset($runningImports) && $runningImports->count())
+    <div class="alert alert-info border-0 rounded-0 mb-0 py-2 px-3 d-flex flex-wrap gap-3 align-items-center">
+      <div class="fw-semibold"><i class="ti ti-activity me-1"></i>Probíhající importy:</div>
+      @foreach($runningImports as $ri)
+        <div class="badge bg-warning-subtle text-dark border border-warning d-flex align-items-center gap-1">
+          <span>#{{ $ri->id }}</span>
+          <span class="text-uppercase small">{{ Str::replace('orders.full_import','FULL',$ri->type) }}</span>
+          <span class="small">status: {{ $ri->status }}</span>
+          @if(!empty($ri->meta['pages']))<span class="small">pages={{ $ri->meta['pages'] }}</span>@endif
+        </div>
+      @endforeach
+      <a href="{{ route('ops.history.index') }}" class="ms-auto small">Historie &rsaquo;</a>
+    </div>
+  @endif
   <div class="card-body p-0">
     <div class="table-responsive">
       <table class="table table-sm table-hover align-middle mb-0">

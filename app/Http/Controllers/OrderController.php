@@ -50,7 +50,13 @@ class OrderController extends Controller
         $filters = [
             'q'=>$q,'state'=>$state,'completed'=>$completed,'from'=>$dateFrom,'to'=>$dateTo
         ];
-        return view('orders.index', compact('orders','filters'));
+        $runningImports = \App\Models\OpsActivity::query()
+            ->whereIn('type',[ 'orders.full_import','orders.full_import.web','orders.full_import.manual' ])
+            ->whereIn('status',['queued','running'])
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
+        return view('orders.index', compact('orders','filters','runningImports'));
     }
 
     public function triggerImport(Request $request)
