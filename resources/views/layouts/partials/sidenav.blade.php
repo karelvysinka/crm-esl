@@ -219,6 +219,16 @@
                 </a>
             </li>
 
+            @can('products.view')
+            <!-- Products Catalog -->
+            <li class="side-nav-item">
+                <a href="{{ route('products.index') }}" class="side-nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
+                    <span class="menu-icon"><i class="ti ti-package"></i></span>
+                    <span class="menu-text"> Produkty </span>
+                </a>
+            </li>
+            @endcan
+
             <!-- Marketing -->
             <li class="side-nav-title mt-2">Marketing</li>
 

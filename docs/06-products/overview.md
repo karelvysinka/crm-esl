@@ -118,9 +118,8 @@ Přístupnost / uživatelská přívětivost:
 Reference: viz `Adminto Šablona` dokument pro konvence komponent a utility třídy.
 
 ## Monitoring / Observabilita
-- Po dokončení full importu → zápis do `ops_events` (typ: products.full_import) se statistikami.
-- Po delta běhu (availability) → agregace změn (počty) → `ops_events`.
-- Alert (budoucí) pokud full import > 2 dny starý nebo 5 po sobě jdoucích delta failů.
+Implementováno: zapisuje se do `ops_activities` (type `products.full_import`, `products.sync_availability`) – `meta` obsahuje metriky (new, updated, unchanged / updated, skipped, missing; duration_ms).
+Plán (budoucí): alerting (pokud full import > 48h starý nebo >5 po sobě jdoucích delt bez změn / s chybou).
 
 ## Napojení na existující Ops modul
 - Ops dashboard zobrazí poslední full import + poslední availability sync.
@@ -137,14 +136,14 @@ Reference: viz `Adminto Šablona` dokument pro konvence komponent a utility tř�
 | products:sync-availability | */15 * * * * | Dostupnosti delta |
 
 ## Technická implementace (etapy)
-1. Migrace DB tabulek (`products`, audit tabulky).
-2. Parsovací služba + hash + full import command.
-3. Availability sync command + audit.
-4. UI seznam + základní filtrování.
-5. Detail produktu + historie.
-6. Integrace s Ops modulem (události, ruční spuštění).
-7. Permissions + cron zápis do schedule dokumentace.
-8. Optimalizace (indexy: external_id, ean, category_path prefix, availability_code).
+1. Migrace DB tabulek (`products`, audit tabulky). – HOTOVO
+2. Parsovací služba + hash + full import command. – HOTOVO
+3. Availability sync command + audit. – HOTOVO (MVP)
+4. UI seznam + základní filtrování. – HOTOVO (rozšíření filtrů pending)
+5. Detail produktu + historie. – HOTOVO
+6. Integrace s Ops modulem (události, ruční spuštění). – HOTOVO (CLI; UI trigger pending)
+7. Permissions + cron zápis do schedule dokumentace. – HOTOVO
+8. Optimalizace (indexy: external_id, ean, category_path prefix, availability_code) – PENDING
 
 ## Edge Cases
 - Produkt odstraněn z feedu: (MVP) ignorovat, dlouhodobě přidat `is_active` flag při neexistenci v dalších 7 dnech.
@@ -162,4 +161,4 @@ Reference: viz `Adminto Šablona` dokument pro konvence komponent a utility tř�
 
 ---
 
-Tento návrh čeká na implementaci – po dokončení každé etapy aktualizovat dokumentaci a přidat položku do changelogu.
+Stav: Základní implementace dokončena; následují optimalizace, UI akce a rozšíření filtrů.

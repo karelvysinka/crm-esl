@@ -7,3 +7,5 @@
 | job | \App\Jobs\ActiveCampaignSyncJob | everyMinute |  |  |
 | job | \App\Jobs\Ops\EvaluateBackupHealthJob | everyTenMinutes | ops |  |
 | call | closure |  |  |  |
+| command | products:import-full |  |  |  |
+| command | products:sync-availability |  |  |  |

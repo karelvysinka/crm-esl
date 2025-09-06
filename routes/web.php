@@ -103,6 +103,12 @@ Route::middleware('auth')->prefix('crm')->group(function () {
     Route::post('knowledge-docs/{id}/reindex', [\App\Http\Controllers\KnowledgeDocumentsController::class, 'reindex'])->name('knowledge.docs.reindex');
     Route::post('knowledge-docs/{id}/purge', [\App\Http\Controllers\KnowledgeDocumentsController::class, 'purge'])->name('knowledge.docs.purge');
 
+    // Products (catalog) - read-only for now
+    Route::prefix('products')->middleware('can:products.view')->group(function(){
+        Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
+        Route::get('{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+    });
+
     // Search (AJAX)
     Route::get('search/customers', [SearchController::class, 'customers'])->name('search.customers');
     Route::get('search/taskables', [SearchController::class, 'taskables'])->name('search.taskables');

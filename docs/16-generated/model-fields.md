@@ -66,6 +66,32 @@ _Heuristický výpis na základě $fillable a $casts. Skutečné DB typy ověřt
 | source |  |
 | notes |  |
 
+## Product
+
+| Pole | Typ (cast) |
+|------|-----------|
+| external_id |  |
+| group_id |  |
+| name |  |
+| description |  |
+| price_vat_cents |  |
+| currency |  |
+| manufacturer |  |
+| ean |  |
+| category_path |  |
+| category_hash |  |
+| url |  |
+| image_url |  |
+| availability_code |  |
+| availability_text |  |
+| stock_quantity |  |
+| availability_synced_at | datetime |
+| hash_payload |  |
+| first_imported_at | datetime |
+| last_synced_at | datetime |
+| last_price_changed_at | datetime |
+| last_availability_changed_at | datetime |
+
 ## Opportunity
 
 | Pole | Typ (cast) |
@@ -228,6 +254,15 @@ _Heuristický výpis na základě $fillable a $casts. Skutečné DB typy ověřt
 | name |  |
 | source |  |
 
+## ProductPriceChange
+
+| Pole | Typ (cast) |
+|------|-----------|
+| product_id |  |
+| old_price_cents |  |
+| new_price_cents |  |
+| changed_at | datetime |
+
 ## Project
 
 | Pole | Typ (cast) |
@@ -256,6 +291,17 @@ _Heuristický výpis na základě $fillable a $casts. Skutečné DB typy ověřt
 | signed_by_contact_id |  |
 | signed_at | datetime |
 | created_by |  |
+
+## ProductAvailabilityChange
+
+| Pole | Typ (cast) |
+|------|-----------|
+| product_id |  |
+| old_code |  |
+| new_code |  |
+| old_stock_qty |  |
+| new_stock_qty |  |
+| changed_at | datetime |
 
 ## ContactIdentity
 

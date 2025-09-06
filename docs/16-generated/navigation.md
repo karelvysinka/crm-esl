@@ -190,6 +190,13 @@ Admin konfigurace (ActiveCampaign, Backup, Qdrant, Tools, Chat, integrace).
 |-------|------------|-------|
 | `/orders/{order}/items` |  | _(popis chybí)_ |
 
+## Products
+
+| Cesta | Route name | Popis |
+|-------|------------|-------|
+| `/products` | products.index | _(popis chybí)_ |
+| `/products/{product}` | products.show | _(popis chybí)_ |
+
 ## Search
 
 | Cesta | Route name | Popis |

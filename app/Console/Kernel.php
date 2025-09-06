@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
             ->withoutOverlapping()
             ->onOneServer();
 
-        // Ops: evaluate backup health periodically
+    // Ops: evaluate backup health periodically
             // Ops health evaluation every 10 minutes
             $schedule->job(new \App\Jobs\Ops\EvaluateBackupHealthJob())->everyTenMinutes()->onQueue('ops');
             // (Optional) Weekly automatic verify restore (can be toggled by env OPS_VERIFY_AUTO)
@@ -40,6 +40,10 @@ class Kernel extends ConsoleKernel
                     dispatch(new \App\Jobs\Ops\RunVerifyRestoreJob($act->id));
                 })->weeklyOn(7,'03:15');
             }
+
+    // Products module schedules
+    $schedule->command('products:import-full')->dailyAt('04:10');
+    $schedule->command('products:sync-availability')->everyFifteenMinutes();
     }
 
     protected function commands(): void

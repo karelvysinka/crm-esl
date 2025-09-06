@@ -12,6 +12,8 @@ erDiagram
   SALESORDER }o--|| COMPANY : belongs_to
   SALESORDER }o--|| CONTACT : belongs_to
   SALESORDER ||--o{ SALESORDERITEM : has_many
+  PRODUCT ||--o{ PRODUCTPRICECHANGE : has_many
+  PRODUCT ||--o{ PRODUCTAVAILABILITYCHANGE : has_many
   OPPORTUNITY }o--|| CONTACT : belongs_to
   OPPORTUNITY }o--|| COMPANY : belongs_to
   OPPORTUNITY }o--|| USER : belongs_to
@@ -31,6 +33,7 @@ erDiagram
   CONTACT ||--o{ TASK : morph_many
   PRODUCTGROUP ||--o{ PRODUCTGROUP : has_many
   CONTACTCUSTOMFIELD }o--|| CONTACT : belongs_to
+  PRODUCTPRICECHANGE }o--|| PRODUCT : belongs_to
   PROJECT }o--|| COMPANY : belongs_to
   PROJECT }o--|| CONTACT : belongs_to
   PROJECT }o--|| USER : belongs_to
@@ -38,6 +41,7 @@ erDiagram
   DEAL }o--|| OPPORTUNITY : belongs_to
   DEAL }o--|| CONTACT : belongs_to
   DEAL }o--|| USER : belongs_to
+  PRODUCTAVAILABILITYCHANGE }o--|| PRODUCT : belongs_to
   CONTACTIDENTITY }o--|| CONTACT : belongs_to
   KNOWLEDGENOTE }o--|| USER : belongs_to
   KNOWLEDGEDOCUMENT }o--|| USER : belongs_to
@@ -94,6 +98,29 @@ erDiagram
     decimal:2 total_amount
     string source
     string notes
+  }
+  PRODUCT {
+    string external_id
+    string group_id
+    string name
+    string description
+    string price_vat_cents
+    string currency
+    string manufacturer
+    string ean
+    string category_path
+    string category_hash
+    string url
+    string image_url
+    string availability_code
+    string availability_text
+    string stock_quantity
+    datetime availability_synced_at
+    string hash_payload
+    datetime first_imported_at
+    datetime last_synced_at
+    datetime last_price_changed_at
+    datetime last_availability_changed_at
   }
   OPPORTUNITY {
     string name
@@ -221,6 +248,12 @@ erDiagram
     string name
     string source
   }
+  PRODUCTPRICECHANGE {
+    string product_id
+    string old_price_cents
+    string new_price_cents
+    datetime changed_at
+  }
   PROJECT {
     string name
     string description
@@ -243,6 +276,14 @@ erDiagram
     string signed_by_contact_id
     datetime signed_at
     string created_by
+  }
+  PRODUCTAVAILABILITYCHANGE {
+    string product_id
+    string old_code
+    string new_code
+    string old_stock_qty
+    string new_stock_qty
+    datetime changed_at
   }
   CONTACTIDENTITY {
     string contact_id

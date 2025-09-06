@@ -31,3 +31,8 @@ Artisan::command('ac:runs:stats', function () {
     }
     $this->line("unfinished={$open}");
 })->purpose('Show AC sync run counters');
+
+// Alias wrapper pro products:import-full (explicitní registrace)
+Artisan::command('products:import-full-alias {file=docs/feeds/heureka.xml}', function(){
+    $this->call(\App\Console\Commands\ProductsImportFull::class, ['file'=>$this->argument('file')]);
+})->purpose('Alias k primary products:import-full');

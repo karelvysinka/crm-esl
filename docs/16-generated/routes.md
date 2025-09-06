@@ -97,6 +97,8 @@
 | GET | crm/ops/history | ops.history.index | web,auth,can:ops.view | HistoryController@index |
 | GET | crm/ops/metrics | ops.metrics | web,auth,can:ops.view | MetricsController |
 | GET | crm/orders/{order}/items |  | web,auth | OrderItemsController@show |
+| GET | crm/products | products.index | web,auth,can:products.view | ProductController@index |
+| GET | crm/products/{product} | products.show | web,auth,can:products.view | ProductController@show |
 | GET | crm/projects | projects.index | web,auth | ProjectController@index |
 | POST | crm/projects | projects.store | web,auth | ProjectController@store |
 | GET | crm/projects/create | projects.create | web,auth | ProjectController@create |
@@ -149,8 +151,8 @@
 | PUT,PATCH | crm/tasks/{task} | tasks.update | web,auth | TaskController@update |
 | GET | crm/tasks/{task}/edit | tasks.edit | web,auth | TaskController@edit |
 | GET | index | index | web,auth | Closure |
-| GET | login | login | web | AuthController@showLogin |
-| POST | login | login.attempt | web | AuthController@login |
+| GET | login | login | web,nocache | AuthController@showLogin |
+| POST | login | login.attempt | web,rotate.session | AuthController@login |
 | POST | logout | logout | web | AuthController@logout |
 | GET | storage/{path} | storage.local |  | Closure |
 | GET | up |  |  | Closure |

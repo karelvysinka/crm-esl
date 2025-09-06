@@ -42,6 +42,69 @@ Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orienta
 
 > Planned: Produktový modul (synchronizace Heureka feedů) – bude verzováno jako `ADDED` po dokončení fáze 1 (datový model). Návrh a implementační plán viz sekce Produkty v dokumentaci.
 
+### [2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)
+#### Shrnutí
+Vylepšené UI produktů (table styl jako "Brands Listing" + výchozí zobrazení table) a úprava bezpečnostních hlaviček kvůli načítání externích obrázků.
+
+#### Detaily
+- Přidán nový table layout pro `/crm/products?view=table` inspirovaný komponentou Brands Listing (avatar kruh, status tečka, dropdown akce, kompaktní footer).
+- Výchozí mód přepínače grid/table změněn na `table` (lepší datová hustota pro 2000+ záznamů).
+- Odstraněno duplicitní stránkování (ponecháno jen ve footeru karty v table módu).
+- Grid mód zachován (karty) – beze změny logiky; pouze kosmetické drobnosti (hover, badge blur) již dříve.
+- Dočasně uvolněna politika CORP/COEP (komentováno v `crm-headers.yml`) kvůli hot-link obrázkům z `www.esl.cz` (dodavatel nevrací potřebné hlavičky). Plán: později proxy/cache lokálně a obnovit striktní politiky.
+- CSP již dříve rozšířeno o `img-src https:`; toto chování ponecháno.
+
+#### Dopady
+- Uživatel: Přehlednější tabulkové zobrazení jako default → rychlejší orientace, méně scrollování.
+- Provoz: Dočasné snížení izolace (COEP/CORP) – akceptovatelné krátkodobě; nutno sledovat budoucí reintrodukci politik.
+- Vývoj: Připravený podklad pro per-user preference view (možno později uložit do session / DB).
+
+#### Migrace / Kroky po nasazení
+1. Není potřeba spouštět migrace.
+2. Ověřit načítání produktových obrázků (síť v DevTools bez blokací).
+3. Později implementovat image proxy a znovu zapnout `Cross-Origin-Resource-Policy` a `Cross-Origin-Embedder-Policy`.
+
+#### Odkazy
+- `resources/views/products/index.blade.php`
+- `infra/traefik/dynamic/crm-headers.yml`
+- `docs/01-intro/changelog.md`
+
+### [2025-09-06] v0.1.6 (ADDED / CHANGED)
+#### Shrnutí
+Implementace produktového modulu (full import, delta dostupností, audit, plánovač, OpsActivity logování, UI základ).
+
+#### Detaily
+- Migrace vytvořeny a aplikovány (`products`, `product_price_changes`, `product_availability_changes`).
+- Full import (`products:import-full`) naplnil 2332 produktů (hash-based upsert, audit cen).
+- Delta sync (`products:sync-availability`) s audit tabulkou (nullable `new_code`).
+- Scheduler: full import denně 04:10, availability každých 15 minut (Kernel schedule).
+- OpsActivity logování pro oba příkazy (duration, počty new/updated/unchanged, changes).
+- UI routy `/crm/products` + detail; položka v sidenav s permission guard `products.view`.
+- Přidána permissions `products.view`, `products.sync` (přes sync command + HasRoles na `User`).
+- Parser opraven (DOMDocument wrap) – původní `simplexml_import_dom` edge case.
+- Changelog + dokumentace (Products overview) aktualizovány o stav implementace.
+
+#### Dopady
+- Uživatel: Základní katalog produktů s historií cen/dostupnosti (MVP) dostupný v CRM.
+- Provoz: Metriky běhů importů dostupné v `ops_activities`; možnost budoucího dashboardu.
+- Vývoj: Stabilní základ pro další optimalizace (indexy, rozšíření filtrů, pricing engine integrace).
+
+#### Migrace / Kroky po nasazení
+1. `php artisan migrate --force` (již proběhlo v prostředí).
+2. `php artisan products:permissions-sync` + přiřadit `products.view` uživatelům (provedeno pro prvního uživatele).
+3. Ověřit cron běh scheduler kontejneru (jobs se spustí dle definic v Kernelu).
+4. Monitorovat OpsActivity položky při prvním nočním běhu.
+
+#### Odkazy
+- `app/Console/Commands/ProductsImportFull.php`
+- `app/Console/Commands/ProductsSyncAvailability.php`
+- `app/Services/Products/HeurekaProductStream.php`
+- `app/Services/Products/AvailabilityDeltaStream.php`
+- `app/Models/OpsActivity.php`
+- `resources/views/products/`
+- `routes/web.php`
+
+
 ### [2025-09-06] v0.1.5 (FIXED / DOCS)
 #### Shrnutí
 Další stabilizace přihlášení (intermitentní 419) + rozšíření dokumentace Produktového modulu (analýza reálného Heureka feedu, implementační plán) a přidání do navigace.
