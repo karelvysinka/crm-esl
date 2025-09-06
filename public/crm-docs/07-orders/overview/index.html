@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://ce1.opent2.com/crm-docs/07-orders/overview/">
       
       
+        <link rel="prev" href="../../06-products/implementation-plan/">
+      
+      
+        <link rel="next" href="../implementation-plan/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -746,6 +750,333 @@
       
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Objednávky
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Objednávky
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Přehled
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Přehled
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cile-mvp-dosazeno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cíle (MVP dosaženo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zdroje-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zdroje dat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Zdroje dat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detail-objednavky-klicova-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail objednávky – klíčová pole
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polozky-aktualni-persist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Položky (aktuální persist)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datovy-model-realizovany-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datový model (realizovaný subset)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Datový model (realizovaný subset)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-orders-aktivni-pole" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka orders (aktivní pole)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-order_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka order_items
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabulka-order_state_changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabulka order_state_changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategie-synchronizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategie synchronizace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detekce-zmen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detekce změn
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapovani-stavu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapování stavů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologie-scrapingu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologie scrapingu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limiting-setrnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate limiting &amp; šetrnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chybove-scenare-retry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chybové scénáře &amp; retry
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observabilita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Observabilita
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postupna-adopce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Postupná adopce
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budouci-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budoucí rozšíření
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stav-funkcionalit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stav funkcionalit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#poznamky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Poznámky
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementační plán
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
@@ -756,10 +1087,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
         
           
-          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -770,8 +1101,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_15">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
             <span class="md-nav__icon md-icon"></span>
             Runtime
           </label>
@@ -962,10 +1293,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
         
           
-          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -976,8 +1307,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_20">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
             <span class="md-nav__icon md-icon"></span>
             Runbook
           </label>
@@ -1025,10 +1356,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
         
           
-          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1039,8 +1370,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_21">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_22">
             <span class="md-nav__icon md-icon"></span>
             ADR
           </label>
@@ -1148,10 +1479,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_25" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" >
         
           
-          <label class="md-nav__link" for="__nav_25" id="__nav_25_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1162,8 +1493,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_25_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_25">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_26">
             <span class="md-nav__icon md-icon"></span>
             Checklists
           </label>
@@ -1211,10 +1542,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" >
         
           
-          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1225,8 +1556,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_26">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_27">
             <span class="md-nav__icon md-icon"></span>
             Templates
           </label>
