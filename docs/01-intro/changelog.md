@@ -39,6 +39,38 @@ Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orienta
 ---
 
 ## Poslední změny
+### [2025-09-06] v0.1.13 (ADDED / CHANGED)
+#### Shrnutí
+Analytics & UI rozšíření modulu objednávek: KPI karty, 12měsíční graf, větší typografie, rozšířená telemetrie importu + navýšení délky `order_number`.
+
+#### Detaily
+- Přidány 4 KPI karty na `/crm/orders`: Celkem, Poslední měsíc, Poslední týden, 7denní průměr (počty se počítají SQL agregací v `OrderController`).
+- 12měsíční kombinovaný graf (sloupce = počet objednávek, čára = součet tržeb) pomocí ApexCharts (lazy load pouze při zobrazení stránky, snížení TTFB / bundle size).
+- Typografie a vzhled sjednocen s hlavním dashboardem (větší kontrast, bold čísla, responsivní škálování přes `clamp`).
+- Rozšířené metriky v OpsActivity pro full import (detaily: `details_fetched`, `items_inserted`, `states_inserted`, `integrity_mismatches`).
+- Navýšena délka sloupce `order_number` z 32 → 80 znaků (podpora suffixů typu `(02-0106)`).
+- Bezpečnější guard proti prázdné Page 1 (log varování) + heuristika zastavení při opakujícím se hash stránkování.
+- UI: refaktor stat sekce do samostatných karet + separovaná karta grafu (lepší čitelnost nad foldem).
+
+#### Dopady
+- Uživatel: Okamžitá vizuální orientace v objemu objednávek a trendu posledního roku bez exportů.
+- Provoz: Snadnější sledování efektivity importu (OpsActivity meta) při delším běhu / ladění výkonu.
+- Vývoj: Připravený prostor pro následné přidání procentuálních trendů (MoM / WoW) a cache layer.
+
+#### Migrace / Kroky po nasazení
+1. `php artisan migrate --force` (aplikuje změnu délky `order_number` pokud ještě neproběhla).
+2. (Volitelně) Nastavit `ORDERS_FULL_IMPORT_MAX_PAGES` podle požadované hloubky historie.
+3. Ověřit vykreslení grafu (v produkci musí být povolen načtený CDN skript ApexCharts v CSP pokud je zavedena).
+
+#### Odkazy
+- `app/Http/Controllers/OrderController.php`
+- `resources/views/orders/index.blade.php`
+- `database/migrations/2025_09_06_234500_alter_orders_increase_number_and_add_edit_id.php`
+- `app/Jobs/Orders/RunFullImportJob.php`
+
+#### Poznámky
+Plánované další kroky (mimo scope této verze): procentuální trend indikátory (šipky), cache 5–10 min pro KPI, denní 30denní mini graf, lokalizované formátování měny v tooltipech.
+
 
 > Planned: Produktový modul (synchronizace Heureka feedů) – bude verzováno jako `ADDED` po dokončení fáze 1 (datový model). Návrh a implementační plán viz sekce Produkty v dokumentaci.
 
