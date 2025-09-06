@@ -23,43 +23,109 @@
 
 @isset($stats)
 <div class="row mb-3">
-  <div class="col-12">
-    <div class="card shadow-sm border-0">
-      <div class="card-header border-bottom border-dashed py-2 d-flex flex-wrap align-items-center justify-content-between">
-        <h5 class="header-title mb-0">Přehled objednávek</h5>
-        <span class="text-muted small">Posledních 12 měsíců</span>
-      </div>
-      <div class="card-body pb-2 pt-3">
-        <div class="row text-center g-3 mb-2">
-          <div class="col-12 col-md-4">
-            <div class="p-2 h-100 d-flex flex-column justify-content-center rounded small-hover">
-              <div class="text-muted text-uppercase small mb-1">Celkem objednávek</div>
-              <div class="fw-bold fs-4 mb-0">{{ number_format($stats['total'],0,'',' ') }}</div>
+  <!-- Total Orders -->
+  <div class="col-xl-3 col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-5">
+            <div class="avatar-sm bg-primary rounded d-flex align-items-center justify-content-center">
+              <i class="ri-shopping-bag-2-line avatar-title font-22 text-white"></i>
             </div>
           </div>
-          <div class="col-12 col-md-4">
-            <div class="p-2 h-100 d-flex flex-column justify-content-center rounded small-hover">
-              <div class="text-muted text-uppercase small mb-1">Za poslední měsíc</div>
-              <div class="fw-bold fs-4 mb-0">{{ number_format($stats['last_month'],0,'',' ') }}</div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="p-2 h-100 d-flex flex-column justify-content-center rounded small-hover">
-              <div class="text-muted text-uppercase small mb-1">Za poslední týden</div>
-              <div class="fw-bold fs-4 mb-0">{{ number_format($stats['last_week'],0,'',' ') }}</div>
-            </div>
+          <div class="col-7 text-end">
+            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['total'] }}</span></h3>
+            <p class="text-muted mb-1 text-truncate">Celkem</p>
           </div>
         </div>
-        @isset($chart)
-          <div class="mt-2">
-            <div id="orders-12m-chart" class="apex-charts w-100" style="height:260px;"></div>
+        <div class="mt-2">
+          <h6 class="text-uppercase small text-muted mb-0">Objednávky</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Last Month -->
+  <div class="col-xl-3 col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-5">
+            <div class="avatar-sm bg-success rounded d-flex align-items-center justify-content-center">
+              <i class="ri-calendar-event-line avatar-title font-22 text-white"></i>
+            </div>
           </div>
-        @endisset
+          <div class="col-7 text-end">
+            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['last_month'] }}</span></h3>
+            <p class="text-muted mb-1 text-truncate">Posl. měsíc</p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <h6 class="text-uppercase small text-muted mb-0">{{ now()->subMonth()->isoFormat('MMM YYYY') }} →</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Last Week -->
+  <div class="col-xl-3 col-md-6">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-5">
+            <div class="avatar-sm bg-info rounded d-flex align-items-center justify-content-center">
+              <i class="ri-calendar-week-line avatar-title font-22 text-white"></i>
+            </div>
+          </div>
+          <div class="col-7 text-end">
+            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['last_week'] }}</span></h3>
+            <p class="text-muted mb-1 text-truncate">Posl. týden</p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <h6 class="text-uppercase small text-muted mb-0">7 dní</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Placeholder / Avg per day (optional) -->
+  <div class="col-xl-3 col-md-6">
+    @php($avgDay = $stats['last_week'] ? round($stats['last_week']/7,1) : 0)
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-5">
+            <div class="avatar-sm bg-warning rounded d-flex align-items-center justify-content-center">
+              <i class="ri-bar-chart-grouped-line avatar-title font-22 text-white"></i>
+            </div>
+          </div>
+          <div class="col-7 text-end">
+            <h3 class="text-dark my-1">{{ $avgDay }}</h3>
+            <p class="text-muted mb-1 text-truncate">/den (7d)</p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <h6 class="text-uppercase small text-muted mb-0">Průměr</h6>
+        </div>
       </div>
     </div>
   </div>
 </div>
 @endisset
+
+@if(isset($chart))
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="header-title">Objednávky v čase</h4>
+        <p class="text-muted font-13 mb-3">Počet objednávek a tržby za posledních 12 měsíců.</p>
+        <div class="px-1" dir="ltr">
+          <div id="orders-12m-chart" class="apex-charts" style="height:320px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 
 <div class="card mb-3 shadow-sm border-0">
   <div class="card-body py-2">
@@ -181,6 +247,7 @@
   .table tbody tr:hover { background: rgba(0,0,0,.03); }
   .small-hover:hover { background: rgba(0,0,0,.03); transition: background .2s; }
   #orders-12m-chart .apexcharts-canvas { margin: 0 auto; }
+  .avatar-sm { width:48px; height:48px; }
 </style>
 @endpush
 
