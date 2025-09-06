@@ -44,6 +44,23 @@ class Kernel extends ConsoleKernel
     // Products module schedules
     $schedule->command('products:import-full')->dailyAt('04:10');
     $schedule->command('products:sync-availability')->everyFifteenMinutes();
+
+    // Orders module schedules (initial)
+    $schedule->command('orders:sync-incremental')->everyFiveMinutes()->withoutOverlapping();
+    // Full import manual / or weekly safety run (disabled by default unless env flag)
+    if (env('ORDERS_FULL_IMPORT_WEEKLY', false)) {
+        $schedule->command('orders:import-full')->weeklyOn(7, '03:40')->withoutOverlapping();
+    }
+    // Daily reconciliation early morning
+    $schedule->command('orders:reconcile-recent --pages=5')->dailyAt('04:00')->withoutOverlapping();
+    // Optional nightly backfill for any orders still missing product line (guarded by flag)
+    if (env('ORDERS_BACKFILL_NIGHTLY', false)) {
+        $schedule->command('orders:backfill-items --limit=150')->dailyAt('04:20')->withoutOverlapping();
+    }
+    // Optional integrity report
+    if (env('ORDERS_INTEGRITY_DAILY', false)) {
+        $schedule->command('orders:integrity-check --limit=500')->dailyAt('04:30')->withoutOverlapping();
+    }
     }
 
     protected function commands(): void
