@@ -2063,6 +2063,13 @@
 </tr>
 <tr>
 <td>POST</td>
+<td>crm/ops/actions/docs-build</td>
+<td>ops.docs.build</td>
+<td>web,auth,can:ops.execute,throttle:ops-actions</td>
+<td>ActionController@docsBuild</td>
+</tr>
+<tr>
+<td>POST</td>
 <td>crm/ops/actions/{action}</td>
 <td>ops.action</td>
 <td>web,auth,can:ops.execute,throttle:ops-actions</td>
@@ -2589,6 +2596,8 @@
     
     
       <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="../../assets/js/docs-build-button.js"></script>
       
     
   </body>
