@@ -48,6 +48,10 @@ Route::middleware('auth')->prefix('crm')->group(function () {
         Route::post('/actions/{action}', [\App\Http\Controllers\Ops\ActionController::class, 'run'])
             ->middleware(['can:ops.execute','throttle:ops-actions'])
             ->name('ops.action');
+        // Trigger rebuild documentation (ops.execute)
+        Route::post('/actions/docs-build', [\App\Http\Controllers\Ops\ActionController::class, 'docsBuild'])
+            ->middleware(['can:ops.execute','throttle:ops-actions'])
+            ->name('ops.docs.build');
         Route::get('/metrics', \App\Http\Controllers\Ops\MetricsController::class)
             ->middleware('can:ops.view')
             ->name('ops.metrics');
@@ -107,6 +111,12 @@ Route::middleware('auth')->prefix('crm')->group(function () {
     Route::prefix('products')->middleware('can:products.view')->group(function(){
         Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
         Route::get('{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+    });
+
+    // Orders (read-only MVP) - permission restored now that module stabilised
+    Route::prefix('orders')->middleware(env('ORDERS_BYPASS_PERMISSION', false) ? [] : ['can:orders.view'])->group(function(){
+        Route::get('/', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
+        Route::get('{order}', [\App\Http\Controllers\OrderController::class, 'show'])->name('orders.show');
     });
 
     // Search (AJAX)

@@ -83,6 +83,11 @@
           <input name="tag" class="form-control form-control-sm d-inline-block" style="width:120px" placeholder="v1.2.3" />
           <button class="btn btn-success btn-sm">Create Tag</button>
         </form>
+        <form method="POST" action="{{ route('ops.docs.build') }}" class="d-inline ms-1">
+          @csrf
+          <input type="hidden" name="_ops_token" value="{{ $opsToken }}">
+          <button class="btn btn-outline-info btn-sm">Build Docs</button>
+        </form>
       </div></div>
     </div>
   </div>
