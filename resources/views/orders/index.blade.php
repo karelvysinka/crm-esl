@@ -80,6 +80,20 @@
       <a href="{{ route('ops.history.index') }}" class="ms-auto small">Historie &rsaquo;</a>
     </div>
   @endif
+  @if(isset($lastImports) && $lastImports->count())
+    <div class="alert alert-secondary border-0 rounded-0 mb-0 py-2 px-3 d-flex flex-wrap gap-3 align-items-center" style="border-top:1px solid #eee;">
+      <div class="fw-semibold"><i class="ti ti-history me-1"></i>Poslední importy:</div>
+      @foreach($lastImports as $li)
+        <div class="badge bg-light text-dark border d-flex flex-column align-items-start p-2" style="min-width:140px;">
+          <div class="d-flex w-100 justify-content-between"><span>#{{ $li->id }}</span><span class="small {{ $li->status==='success'?'text-success':($li->status==='error'?'text-danger':'text-warning') }}">{{ $li->status }}</span></div>
+          <div class="small">new: {{ $li->meta['orders_new'] ?? '—' }}</div>
+          <div class="small">pages: {{ $li->meta['pages'] ?? '—' }}</div>
+          <div class="small">ms: {{ $li->meta['duration_ms'] ?? '—' }}</div>
+          @if(!empty($li->meta['skipped_reason']))<div class="small text-muted">skip: {{ $li->meta['skipped_reason'] }}</div>@endif
+        </div>
+      @endforeach
+    </div>
+  @endif
   <div class="card-body p-0">
     <div class="table-responsive">
       <table class="table table-sm table-hover align-middle mb-0">

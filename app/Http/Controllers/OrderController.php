@@ -56,7 +56,13 @@ class OrderController extends Controller
             ->orderByDesc('id')
             ->limit(5)
             ->get();
-        return view('orders.index', compact('orders','filters','runningImports'));
+        $lastImports = \App\Models\OpsActivity::query()
+            ->whereIn('type',[ 'orders.full_import','orders.full_import.web','orders.full_import.manual' ])
+            ->whereIn('status',['success','error','skipped'])
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
+        return view('orders.index', compact('orders','filters','runningImports','lastImports'));
     }
 
     public function triggerImport(Request $request)

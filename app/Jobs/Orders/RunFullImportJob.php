@@ -48,8 +48,16 @@ class RunFullImportJob implements ShouldQueue
         $proc = new Process($cmd, base_path());
         $proc->setTimeout(3600);
         $proc->run();
+        $fullOut = $proc->getOutput()."\n".$proc->getErrorOutput();
         $meta['import_exit'] = $proc->getExitCode();
-        $meta['import_tail'] = substr($proc->getOutput(), -4000);
+        $meta['import_tail'] = substr($fullOut, -4000);
+        // Parse basic metrics from output line e.g.: Full import done pages=3 seen=60 new=5 durationMs=12345
+        if (preg_match('/Full import done pages=(\d+) seen=(\d+) new=(\d+) durationMs=(\d+)/', $fullOut, $m)) {
+            $meta['pages'] = (int)$m[1];
+            $meta['orders_seen'] = (int)$m[2];
+            $meta['orders_new'] = (int)$m[3];
+            $meta['duration_ms'] = (int)$m[4];
+        }
         $activity->meta = $meta;
         $activity->status = $proc->isSuccessful() ? 'success' : 'error';
         $activity->save();
