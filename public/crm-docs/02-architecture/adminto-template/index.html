@@ -6,13 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Jak je integrována komerční šablona Adminto (Laravel v2.0) a jak z ní bezpečně čerpat komponenty.">
       
       
-        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/15-templates/module/">
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/02-architecture/adminto-template/">
       
       
-        <link rel="prev" href="../adr-template/">
+        <link rel="prev" href="../infrastructure/">
       
+      
+        <link rel="next" href="../git-publishing/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Module Template - CRM Documentation</title>
+        <title>Adminto Šablona – Integrace a Využití - CRM Documentation</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#adminto-sablona-laravel-v20-integrace" class="md-skip">
           Přeskočit obsah
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module Template
+              Adminto Šablona – Integrace a Využití
             
           </span>
         </div>
@@ -286,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -314,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/infrastructure/" class="md-nav__link">
+      <a href="../infrastructure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -331,10 +335,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../02-architecture/adminto-template/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Adminto Šablona
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -343,6 +367,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struktura-zdroju-sablony" class="md-nav__link">
+    <span class="md-ellipsis">
+      Struktura zdrojů šablony
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hlavni-oblast-prevzeti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hlavní oblast převzetí
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doporuceny-postup-pri-pridavani-novych-obrazovek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doporučený postup při přidávání nových obrazovek
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prizpusobeni-customization-jadro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Přizpůsobení (Customization) – jádro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pluginy-mapping-potrebnych-assetu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pluginy – mapping potřebných assetů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-bundling-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance &amp; Bundling Guidelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnost-udrzba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnost &amp; Údržba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redukce-demo-balastu-doporuceno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redukce Demo Balastu (Doporučeno)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap-integrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Roadmap Integrace
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -354,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/git-publishing/" class="md-nav__link">
+      <a href="../git-publishing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -374,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/testing-strategy/" class="md-nav__link">
+      <a href="../testing-strategy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,19 +1326,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" >
         
           
           <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
@@ -1227,7 +1350,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_26">
             <span class="md-nav__icon md-icon"></span>
             Templates
@@ -1241,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-template/" class="md-nav__link">
+      <a href="../../15-templates/adr-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,30 +1382,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Module Template
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../15-templates/module/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,107 +1394,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Obsah">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Obsah
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ucel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Účel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#komponenty" class="md-nav__link">
-    <span class="md-ellipsis">
-      Komponenty
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#datove-entity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Datové entity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Flow
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#konfigurace-env" class="md-nav__link">
-    <span class="md-ellipsis">
-      Konfigurace / ENV
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#failure-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Failure Modes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alerting / Monitoring
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zavislosti" class="md-nav__link">
-    <span class="md-ellipsis">
-      Závislosti
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rozsireni-backlog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rozšíření / Backlog
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1431,81 +1433,81 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ucel" class="md-nav__link">
+  <a href="#struktura-zdroju-sablony" class="md-nav__link">
     <span class="md-ellipsis">
-      Účel
+      Struktura zdrojů šablony
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#komponenty" class="md-nav__link">
+  <a href="#hlavni-oblast-prevzeti" class="md-nav__link">
     <span class="md-ellipsis">
-      Komponenty
+      Hlavní oblast převzetí
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#datove-entity" class="md-nav__link">
+  <a href="#doporuceny-postup-pri-pridavani-novych-obrazovek" class="md-nav__link">
     <span class="md-ellipsis">
-      Datové entity
+      Doporučený postup při přidávání nových obrazovek
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flow" class="md-nav__link">
+  <a href="#prizpusobeni-customization-jadro" class="md-nav__link">
     <span class="md-ellipsis">
-      Flow
+      Přizpůsobení (Customization) – jádro
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#konfigurace-env" class="md-nav__link">
+  <a href="#pluginy-mapping-potrebnych-assetu" class="md-nav__link">
     <span class="md-ellipsis">
-      Konfigurace / ENV
+      Pluginy – mapping potřebných assetů
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#failure-modes" class="md-nav__link">
+  <a href="#performance-bundling-guidelines" class="md-nav__link">
     <span class="md-ellipsis">
-      Failure Modes
+      Performance &amp; Bundling Guidelines
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alerting-monitoring" class="md-nav__link">
+  <a href="#bezpecnost-udrzba" class="md-nav__link">
     <span class="md-ellipsis">
-      Alerting / Monitoring
+      Bezpečnost &amp; Údržba
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zavislosti" class="md-nav__link">
+  <a href="#redukce-demo-balastu-doporuceno" class="md-nav__link">
     <span class="md-ellipsis">
-      Závislosti
+      Redukce Demo Balastu (Doporučeno)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rozsireni-backlog" class="md-nav__link">
+  <a href="#roadmap-integrace" class="md-nav__link">
     <span class="md-ellipsis">
-      Rozšíření / Backlog
+      Roadmap Integrace
     </span>
   </a>
   
@@ -1526,24 +1528,238 @@
                   
 
 
-<h1 id="_1"><Název Modulu><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Status: draft
-Odpovědnost: <role></p>
-<h2 id="ucel">Účel<a class="headerlink" href="#ucel" title="Permanent link">&para;</a></h2>
-<h2 id="komponenty">Komponenty<a class="headerlink" href="#komponenty" title="Permanent link">&para;</a></h2>
-<h2 id="datove-entity">Datové entity<a class="headerlink" href="#datove-entity" title="Permanent link">&para;</a></h2>
-<h2 id="flow">Flow<a class="headerlink" href="#flow" title="Permanent link">&para;</a></h2>
-<h2 id="konfigurace-env">Konfigurace / ENV<a class="headerlink" href="#konfigurace-env" title="Permanent link">&para;</a></h2>
-<h2 id="failure-modes">Failure Modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
-<h2 id="alerting-monitoring">Alerting / Monitoring<a class="headerlink" href="#alerting-monitoring" title="Permanent link">&para;</a></h2>
-<h2 id="zavislosti">Závislosti<a class="headerlink" href="#zavislosti" title="Permanent link">&para;</a></h2>
-<h2 id="rozsireni-backlog">Rozšíření / Backlog<a class="headerlink" href="#rozsireni-backlog" title="Permanent link">&para;</a></h2>
+<h1 id="adminto-sablona-laravel-v20-integrace">Adminto Šablona (Laravel v2.0) – Integrace<a class="headerlink" href="#adminto-sablona-laravel-v20-integrace" title="Permanent link">&para;</a></h1>
+<p>Tento projekt využívá placenou šablonu <strong>Adminto (Laravel 11, Bootstrap 5.3.3)</strong> jako základ UI. Zde je praktický přehled co z ní máme, kde hledat zdrojové části a jak správně doplňovat nové UI prvky.</p>
+<h2 id="struktura-zdroju-sablony">Struktura zdrojů šablony<a class="headerlink" href="#struktura-zdroju-sablony" title="Permanent link">&para;</a></h2>
+<p>Umístění originálních souborů (nemodifikovat, slouží jako referenční zdroj):</p>
+<div class="highlight"><pre><span></span><code>/srv/projects/crm/template/Adminto-Laravel_v2.0/Adminto            # původní kód
+/srv/projects/crm/template/Adminto-Laravel_v2.0/Documentation      # vendor dokumentace (HTML)
+</code></pre></div>
+<p>Adaptované části byly překopírovány a upraveny v našem app repozitáři (<code>resources/</code>, <code>public/</code>, SCSS/JS přes Vite). Původní Gulp flow jsme NEPŘEVZALI – build řeší Vite.</p>
+<h2 id="hlavni-oblast-prevzeti">Hlavní oblast převzetí<a class="headerlink" href="#hlavni-oblast-prevzeti" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Oblast</th>
+<th>Stav integrace</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout (sidebar, topbar)</td>
+<td>Převzato + custom úpravy</td>
+<td>Soubor <code>resources/views/layouts/partials/sidebar.blade.php</code> obsahuje sekce CRM + zbytek demo menu.</td>
+</tr>
+<tr>
+<td>Ikony (Remix, Tabler, Solar)</td>
+<td>Připraveno</td>
+<td>V menu sekce Icons – lze použít pro rychlou UI symboliku.</td>
+</tr>
+<tr>
+<td>Komponenty UI (Base/Extended)</td>
+<td>Základ ponechán</td>
+<td>Demo routy zatím převážně placeholdery.</td>
+</tr>
+<tr>
+<td>Form komponenty &amp; validace</td>
+<td>K dispozici</td>
+<td>Využít dle potřeby – sladit s laravel form request validací.</td>
+</tr>
+<tr>
+<td>Tabulky &amp; Datatables</td>
+<td>K dispozici</td>
+<td>Pozor na duplicitní JS inicializace – preferuj centralizovaný modul.</td>
+</tr>
+<tr>
+<td>Grafy (Apexcharts, Flot, Chart.js, atd.)</td>
+<td>Neaktivní v doménové logice</td>
+<td>Aktivuj pouze potřebné knihovny (tree‑shake / lazy load).</td>
+</tr>
+<tr>
+<td>Mapy (Google, Vector, Leaflet)</td>
+<td>Leaflet integrace už v závislostech</td>
+<td>Ostatní jen pokud přidáme funkci.</td>
+</tr>
+<tr>
+<td>Víceúrovňové menu</td>
+<td>Ponecháno (demo)</td>
+<td>Zvaž redukci pro snížení kognitivního šumu.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="doporuceny-postup-pri-pridavani-novych-obrazovek">Doporučený postup při přidávání nových obrazovek<a class="headerlink" href="#doporuceny-postup-pri-pridavani-novych-obrazovek" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Navrhni doménovou URL a route name (prefix <code>crm.</code> nebo <code>marketing.</code> nebo modul).  </li>
+<li>Rozšiř <code>sidebar.blade.php</code> – minimalizuj vnoření (max 2 úrovně).  </li>
+<li>Vytvoř Blade view v odpovídající složce (<code>resources/views/…</code>).  </li>
+<li>Pokud potřebuješ JS plugin:  </li>
+<li>Zkontroluj v dokumentaci Adminto (tabulka pluginů – níže).  </li>
+<li>Pokud už máme moderní ekvivalent (např. nativní Date picker / Flatpickr), preferuj existující knihovnu.  </li>
+<li>Stylování: Přidej SCSS proměnné do <code>resources/scss/_theme-default.scss</code> (nenahrazuj vendor CSS ručně).  </li>
+<li>Aktualizuj generovanou navigaci (<code>php artisan docs:refresh</code>) a případně popisy v <code>docs/_meta/menu.php</code>.  </li>
+<li>Přidej záznam do changelogu (TYPE <code>ADDED</code> / <code>CHANGED</code>).</li>
+</ol>
+<h2 id="prizpusobeni-customization-jadro">Přizpůsobení (Customization) – jádro<a class="headerlink" href="#prizpusobeni-customization-jadro" title="Permanent link">&para;</a></h2>
+<p>Z dokumentace (soubor <code>customization.html</code>):</p>
+<blockquote>
+<p>Úprava palety barev probíhá změnou SCSS proměnných v <code>_theme-default.scss</code> (u nás: <code>resources/scss/</code>). Po úpravě spustit build Vite (<code>npm run dev</code> nebo <code>vite build</code>).</p>
+</blockquote>
+<p>Další layout varianty (top navigation, horizontal) lze aktivovat úpravou atributu <code>data-layout</code> na <code>&lt;html&gt;</code> + odebráním include sidebaru a přidáním horizontální navigace (viz originální kroky). Aktuálně zůstáváme u vertikálního layoutu.</p>
+<h2 id="pluginy-mapping-potrebnych-assetu">Pluginy – mapping potřebných assetů<a class="headerlink" href="#pluginy-mapping-potrebnych-assetu" title="Permanent link">&para;</a></h2>
+<p>Z originální tabulky (zkrácený výběr běžně relevantních):</p>
+<table>
+<thead>
+<tr>
+<th>Funkce</th>
+<th>CSS</th>
+<th>JS</th>
+<th>Custom Init</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Datatables</td>
+<td>dataTables.bootstrap4.min.css …</td>
+<td>jquery.dataTables.min.js …</td>
+<td>datatables.init.js</td>
+</tr>
+<tr>
+<td>Dropzone Upload</td>
+<td>dropzone.min.css</td>
+<td>dropzone.min.js</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Summernote WYSIWYG</td>
+<td>summernote-bs4.css</td>
+<td>summernote-bs4.min.js</td>
+<td>form-summernote.init.js</td>
+</tr>
+<tr>
+<td>Quill Editor</td>
+<td>quill.*.css</td>
+<td>quill.min.js (+ katex.min.js)</td>
+<td>form-quilljs.init.js</td>
+</tr>
+<tr>
+<td>Range Slider</td>
+<td>ion.rangeSlider.css</td>
+<td>ion.rangeSlider.min.js</td>
+<td>range-sliders.init.js</td>
+</tr>
+<tr>
+<td>ApexCharts</td>
+<td>–</td>
+<td>apexcharts.min.js</td>
+<td>apexcharts.init.js</td>
+</tr>
+<tr>
+<td>SweetAlert2</td>
+<td>sweetalert2.min.css</td>
+<td>sweetalert2.min.js</td>
+<td>sweet-alerts.init.js</td>
+</tr>
+<tr>
+<td>Select2</td>
+<td>select2.min.css</td>
+<td>select2.min.js</td>
+<td>form-advanced.init.js</td>
+</tr>
+<tr>
+<td>Parsley (form validation)</td>
+<td>–</td>
+<td>parsley.min.js</td>
+<td>form-validation.init.js</td>
+</tr>
+<tr>
+<td>Daterangepicker</td>
+<td>daterangepicker.css</td>
+<td>daterangepicker.js + moment.js</td>
+<td>form-pickers.init.js</td>
+</tr>
+<tr>
+<td>Dropzone</td>
+<td>dropzone.min.css</td>
+<td>dropzone.min.js</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Leaflet Maps</td>
+<td>(externí)</td>
+<td>leaflet.js</td>
+<td>(vlastní inicializace)</td>
+</tr>
+</tbody>
+</table>
+<p>Poznámky:
+* Nepřebírej všechny pluginy do globální bundle – pouze importy na stránkách, kde jsou potřeba (Vite dynamic import).
+* Upřednostňuj moderní alternativy (např. nativní Date picker vs. bootstrap-datepicker) pro redukci velikosti.</p>
+<h2 id="performance-bundling-guidelines">Performance &amp; Bundling Guidelines<a class="headerlink" href="#performance-bundling-guidelines" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Každý větší plugin lazy‑load (dynamic <code>import()</code> v komponentě).</li>
+<li>Sdílené utility (SweetAlert wrapper, AJAX helper) centralizuj do <code>resources/js/lib/</code>.</li>
+<li>Sleduj velikost produkčního bundlu (<code>vite build --report</code> – případně doplnit plugin později).</li>
+</ul>
+<h2 id="bezpecnost-udrzba">Bezpečnost &amp; Údržba<a class="headerlink" href="#bezpecnost-udrzba" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Sleduj upstream verze šablony (soubor <code>Documentation/changelog.html</code>).</li>
+<li>Při aktualizaci: diff proti našim přepsaným Blade view – začni jen layouty a partialy.</li>
+<li>Změny UI knihoven vždy s changelog položkou (<code>CHANGED</code> nebo <code>SECURITY</code> pokud oprava CVE pluginu).</li>
+</ul>
+<h2 id="redukce-demo-balastu-doporuceno">Redukce Demo Balastu (Doporučeno)<a class="headerlink" href="#redukce-demo-balastu-doporuceno" title="Permanent link">&para;</a></h2>
+<p>Krátkodobé kandidáty k odstranění / skrytí:
+- Multi Level menu (ponechat jen pokud reálná potřeba).
+- Nadbytečné grafy (ponechat 1 knihovnu – preferenčně ApexCharts).
+- Duplicitní form pickery (sjednotit na jednu knihovnu + Quill jako default editor).</p>
+<h2 id="roadmap-integrace">Roadmap Integrace<a class="headerlink" href="#roadmap-integrace" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Cíl</th>
+<th>Stav</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>Inventarizace použitých pluginů vs. dostupných</td>
+<td>Proběhlo částečně (tento dokument)</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Odstranit nevyužité demosekce z menu</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Zavedeno lazy-loading pro těžké moduly (charts, editors)</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>Standardizovaný UI kit (komponenty jako Laravel Blade partials)</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>Dokumentovaný upgrade proces na novou verzi šablony</td>
+<td>TODO</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Poslední úprava: {{ date('Y-m-d') }}</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

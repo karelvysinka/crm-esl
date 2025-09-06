@@ -6,13 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Koncepční návrh produktového modulu a jeho synchronizace z Heureka feedů.">
       
       
-        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/15-templates/module/">
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/06-products/overview/">
       
       
-        <link rel="prev" href="../adr-template/">
+        <link rel="prev" href="../../05-integrations/embeddings-providers/">
       
+      
+        <link rel="next" href="../implementation-plan/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Module Template - CRM Documentation</title>
+        <title>Produkty - Přehled - CRM Documentation</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#produkty-navrh" class="md-skip">
           Přeskočit obsah
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Module Template
+              Produkty - Přehled
             
           </span>
         </div>
@@ -662,17 +666,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
         
           
           <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
@@ -686,7 +692,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             Produkty
@@ -697,10 +703,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../06-products/overview/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Přehled
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -709,6 +735,200 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cíle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zdroje-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zdroje dat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datovy-model-navrh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datový model (návrh)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importni-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importní pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importní pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-full-import-daily" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Full Import (Daily)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-availability-delta-every-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Availability Delta (Every 15 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonicalizace-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonicalizace dat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui-stranka" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI Stránka
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UI Stránka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ui-a-sablona-adminto" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI a šablona (Adminto)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observabilita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring / Observabilita
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#napojeni-na-existujici-ops-modul" class="md-nav__link">
+    <span class="md-ellipsis">
+      Napojení na existující Ops modul
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduler-plan-navrh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduler Plán (návrh)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technicka-implementace-etapy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technická implementace (etapy)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budouci-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budoucí rozšíření
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -721,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-products/implementation-plan/" class="md-nav__link">
+      <a href="../implementation-plan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,19 +1421,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" >
         
           
           <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
@@ -1227,7 +1445,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_26">
             <span class="md-nav__icon md-icon"></span>
             Templates
@@ -1241,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr-template/" class="md-nav__link">
+      <a href="../../15-templates/adr-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1259,30 +1477,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Module Template
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../15-templates/module/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,107 +1489,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Obsah">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Obsah
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#ucel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Účel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#komponenty" class="md-nav__link">
-    <span class="md-ellipsis">
-      Komponenty
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#datove-entity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Datové entity
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Flow
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#konfigurace-env" class="md-nav__link">
-    <span class="md-ellipsis">
-      Konfigurace / ENV
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#failure-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Failure Modes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#alerting-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alerting / Monitoring
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zavislosti" class="md-nav__link">
-    <span class="md-ellipsis">
-      Závislosti
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rozsireni-backlog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rozšíření / Backlog
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1431,81 +1528,174 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ucel" class="md-nav__link">
+  <a href="#cile" class="md-nav__link">
     <span class="md-ellipsis">
-      Účel
+      Cíle
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#komponenty" class="md-nav__link">
+  <a href="#zdroje-dat" class="md-nav__link">
     <span class="md-ellipsis">
-      Komponenty
+      Zdroje dat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#datove-entity" class="md-nav__link">
+  <a href="#datovy-model-navrh" class="md-nav__link">
     <span class="md-ellipsis">
-      Datové entity
+      Datový model (návrh)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flow" class="md-nav__link">
+  <a href="#importni-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      Flow
+      Importní pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importní pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-full-import-daily" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Full Import (Daily)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-availability-delta-every-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Availability Delta (Every 15 min)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canonicalizace-dat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonicalizace dat
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#konfigurace-env" class="md-nav__link">
+  <a href="#ui-stranka" class="md-nav__link">
     <span class="md-ellipsis">
-      Konfigurace / ENV
+      UI Stránka
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UI Stránka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ui-a-sablona-adminto" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI a šablona (Adminto)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observabilita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring / Observabilita
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#failure-modes" class="md-nav__link">
+  <a href="#napojeni-na-existujici-ops-modul" class="md-nav__link">
     <span class="md-ellipsis">
-      Failure Modes
+      Napojení na existující Ops modul
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#alerting-monitoring" class="md-nav__link">
+  <a href="#permission-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Alerting / Monitoring
+      Permission Model
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#zavislosti" class="md-nav__link">
+  <a href="#scheduler-plan-navrh" class="md-nav__link">
     <span class="md-ellipsis">
-      Závislosti
+      Scheduler Plán (návrh)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#rozsireni-backlog" class="md-nav__link">
+  <a href="#technicka-implementace-etapy" class="md-nav__link">
     <span class="md-ellipsis">
-      Rozšíření / Backlog
+      Technická implementace (etapy)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budouci-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Budoucí rozšíření
     </span>
   </a>
   
@@ -1526,24 +1716,300 @@
                   
 
 
-<h1 id="_1"><Název Modulu><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Status: draft
-Odpovědnost: <role></p>
-<h2 id="ucel">Účel<a class="headerlink" href="#ucel" title="Permanent link">&para;</a></h2>
-<h2 id="komponenty">Komponenty<a class="headerlink" href="#komponenty" title="Permanent link">&para;</a></h2>
-<h2 id="datove-entity">Datové entity<a class="headerlink" href="#datove-entity" title="Permanent link">&para;</a></h2>
-<h2 id="flow">Flow<a class="headerlink" href="#flow" title="Permanent link">&para;</a></h2>
-<h2 id="konfigurace-env">Konfigurace / ENV<a class="headerlink" href="#konfigurace-env" title="Permanent link">&para;</a></h2>
-<h2 id="failure-modes">Failure Modes<a class="headerlink" href="#failure-modes" title="Permanent link">&para;</a></h2>
-<h2 id="alerting-monitoring">Alerting / Monitoring<a class="headerlink" href="#alerting-monitoring" title="Permanent link">&para;</a></h2>
-<h2 id="zavislosti">Závislosti<a class="headerlink" href="#zavislosti" title="Permanent link">&para;</a></h2>
-<h2 id="rozsireni-backlog">Rozšíření / Backlog<a class="headerlink" href="#rozsireni-backlog" title="Permanent link">&para;</a></h2>
+<h1 id="produkty-navrh">Produkty (Návrh)<a class="headerlink" href="#produkty-navrh" title="Permanent link">&para;</a></h1>
+<p>Tato sekce popisuje plán zavedení produktového modulu do CRM včetně:
+- Datového modelu
+- Importu ze zdrojových feedů Heureka (zboží + dostupnosti)
+- Synchronizační strategie (delta aktualizace)
+- UI stránky pro správu / náhled produktů
+- Monitoring a chybové zachycení</p>
+<h2 id="cile">Cíle<a class="headerlink" href="#cile" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Centralizovat produktová data (název, EAN, kategorie, ceny, dostupnost, URL, popis, výrobce) uvnitř CRM.</li>
+<li>Umožnit obchodnímu týmu rychlý přehled a filtrování.</li>
+<li>Průběžně aktualizovat dostupnost a ceny bez plného reimportu.</li>
+<li>Logovat změny (audit) pro analýzu vývoje cen a dostupností.</li>
+</ul>
+<h2 id="zdroje-dat">Zdroje dat<a class="headerlink" href="#zdroje-dat" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Feed</th>
+<th>URL</th>
+<th>Popis</th>
+<th>Formát</th>
+<th>Frekvence načtení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heureka zboží</td>
+<td>https://www.esl.cz/feed/heureka?token=5f0dac7b23e1d</td>
+<td>Kompletní katalog produktů (záznamy)</td>
+<td>XML</td>
+<td>1× denně full refresh</td>
+</tr>
+<tr>
+<td>Heureka dostupnosti</td>
+<td>https://www.esl.cz/feed/heureka-stocks?token=5f0dac7b23e1d</td>
+<td>Průběžné změny dostupnosti / skladů</td>
+<td>XML</td>
+<td>každých 15 min (delta)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datovy-model-navrh">Datový model (návrh)<a class="headerlink" href="#datovy-model-navrh" title="Permanent link">&para;</a></h2>
+<p>Hlavní tabulka: <code>products</code></p>
+<table>
+<thead>
+<tr>
+<th>Sloupec</th>
+<th>Typ</th>
+<th>Poznámka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>BIGINT PK</td>
+<td>interní ID</td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>VARCHAR(100) index</td>
+<td>ID z feedu (např. ITEM_ID)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>VARCHAR(255)</td>
+<td>Název</td>
+</tr>
+<tr>
+<td>description</td>
+<td>LONGTEXT nullable</td>
+<td>Popis (HTML / text)</td>
+</tr>
+<tr>
+<td>ean</td>
+<td>VARCHAR(50) index nullable</td>
+<td>EAN kód</td>
+</tr>
+<tr>
+<td>manufacturer</td>
+<td>VARCHAR(120) nullable</td>
+<td>Výrobce</td>
+</tr>
+<tr>
+<td>category_path</td>
+<td>VARCHAR(255)</td>
+<td>Kategoriální hierarchie (sloučený string)</td>
+</tr>
+<tr>
+<td>url</td>
+<td>VARCHAR(500)</td>
+<td>Produktová URL (eshop)</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>VARCHAR(500) nullable</td>
+<td>Hlavní obrázek</td>
+</tr>
+<tr>
+<td>price_vat</td>
+<td>DECIMAL(10,2)</td>
+<td>Aktuální cena s DPH</td>
+</tr>
+<tr>
+<td>price_original_vat</td>
+<td>DECIMAL(10,2) nullable</td>
+<td>Původní / doporučená cena</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>CHAR(3) default 'CZK'</td>
+<td>Měna</td>
+</tr>
+<tr>
+<td>availability_code</td>
+<td>VARCHAR(50)</td>
+<td>Kód dostupnosti (např. skladem)</td>
+</tr>
+<tr>
+<td>availability_text</td>
+<td>VARCHAR(120)</td>
+<td>Překlad / text dostupnosti</td>
+</tr>
+<tr>
+<td>stock_quantity</td>
+<td>INT nullable</td>
+<td>Počet kusů (pokud feed poskytuje)</td>
+</tr>
+<tr>
+<td>delivery_date</td>
+<td>VARCHAR(50) nullable</td>
+<td>Termín dodání (pokud feed poskytuje)</td>
+</tr>
+<tr>
+<td>hash_payload</td>
+<td>CHAR(40)</td>
+<td>SHA1 canonical payload (detekce změn full feed)</td>
+</tr>
+<tr>
+<td>last_synced_at</td>
+<td>TIMESTAMP</td>
+<td>Poslední úspěšná synchronizace z full feedu</td>
+</tr>
+<tr>
+<td>availability_synced_at</td>
+<td>TIMESTAMP nullable</td>
+<td>Poslední delta dostupnosti</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TIMESTAMP</td>
+<td></td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>TIMESTAMP</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Audit / změny: <code>product_price_changes</code>, <code>product_availability_changes</code> (pouze změny).</p>
+<h2 id="importni-pipeline">Importní pipeline<a class="headerlink" href="#importni-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="1-full-import-daily">1. Full Import (Daily)<a class="headerlink" href="#1-full-import-daily" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Scheduler job <code>products:import-full</code> (1× denně, např. 04:10).</li>
+<li>Stáhne celý Heureka feed (zboží XML) do dočasného souboru.</li>
+<li>Stream / SAX parsování (nižší paměťový footprint) -&gt; canonical array -&gt; SHA1 JSON -&gt; hash.</li>
+<li>Detekce nových / změněných produktů porovnáním <code>hash_payload</code>.</li>
+<li>Upsert změněné záznamy v transakcích (chunky 500–1000).</li>
+<li>Log: počet nových, změněných, nezměněných, chybné položky.</li>
+</ul>
+<h3 id="2-availability-delta-every-15-min">2. Availability Delta (Every 15 min)<a class="headerlink" href="#2-availability-delta-every-15-min" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Scheduler job <code>products:sync-availability</code>.</li>
+<li>Načte dostupnost feed (menší XML) – iterace položek -&gt; match by <code>external_id</code>.</li>
+<li>Pokud změna v <code>availability_code</code> nebo <code>stock_quantity</code> → uložit a insert do audit tabulky.</li>
+<li><code>availability_synced_at</code> update pro produkt.</li>
+</ul>
+<h3 id="3-error-handling">3. Error Handling<a class="headerlink" href="#3-error-handling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Síť / HTTP chyba → retry (exponenciální backoff max 3x) -&gt; pokud fail, uložit záznam do <code>ops_events</code> pro monitoring.</li>
+<li>XML parsing error → přeskočit položku + log detailu (limit 20 položek na jeden běh).</li>
+</ul>
+<h2 id="canonicalizace-dat">Canonicalizace dat<a class="headerlink" href="#canonicalizace-dat" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Trim whitespace, unifikace měny na CZK.</li>
+<li>Ceny parse jako float → DECIMAL.</li>
+<li>Kategorie join path <code>&gt;</code> (např. "Elektronika &gt; Audio &gt; Sluchátka").</li>
+<li>Hash: SHA1 JSON seřazených klíčů (stabilní pořadí pro opakovatelnost).</li>
+</ul>
+<h2 id="ui-stranka">UI Stránka<a class="headerlink" href="#ui-stranka" title="Permanent link">&para;</a></h2>
+<p>Route: <code>GET /crm/products</code></p>
+<p>Základní seznam:
+- Sloupce: Název, Cena (aktuální vs původní), Dostupnost (barevný badge), Výrobce, Kategorie (první 2 úrovně), Posl. sync ikonky.
+- Filtrování: kategorie (prefix match), dostupnost, výrobce, cenové rozpětí, fulltext název/EAN.
+- Akce (MVP): refresh availability (async trigger), detail produktu.</p>
+<p>Detail produktu:
+- Základní info + historie změn (posledních X cen a dostupností timeline).</p>
+<h3 id="ui-a-sablona-adminto">UI a šablona (Adminto)<a class="headerlink" href="#ui-a-sablona-adminto" title="Permanent link">&para;</a></h3>
+<p>Použije se existující Adminto layout (<code>@extends('layouts.base')</code>).</p>
+<p>Seznam (index) – komponenty:
+- Breadcrumb: "CRM / Produkty".
+- Header toolbar: tlačítko "Ruční sync dostupnosti" (pokud <code>products.sync</code>), export CSV (etapa později), badge s počtem produktů.
+- Filtrační panel (collapsible card) se základními poli (text search, kategorie select (lazy), výrobce select, dostupnost multi-select, cenové min/max).
+- Tabulka: čistá Bootstrap table + sticky header (CSS), stránkování dole (Laravel paginator). Každý řádek kliknutelný (JS) -&gt; detail.
+- Dostupnost: barevné badge mapované dle kódu (např. zelená = skladem, oranžová = do 3 dnů, šedá = neznámé) – konzistentní s definicí v mapovací funkci.
+- Poslední sync: dvě ikonky (full import vs availability) s tooltipem (<code>data-bs-toggle="tooltip"</code>).</p>
+<p>Detail:
+- Breadcrumb: "CRM / Produkty / {Název}".
+- Levý sloupec (col-lg-8): základní karta (název, výrobce, kategorie path jako small text, cena + původní cena přeškrtnutá pokud existuje), dostupnost badge, primary akce (aktualizovat dostupnost jedné položky – async).
+- Pravý sloupec (col-lg-4): obrázek (lazy), metadata (EAN, external_id, URL link target _blank), poslední sync timestamps.
+- Tabs: "Historie cen", "Historie dostupnosti" – timeline komponenta (vertical list) s datem + změna stará → nová (šipka). Paginace / infinite scroll (limit 50 záznamů na načtení).</p>
+<p>Interakce / JS:
+- Minimální JS (Bootstrap tooltips + jednoduchý row click) – žádná heavy SPA knihovna.
+- Filtrovací formulář submit přes GET (SEO / shareable URL), persistent parametry.
+- Loading stav pro ruční sync (disable button + spinner) – využít existující spinner utility z Adminto (viz dokumentace <code>Adminto Šablona</code>).</p>
+<p>Přístupnost / uživatelská přívětivost:
+- Tab index zachován, filtry seskupeny přes <code>&lt;fieldset&gt;</code>.
+- Zajištěné kontrastní barvy pro badge (WCAG AA). </p>
+<p>Reference: viz <code>Adminto Šablona</code> dokument pro konvence komponent a utility třídy.</p>
+<h2 id="monitoring-observabilita">Monitoring / Observabilita<a class="headerlink" href="#monitoring-observabilita" title="Permanent link">&para;</a></h2>
+<p>Implementováno: zapisuje se do <code>ops_activities</code> (type <code>products.full_import</code>, <code>products.sync_availability</code>) – <code>meta</code> obsahuje metriky (new, updated, unchanged / updated, skipped, missing; duration_ms).
+Plán (budoucí): alerting (pokud full import &gt; 48h starý nebo &gt;5 po sobě jdoucích delt bez změn / s chybou).</p>
+<h2 id="napojeni-na-existujici-ops-modul">Napojení na existující Ops modul<a class="headerlink" href="#napojeni-na-existujici-ops-modul" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ops dashboard zobrazí poslední full import + poslední availability sync.</li>
+<li>Akce: ruční vyvolání full importu / availability sync (throttle + autorizace <code>can:ops.execute</code>).</li>
+</ul>
+<h2 id="permission-model">Permission Model<a class="headerlink" href="#permission-model" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nová permission skupina <code>products.view</code>, <code>products.sync</code>.</li>
+<li>Default admin role → obojí povoleno.</li>
+</ul>
+<h2 id="scheduler-plan-navrh">Scheduler Plán (návrh)<a class="headerlink" href="#scheduler-plan-navrh" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Cron</th>
+<th>Popis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>products:import-full</td>
+<td>10 4 * * *</td>
+<td>Full feed (zboží)</td>
+</tr>
+<tr>
+<td>products:sync-availability</td>
+<td>*/15 * * * *</td>
+<td>Dostupnosti delta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technicka-implementace-etapy">Technická implementace (etapy)<a class="headerlink" href="#technicka-implementace-etapy" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Migrace DB tabulek (<code>products</code>, audit tabulky). – HOTOVO</li>
+<li>Parsovací služba + hash + full import command. – HOTOVO</li>
+<li>Availability sync command + audit. – HOTOVO (MVP)</li>
+<li>UI seznam + základní filtrování. – HOTOVO (rozšíření filtrů pending)</li>
+<li>Detail produktu + historie. – HOTOVO</li>
+<li>Integrace s Ops modulem (události, ruční spuštění). – HOTOVO (CLI; UI trigger pending)</li>
+<li>Permissions + cron zápis do schedule dokumentace. – HOTOVO</li>
+<li>Optimalizace (indexy: external_id, ean, category_path prefix, availability_code) – PENDING</li>
+</ol>
+<h2 id="edge-cases">Edge Cases<a class="headerlink" href="#edge-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Produkt odstraněn z feedu: (MVP) ignorovat, dlouhodobě přidat <code>is_active</code> flag při neexistenci v dalších 7 dnech.</li>
+<li>Extreme ceny (0 nebo &gt; přiměřený strop) – validovat a logovat.</li>
+<li>Duplicitní external_id → log + skip druhý výskyt.</li>
+</ul>
+<h2 id="bezpecnost">Bezpečnost<a class="headerlink" href="#bezpecnost" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Externí feed token je v URL – nepersistovat do DB (jen v env pokud bude potřeba). V logu maskovat.</li>
+<li>Ochrana proti DoS: limit velikosti staženého souboru (např. 50MB guard).</li>
+</ul>
+<h2 id="budouci-rozsireni">Budoucí rozšíření<a class="headerlink" href="#budouci-rozsireni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Napojení na pricing engine (marže, dynamika).</li>
+<li>Uložení více obrázků (nová tabulka <code>product_images</code>).</li>
+<li>Fulltext index (Meilisearch / Elastic) pro pokročilé vyhledávání.</li>
+</ul>
+<hr />
+<p>Stav: Základní implementace dokončena; následují optimalizace, UI akce a rozšíření filtrů.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

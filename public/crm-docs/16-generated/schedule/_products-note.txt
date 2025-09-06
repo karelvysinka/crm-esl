@@ -1,0 +1,1 @@
+Products module schedule added: daily full import at 04:10 and availability delta every 15 minutes.

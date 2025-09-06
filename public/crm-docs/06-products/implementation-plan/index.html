@@ -6,15 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Detailní kroky implementace produktového modulu a synchronizace Heureka feedů.">
       
       
-        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/16-generated/navigation/">
+      
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/06-products/implementation-plan/">
       
       
-        <link rel="prev" href="../env-matrix/">
+        <link rel="prev" href="../overview/">
       
       
-        <link rel="next" href="../db-schema/">
+        <link rel="next" href="../../16-generated/routes/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +24,7 @@
     
     
       
-        <title>Navigace (gen) - CRM Documentation</title>
+        <title>Produkty - Implementační plán - CRM Documentation</title>
       
     
     
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#navigace-generovano" class="md-skip">
+        <a href="#implementacni-plan-produktoveho-modulu" class="md-skip">
           Přeskočit obsah
         </a>
       
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Navigace (gen)
+              Produkty - Implementační plán
             
           </span>
         </div>
@@ -459,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../erd/" class="md-nav__link">
+      <a href="../../16-generated/erd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../model-fields/" class="md-nav__link">
+      <a href="../../16-generated/model-fields/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -664,17 +666,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked>
         
           
           <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
@@ -688,7 +692,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_14">
             <span class="md-nav__icon md-icon"></span>
             Produkty
@@ -702,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06-products/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -720,10 +724,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../06-products/implementation-plan/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Implementační plán
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -732,6 +756,248 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#legenda-stavu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Legenda stavů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-1-datovy-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 1: Datový Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-2-full-import-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 2: Full Import Pipeline
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-3-availability-delta-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 3: Availability Delta Sync
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-4-ui-seznam-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 4: UI - Seznam &amp; Detail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-5-integrace-ops-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 5: Integrace Ops &amp; Scheduler
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-6-logovani-a-observabilita" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 6: Logování a Observabilita
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faze-7-optimalizace-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fáze 7: Optimalizace &amp; Hardening
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datove-transformace-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datové transformace (detail)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudokod-full-importu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudokód full importu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pseudokod-availability-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pseudokód availability sync
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#akceptacni-kriteria-modulu-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Akceptační kritéria modulu (MVP)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bezpecnostni-opatreni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bezpečnostní opatření
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analyza-heureka-feedu-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analýza Heureka feedu (real data)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analýza Heureka feedu (real data)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prehled-tagu-frekvence-a-statistiky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Přehled tagů (frekvence a statistiky)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#revize-schematu-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revize schématu products
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-tabulky-upraveno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Audit tabulky (upraveno)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapovani-dostupnosti-pocatecni-navrh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mapování dostupnosti (počáteční návrh)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odlozene-prvky-mimo-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odložené prvky (mimo MVP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases-pokryti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge cases pokrytí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aktualizace-planovanych-kroku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aktualizace plánovaných kroků
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dalsi-akce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Další akce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -786,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../routes/" class="md-nav__link">
+      <a href="../../16-generated/routes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedule/" class="md-nav__link">
+      <a href="../../16-generated/schedule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jobs/" class="md-nav__link">
+      <a href="../../16-generated/jobs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -849,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../env-matrix/" class="md-nav__link">
+      <a href="../../16-generated/env-matrix/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -874,30 +1140,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Navigace (gen)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../16-generated/navigation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -906,197 +1152,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Obsah">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Obsah
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#dashboard" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dashboard
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#firmy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Firmy
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kontakty" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kontakty
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leady" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leady
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prilezitosti" class="md-nav__link">
-    <span class="md-ellipsis">
-      Příležitosti
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ukoly" class="md-nav__link">
-    <span class="md-ellipsis">
-      Úkoly
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#projekty" class="md-nav__link">
-    <span class="md-ellipsis">
-      Projekty
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#knowledge-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      Knowledge Base
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#marketing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Marketing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#chat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Chat
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system" class="md-nav__link">
-    <span class="md-ellipsis">
-      System
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deals" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deals
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#knowledge-docs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Knowledge docs
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leads-kanban" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leads kanban
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#opportunities-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Opportunities pipeline
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ops" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ops
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#orders" class="md-nav__link">
-    <span class="md-ellipsis">
-      Orders
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#products" class="md-nav__link">
-    <span class="md-ellipsis">
-      Products
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#search" class="md-nav__link">
-    <span class="md-ellipsis">
-      Search
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1108,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db-schema/" class="md-nav__link">
+      <a href="../../16-generated/db-schema/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1128,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permissions/" class="md-nav__link">
+      <a href="../../16-generated/permissions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1148,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup-report-latest/" class="md-nav__link">
+      <a href="../../16-generated/backup-report-latest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1521,173 +1576,224 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dashboard" class="md-nav__link">
+  <a href="#legenda-stavu" class="md-nav__link">
     <span class="md-ellipsis">
-      Dashboard
+      Legenda stavů
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#firmy" class="md-nav__link">
+  <a href="#faze-1-datovy-model" class="md-nav__link">
     <span class="md-ellipsis">
-      Firmy
+      Fáze 1: Datový Model
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kontakty" class="md-nav__link">
+  <a href="#faze-2-full-import-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
-      Kontakty
+      Fáze 2: Full Import Pipeline
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#leady" class="md-nav__link">
+  <a href="#faze-3-availability-delta-sync" class="md-nav__link">
     <span class="md-ellipsis">
-      Leady
+      Fáze 3: Availability Delta Sync
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prilezitosti" class="md-nav__link">
+  <a href="#faze-4-ui-seznam-detail" class="md-nav__link">
     <span class="md-ellipsis">
-      Příležitosti
+      Fáze 4: UI - Seznam &amp; Detail
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ukoly" class="md-nav__link">
+  <a href="#faze-5-integrace-ops-scheduler" class="md-nav__link">
     <span class="md-ellipsis">
-      Úkoly
+      Fáze 5: Integrace Ops &amp; Scheduler
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#projekty" class="md-nav__link">
+  <a href="#faze-6-logovani-a-observabilita" class="md-nav__link">
     <span class="md-ellipsis">
-      Projekty
+      Fáze 6: Logování a Observabilita
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#knowledge-base" class="md-nav__link">
+  <a href="#faze-7-optimalizace-hardening" class="md-nav__link">
     <span class="md-ellipsis">
-      Knowledge Base
+      Fáze 7: Optimalizace &amp; Hardening
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#marketing" class="md-nav__link">
+  <a href="#datove-transformace-detail" class="md-nav__link">
     <span class="md-ellipsis">
-      Marketing
+      Datové transformace (detail)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#chat" class="md-nav__link">
+  <a href="#pseudokod-full-importu" class="md-nav__link">
     <span class="md-ellipsis">
-      Chat
+      Pseudokód full importu
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#system" class="md-nav__link">
+  <a href="#pseudokod-availability-sync" class="md-nav__link">
     <span class="md-ellipsis">
-      System
+      Pseudokód availability sync
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deals" class="md-nav__link">
+  <a href="#akceptacni-kriteria-modulu-mvp" class="md-nav__link">
     <span class="md-ellipsis">
-      Deals
+      Akceptační kritéria modulu (MVP)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#knowledge-docs" class="md-nav__link">
+  <a href="#changelog" class="md-nav__link">
     <span class="md-ellipsis">
-      Knowledge docs
+      Changelog
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#leads-kanban" class="md-nav__link">
+  <a href="#bezpecnostni-opatreni" class="md-nav__link">
     <span class="md-ellipsis">
-      Leads kanban
+      Bezpečnostní opatření
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#opportunities-pipeline" class="md-nav__link">
+  <a href="#analyza-heureka-feedu-real-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Opportunities pipeline
+      Analýza Heureka feedu (real data)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analýza Heureka feedu (real data)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prehled-tagu-frekvence-a-statistiky" class="md-nav__link">
+    <span class="md-ellipsis">
+      Přehled tagů (frekvence a statistiky)
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ops" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#revize-schematu-products" class="md-nav__link">
     <span class="md-ellipsis">
-      Ops
+      Revize schématu products
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#orders" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#audit-tabulky-upraveno" class="md-nav__link">
     <span class="md-ellipsis">
-      Orders
+      Audit tabulky (upraveno)
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#products" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#transformace" class="md-nav__link">
     <span class="md-ellipsis">
-      Products
+      Transformace
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#search" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#mapovani-dostupnosti-pocatecni-navrh" class="md-nav__link">
     <span class="md-ellipsis">
-      Search
+      Mapování dostupnosti (počáteční návrh)
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odlozene-prvky-mimo-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odložené prvky (mimo MVP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases-pokryti" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edge cases pokrytí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aktualizace-planovanych-kroku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aktualizace plánovaných kroků
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dalsi-akce" class="md-nav__link">
+    <span class="md-ellipsis">
+      Další akce
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1706,678 +1812,480 @@
                   
 
 
-<h1 id="navigace-generovano">Navigace (generováno)<a class="headerlink" href="#navigace-generovano" title="Permanent link">&para;</a></h1>
-<p><em>Automatický přehled položek CRM menu (GET routy s prefixem <code>/crm</code>). Popisy lze doplnit v <code>docs/_meta/menu.php</code>.</em></p>
-<h2 id="dashboard">Dashboard<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h2>
-<p>Výchozí přehled (widgety, stav synchronizací, klíčové KPI).</p>
+<h1 id="implementacni-plan-produktoveho-modulu">Implementační Plán Produktového Modulu<a class="headerlink" href="#implementacni-plan-produktoveho-modulu" title="Permanent link">&para;</a></h1>
+<p>Tento dokument rozepisuje konkrétní úkoly, jejich pořadí, akceptační kritéria a technické detaily.</p>
+<h2 id="legenda-stavu">Legenda stavů<a class="headerlink" href="#legenda-stavu" title="Permanent link">&para;</a></h2>
+<ul>
+<li>TODO – neimplementováno</li>
+<li>IN PROGRESS – rozpracováno</li>
+<li>DONE – hotovo (merge v main + changelog)</li>
+</ul>
+<h2 id="faze-1-datovy-model">Fáze 1: Datový Model<a class="headerlink" href="#faze-1-datovy-model" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/</code></td>
-<td>crm.dashboard</td>
-<td>Hlavní přehled a rychlé akce.</td>
+<td>1.1</td>
+<td>Migrace tabulky <code>products</code></td>
+<td>migration + model</td>
+<td>Sloupce dle návrhu, indexy external_id, ean, category_path</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>Audit tab. <code>product_price_changes</code></td>
+<td>migration</td>
+<td>FK na product, old/new value, created_at</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>Audit tab. <code>product_availability_changes</code></td>
+<td>migration</td>
+<td>FK na product, old/new code, stock qty, created_at</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>Eloquent model <code>Product</code> + scopes</td>
+<td>Model</td>
+<td>Scopes: filterCategory, filterAvailability, filterManufacturer, search</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="firmy">Firmy<a class="headerlink" href="#firmy" title="Permanent link">&para;</a></h2>
-<p>Evidence firem (profil, revenue, průmysl) – vstup do detailu vztahů.</p>
+<h2 id="faze-2-full-import-pipeline">Fáze 2: Full Import Pipeline<a class="headerlink" href="#faze-2-full-import-pipeline" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/companies</code></td>
-<td>companies.index</td>
-<td><em>(popis chybí)</em></td>
+<td>2.1</td>
+<td>Parsovací služba (stream)</td>
+<td>Service class</td>
+<td>Umí iterovat položky bez načtení celého XML do paměti</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/companies/create</code></td>
-<td>companies.create</td>
-<td><em>(popis chybí)</em></td>
+<td>2.2</td>
+<td>Canonical builder + hash</td>
+<td>Service</td>
+<td>Stabilní SHA1 generace nad sorted keys</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/companies/{company}</code></td>
-<td>companies.show</td>
-<td><em>(popis chybí)</em></td>
+<td>2.3</td>
+<td>Command <code>products:import-full</code></td>
+<td>Artisan command</td>
+<td>Log summary (new/updated/unchanged/errors)</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/companies/{company}/edit</code></td>
-<td>companies.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>2.4</td>
+<td>Upsert logic (chunked)</td>
+<td>Service method</td>
+<td>Chunk &lt;=1000, transakce, minimalizace N+1</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>2.5</td>
+<td>Ops event log integration</td>
+<td>Event dispatch</td>
+<td>Záznam v ops_events s metrikami</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="kontakty">Kontakty<a class="headerlink" href="#kontakty" title="Permanent link">&para;</a></h2>
-<p>Evidence osob navázaných na firmy, segmentace a marketing status.</p>
+<h2 id="faze-3-availability-delta-sync">Fáze 3: Availability Delta Sync<a class="headerlink" href="#faze-3-availability-delta-sync" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/contacts</code></td>
-<td>contacts.index</td>
-<td><em>(popis chybí)</em></td>
+<td>3.1</td>
+<td>Parsování availability feedu</td>
+<td>Service</td>
+<td>Map external_id → changes</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/contacts/create</code></td>
-<td>contacts.create</td>
-<td><em>(popis chybí)</em></td>
+<td>3.2</td>
+<td>Command <code>products:sync-availability</code></td>
+<td>Command</td>
+<td>Statistiky: changed count, skipped, errors</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/contacts/{contact}</code></td>
-<td>contacts.show</td>
-<td><em>(popis chybí)</em></td>
+<td>3.3</td>
+<td>Audit zápis availability změn</td>
+<td>Insert logic</td>
+<td>Správně uchovává historii</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/contacts/{contact}/edit</code></td>
-<td>contacts.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>3.4</td>
+<td>Ops event log integration</td>
+<td>Event</td>
+<td>Událost products.availability_sync</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="leady">Leady<a class="headerlink" href="#leady" title="Permanent link">&para;</a></h2>
-<p>Potenciální příležitosti před kvalifikací (kanban/pipeline varianty).</p>
+<h2 id="faze-4-ui-seznam-detail">Fáze 4: UI - Seznam &amp; Detail<a class="headerlink" href="#faze-4-ui-seznam-detail" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/leads</code></td>
-<td>leads.index</td>
-<td><em>(popis chybí)</em></td>
+<td>4.1</td>
+<td>Route + Controller index</td>
+<td>Controller + route</td>
+<td>Autorizace products.view</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/leads/create</code></td>
-<td>leads.create</td>
-<td><em>(popis chybí)</em></td>
+<td>4.2</td>
+<td>Blade seznam (Adminto)</td>
+<td>View</td>
+<td>Breadcrumb, collapsible filtry, clickable rows, tooltips sync info</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/leads/{lead}</code></td>
-<td>leads.show</td>
-<td><em>(popis chybí)</em></td>
+<td>4.3</td>
+<td>Detailová stránka (Adminto)</td>
+<td>View + controller show</td>
+<td>Tabs historie (cena/dostupnost), lazy obrázek, badges</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/leads/{lead}/edit</code></td>
-<td>leads.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>4.4</td>
+<td>Filtrovací logika (scopes)</td>
+<td>Implementace</td>
+<td>Kombinace filtrů bez výrazného zpomalení</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>4.5</td>
+<td>Permission seeding</td>
+<td>Seeder update</td>
+<td>Admin role má products.view + products.sync</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>4.6</td>
+<td>UX polish &amp; a11y</td>
+<td>Review checklist</td>
+<td>Tooltips aktivní, klávesová navigace, kontrast badges</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="prilezitosti">Příležitosti<a class="headerlink" href="#prilezitosti" title="Permanent link">&para;</a></h2>
-<p>Obchodní příležitosti s fázemi, pravděpodobností a predikcí closingu.</p>
+<h2 id="faze-5-integrace-ops-scheduler">Fáze 5: Integrace Ops &amp; Scheduler<a class="headerlink" href="#faze-5-integrace-ops-scheduler" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/opportunities</code></td>
-<td>opportunities.index</td>
-<td><em>(popis chybí)</em></td>
+<td>5.1</td>
+<td>Naplánování cronů</td>
+<td>Kernel schedule</td>
+<td>Cron zápisy viditelné v generovaném schedule.md</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/opportunities/create</code></td>
-<td>opportunities.create</td>
-<td><em>(popis chybí)</em></td>
+<td>5.2</td>
+<td>Ops dashboard widget</td>
+<td>Blade partial</td>
+<td>Zobrazuje poslední full import &amp; availability sync</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/opportunities/{opportunity}</code></td>
-<td>opportunities.show</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/opportunities/{opportunity}/edit</code></td>
-<td>opportunities.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>5.3</td>
+<td>Ruční spuštění akcí</td>
+<td>Ops controller endpoint</td>
+<td>Throttle + autorizace products.sync</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="ukoly">Úkoly<a class="headerlink" href="#ukoly" title="Permanent link">&para;</a></h2>
-<p>Operativní práce navázaná na entity (polymorfní taskable).</p>
+<h2 id="faze-6-logovani-a-observabilita">Fáze 6: Logování a Observabilita<a class="headerlink" href="#faze-6-logovani-a-observabilita" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/tasks</code></td>
-<td>tasks.index</td>
-<td><em>(popis chybí)</em></td>
+<td>6.1</td>
+<td>Chybové retry wrapper</td>
+<td>Trait / helper</td>
+<td>Exponenciální backoff (max 3)</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/tasks/create</code></td>
-<td>tasks.create</td>
-<td><em>(popis chybí)</em></td>
+<td>6.2</td>
+<td>Maskování feed URL tokenu</td>
+<td>Logger config</td>
+<td>Token se v logu nikdy neobjeví v plné podobě</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/tasks/{task}</code></td>
-<td>tasks.show</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/tasks/{task}/edit</code></td>
-<td>tasks.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>6.3</td>
+<td>Alert podmínky (budoucí)</td>
+<td>Spec</td>
+<td>Definice pravidel (doc)</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="projekty">Projekty<a class="headerlink" href="#projekty" title="Permanent link">&para;</a></h2>
-<p>Dlouhodobější iniciativy agregující úkoly a obchodní kontext.</p>
+<h2 id="faze-7-optimalizace-hardening">Fáze 7: Optimalizace &amp; Hardening<a class="headerlink" href="#faze-7-optimalizace-hardening" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Cesta</th>
-<th>Route name</th>
+<th>Krok</th>
 <th>Popis</th>
+<th>Výstup</th>
+<th>Kritéria</th>
+<th>Stav</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>/projects</code></td>
-<td>projects.index</td>
-<td><em>(popis chybí)</em></td>
+<td>7.1</td>
+<td>Indexy a EXPLAIN ověření</td>
+<td>SQL / dokument</td>
+<td>EXPLAIN u filtrů &lt; 50 ms při 100k řádcích (cíleně)</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/projects/create</code></td>
-<td>projects.create</td>
-<td><em>(popis chybí)</em></td>
+<td>7.2</td>
+<td>Memory footprint test</td>
+<td>Report</td>
+<td>Full import &lt; 512MB peak</td>
+<td>TODO</td>
 </tr>
 <tr>
-<td><code>/projects/{project}</code></td>
-<td>projects.show</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/projects/{project}/edit</code></td>
-<td>projects.edit</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="knowledge-base">Knowledge Base<a class="headerlink" href="#knowledge-base" title="Permanent link">&para;</a></h2>
-<p>Znalostní báze (dokumenty, chunking, vektorové vyhledávání).</p>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/knowledge</code></td>
-<td>knowledge.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/knowledge/create</code></td>
-<td>knowledge.create</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/knowledge/search/ajax</code></td>
-<td>knowledge.search</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/knowledge/{knowledge}/edit</code></td>
-<td>knowledge.edit</td>
-<td><em>(popis chybí)</em></td>
+<td>7.3</td>
+<td>Rate limiting ručních synců</td>
+<td>Middleware</td>
+<td>Zabránění zneužití (např. 5/min)</td>
+<td>TODO</td>
 </tr>
 </tbody>
 </table>
-<h2 id="marketing">Marketing<a class="headerlink" href="#marketing" title="Permanent link">&para;</a></h2>
-<p>Strategie, exekuce, analytika, nastavení marketingu.</p>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/marketing</code></td>
-<td>marketing.dashboard</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/analytika/ab-testovani</code></td>
-<td>marketing.analytics.ab</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/analytika/ai-sentiment</code></td>
-<td>marketing.analytics.sentiment</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/analytika/atribuce</code></td>
-<td>marketing.analytics.attribution</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/analytika/cross-channel</code></td>
-<td>marketing.analytics.cross</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/analytika/seo</code></td>
-<td>marketing.analytics.seo</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/cileni/databaze-kontaktu</code></td>
-<td>marketing.target.contacts</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/cileni/lead-nurturing</code></td>
-<td>marketing.target.nurturing</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/cileni/segmentace</code></td>
-<td>marketing.target.segments</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/automatizace</code></td>
-<td>marketing.exec.automation</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/email-marketing</code></td>
-<td>marketing.exec.email</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/influenceri-partneri</code></td>
-<td>marketing.exec.influencers</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/kampane</code></td>
-<td>marketing.exec.campaigns</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/knihovna-obsahu</code></td>
-<td>marketing.exec.content</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/landing-pages</code></td>
-<td>marketing.exec.landing</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/exekuce/reklamy</code></td>
-<td>marketing.exec.ads</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/nastaveni/ai-sablony</code></td>
-<td>marketing.settings.ai</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/nastaveni/importy</code></td>
-<td>settings.imports</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/nastaveni/integrace-api</code></td>
-<td>marketing.settings.integrations</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/nastaveni/lead-scoring</code></td>
-<td>marketing.settings.scoring</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/nastaveni/role-prava</code></td>
-<td>marketing.settings.roles</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/strategie/budget</code></td>
-<td>marketing.strategy.budget</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/strategie/kalendar</code></td>
-<td>marketing.strategy.calendar</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/strategie/persony</code></td>
-<td>marketing.strategy.personas</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/strategie/swot</code></td>
-<td>marketing.strategy.swot</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/marketing/strategie/trendy-ai</code></td>
-<td>marketing.strategy.trends</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="chat">Chat<a class="headerlink" href="#chat" title="Permanent link">&para;</a></h2>
-<p>Konverzační AI / uživatelské relace.</p>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/chat</code></td>
-<td>crm.chat</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/chat/sessions</code></td>
-<td></td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/chat/sessions/{id}/messages</code></td>
-<td></td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/chat/stream</code></td>
-<td></td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h2>
-<p>Admin konfigurace (ActiveCampaign, Backup, Qdrant, Tools, Chat, integrace).</p>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/system/activecampaign</code></td>
-<td>system.ac.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/activecampaign/runs</code></td>
-<td>system.ac.runs</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/apps</code></td>
-<td>system.apps.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/backup</code></td>
-<td>system.backup.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/backup/download/{path}</code></td>
-<td>system.backup.download</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/chat</code></td>
-<td>system.chat.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/chat/diagnostics</code></td>
-<td>system.chat.diagnostics</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/chat/lookup</code></td>
-<td>system.chat.lookup</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/qdrant</code></td>
-<td>system.qdrant.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/system/tools</code></td>
-<td>system.tools.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="deals">Deals<a class="headerlink" href="#deals" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/deals</code></td>
-<td>deals.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/deals/create</code></td>
-<td>deals.create</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/deals/{deal}</code></td>
-<td>deals.show</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/deals/{deal}/edit</code></td>
-<td>deals.edit</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="knowledge-docs">Knowledge docs<a class="headerlink" href="#knowledge-docs" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/knowledge-docs</code></td>
-<td>knowledge.docs.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/knowledge-docs/create</code></td>
-<td>knowledge.docs.create</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="leads-kanban">Leads kanban<a class="headerlink" href="#leads-kanban" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/leads-kanban</code></td>
-<td>leads.kanban</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="opportunities-pipeline">Opportunities pipeline<a class="headerlink" href="#opportunities-pipeline" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/opportunities-pipeline</code></td>
-<td>opportunities.pipeline</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="ops">Ops<a class="headerlink" href="#ops" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/ops</code></td>
-<td>ops.dashboard</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/ops/history</code></td>
-<td>ops.history.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/ops/metrics</code></td>
-<td>ops.metrics</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="orders">Orders<a class="headerlink" href="#orders" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/orders/{order}/items</code></td>
-<td></td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="products">Products<a class="headerlink" href="#products" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/products</code></td>
-<td>products.index</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/products/{product}</code></td>
-<td>products.show</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="search">Search<a class="headerlink" href="#search" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Cesta</th>
-<th>Route name</th>
-<th>Popis</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/search/customers</code></td>
-<td>search.customers</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-<tr>
-<td><code>/search/taskables</code></td>
-<td>search.taskables</td>
-<td><em>(popis chybí)</em></td>
-</tr>
-</tbody>
-</table>
+<h2 id="datove-transformace-detail">Datové transformace (detail)<a class="headerlink" href="#datove-transformace-detail" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="x">canonical = [</span>
+<span class="x">  &#39;external_id&#39; =&gt; (string)$xml-&gt;ITEM_ID,</span>
+<span class="x">  &#39;name&#39; =&gt; trim((string)$xml-&gt;PRODUCTNAME),</span>
+<span class="x">  &#39;description&#39; =&gt; sanitizeHtml((string)$xml-&gt;DESCRIPTION),</span>
+<span class="x">  &#39;ean&#39; =&gt; (string)$xml-&gt;EAN ?: null,</span>
+<span class="x">  &#39;manufacturer&#39; =&gt; (string)$xml-&gt;MANUFACTURER ?: null,</span>
+<span class="x">  &#39;category_path&#39; =&gt; buildCategoryPath($xml),</span>
+<span class="x">  &#39;url&#39; =&gt; (string)$xml-&gt;URL,</span>
+<span class="x">  &#39;image_url&#39; =&gt; (string)$xml-&gt;IMGURL ?: null,</span>
+<span class="x">  &#39;price_vat&#39; =&gt; (float)$xml-&gt;PRICE_VAT,</span>
+<span class="x">  &#39;price_original_vat&#39; =&gt; (float)$xml-&gt;ITEM_TYPE == &#39;action&#39; ? (float)$xml-&gt;ORIGINAL_PRICE_VAT : null,</span>
+<span class="x">  &#39;currency&#39; =&gt; &#39;CZK&#39;,</span>
+<span class="x">  &#39;availability_code&#39; =&gt; (string)$xml-&gt;DELIVERY_DATE,</span>
+<span class="x">  &#39;availability_text&#39; =&gt; mapAvailability((string)$xml-&gt;DELIVERY_DATE),</span>
+<span class="x">  &#39;stock_quantity&#39; =&gt; null, // z availability feedu později</span>
+<span class="x">  &#39;delivery_date&#39; =&gt; (string)$xml-&gt;DELIVERY_DATE ?: null,</span>
+<span class="x">];</span>
+</code></pre></div>
+<p>Hash generace:
+<div class="highlight"><pre><span></span><code><span class="x">$ordered = collect($canonical)-&gt;sortKeys()-&gt;all();</span>
+<span class="x">$hash = sha1(json_encode($ordered, JSON_UNESCAPED_UNICODE));</span>
+</code></pre></div></p>
+<h2 id="pseudokod-full-importu">Pseudokód full importu<a class="headerlink" href="#pseudokod-full-importu" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="x">foreach (streamHeurekaProducts($xmlFile) as $item) {</span>
+<span class="x">  $canonical = buildCanonical($item);</span>
+<span class="x">  $hash = canonicalHash($canonical);</span>
+<span class="x">  $existing = $repo-&gt;findByExternalId($canonical[&#39;external_id&#39;]);</span>
+<span class="x">  if (!$existing) { $toInsert[] = [...$canonical, &#39;hash_payload&#39;=&gt;$hash]; continue; }</span>
+<span class="x">  if ($existing-&gt;hash_payload !== $hash) {</span>
+<span class="x">     $changes = diffPrice($existing, $canonical); // pokud cena jiná -&gt; audit price change</span>
+<span class="x">     $toUpdate[] = [...$canonical, &#39;id&#39;=&gt;$existing-&gt;id, &#39;hash_payload&#39;=&gt;$hash];</span>
+<span class="x">  }</span>
+<span class="x">  if (count($toInsert)+count($toUpdate) &gt;= 1000) { flushUpserts(); }</span>
+<span class="x">}</span>
+<span class="x">flushUpserts();</span>
+</code></pre></div>
+<h2 id="pseudokod-availability-sync">Pseudokód availability sync<a class="headerlink" href="#pseudokod-availability-sync" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="x">foreach (streamHeurekaAvailability($xmlFile) as $item) {</span>
+<span class="x">  $externalId = (string)$item-&gt;ITEM_ID;</span>
+<span class="x">  $newCode = (string)$item-&gt;DELIVERY_DATE;</span>
+<span class="x">  $newQty = parseQty($item);</span>
+<span class="x">  $p = $repo-&gt;findByExternalId($externalId);</span>
+<span class="x">  if (!$p) continue;</span>
+<span class="x">  if ($p-&gt;availability_code !== $newCode || $p-&gt;stock_quantity !== $newQty) {</span>
+<span class="x">     auditAvailability($p, $newCode, $newQty);</span>
+<span class="x">     $p-&gt;availability_code = $newCode;</span>
+<span class="x">     $p-&gt;availability_text = mapAvailability($newCode);</span>
+<span class="x">     $p-&gt;stock_quantity = $newQty;</span>
+<span class="x">     $p-&gt;availability_synced_at = now();</span>
+<span class="x">     $p-&gt;save();</span>
+<span class="x">  }</span>
+<span class="x">}</span>
+</code></pre></div>
+<h2 id="akceptacni-kriteria-modulu-mvp">Akceptační kritéria modulu (MVP)<a class="headerlink" href="#akceptacni-kriteria-modulu-mvp" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Full import dokončí &lt; 30 min pro feed do 100k položek.</li>
+<li>Delta sync &lt; 2 min.</li>
+<li>UI načte seznam &lt; 2 s při 50k položkách (paginace + indexy).</li>
+<li>Audit tabulky neobsahují duplikáty stejných změn back-to-back.</li>
+<li>UX: Filtry reagují &lt; 500 ms, historie načtena bez refresh (XHR) do tabů.</li>
+</ul>
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<p>Po dokončení každé fáze přidat položku (<code>ADDED</code>).</p>
+<h2 id="bezpecnostni-opatreni">Bezpečnostní opatření<a class="headerlink" href="#bezpecnostni-opatreni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Rate limit ruční sync akce.</li>
+<li>Validace URL aby nešlo stáhnout jiný host.</li>
+<li>Ošetřit XML entity (libxml_disable_entity_loader / LIBXML_NOENT nepoužívat).</li>
+</ul>
+<hr />
+<p>Aktualizuj průběžně dle skutečné implementace.</p>
+<h2 id="analyza-heureka-feedu-real-data">Analýza Heureka feedu (real data)<a class="headerlink" href="#analyza-heureka-feedu-real-data" title="Permanent link">&para;</a></h2>
+<p>Zdroj: stažený soubor <code>docs/feeds/heureka.xml</code> (≈2.6 MB, 2332 položek).</p>
+<h3 id="prehled-tagu-frekvence-a-statistiky">Přehled tagů (frekvence a statistiky)<a class="headerlink" href="#prehled-tagu-frekvence-a-statistiky" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ITEMS (SHOPITEM)........ 2332
+ITEM_ID................. 2332 (numeric, max délka 6 -&gt; rezerva varchar(32))
+PRODUCTNAME............. 2332 (max 105 znaků)
+PRICE_VAT............... 2332 (0 – 318230; čárka jako desetinný oddělovač)
+DESCRIPTION............. 2332 (prázdné 545; max délka 2350 po normalizaci)
+IMGURL.................. 2325 (7 chybí) [.jpg 1280 | .gif 514 | .png 508 | .jpeg 23]
+MANUFACTURER............ 660 (nullable)
+CATEGORYTEXT............ 2332 (max 148 znaků)
+EAN..................... 1773 (délky: 5..15, převaha 9 -&gt; není čisté EAN13)
+ITEMGROUP_ID............ 1992 (unique groups 359; všechny multi; 340 bez skupiny)
+DELIVERY_DATE........... distribuce: 7=1624, 0=681, prázdné=26, 3=1
+DELIVERY_ID............. vždy TOPTRANS
+PARAM bloky............. 160 (jen 72 položek mají param → nízká adopce)
+</code></pre></div>
+<h3 id="revize-schematu-products">Revize schématu <code>products</code><a class="headerlink" href="#revize-schematu-products" title="Permanent link">&para;</a></h3>
+<p>Sloupce (srovnáno podle reálných dat):
+<div class="highlight"><pre><span></span><code>id BIGINT AI PK
+external_id VARCHAR(32) UNIQUE
+group_id VARCHAR(32) NULL INDEX
+name VARCHAR(150)
+description TEXT NULL
+price_vat_cents INT UNSIGNED
+currency CHAR(3) DEFAULT &#39;CZK&#39;
+manufacturer VARCHAR(80) NULL
+ean VARCHAR(20) NULL INDEX
+category_path VARCHAR(255)
+category_hash CHAR(40) INDEX
+url VARCHAR(255)
+image_url VARCHAR(255) NULL
+availability_code VARCHAR(8) INDEX
+availability_text VARCHAR(32)
+stock_quantity INT UNSIGNED NULL
+availability_synced_at TIMESTAMP NULL
+hash_payload CHAR(40)
+first_imported_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+last_synced_at TIMESTAMP NULL
+last_price_changed_at TIMESTAMP NULL
+last_availability_changed_at TIMESTAMP NULL
+created_at TIMESTAMP
+updated_at TIMESTAMP
+</code></pre></div></p>
+<h3 id="audit-tabulky-upraveno">Audit tabulky (upraveno)<a class="headerlink" href="#audit-tabulky-upraveno" title="Permanent link">&para;</a></h3>
+<p>product_price_changes(id, product_id FK, old_price_cents, new_price_cents, changed_at, INDEX(product_id, changed_at desc))</p>
+<p>product_availability_changes(id, product_id FK, old_code, new_code, old_stock_qty, new_stock_qty, changed_at, INDEX(product_id, changed_at desc))</p>
+<h3 id="transformace">Transformace<a class="headerlink" href="#transformace" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PRICE_VAT → replace "," -&gt; "." → float → cents (round) → int</li>
+<li>DESCRIPTION → trim, komprese whitespace, strip HTML tagů</li>
+<li>CATEGORYTEXT → split <code>|</code> → trim → join <code>&gt;</code>; hash = sha1(lower(join('|', normalSegments)))</li>
+<li>EAN → uložit raw (regex volně: <code>[0-9A-Za-z_-]{5,20}</code>), nevalidujeme EAN13</li>
+<li>ITEMGROUP_ID → uppercase, empty =&gt; NULL</li>
+<li>IMGURL → validace protokolu + přípona (.jpg/.jpeg/.png/.gif) jinak NULL</li>
+<li>DELIVERY_DATE → availability_code; mapování v configu</li>
+</ul>
+<h3 id="mapovani-dostupnosti-pocatecni-navrh">Mapování dostupnosti (počáteční návrh)<a class="headerlink" href="#mapovani-dostupnosti-pocatecni-navrh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>7 =&gt; Skladem
+0 =&gt; Na objednávku
+3 =&gt; Do 3 dnů
+&quot;&quot; =&gt; Neznámo
+default =&gt; Neznámo
+</code></pre></div>
+<h3 id="odlozene-prvky-mimo-mvp">Odložené prvky (mimo MVP)<a class="headerlink" href="#odlozene-prvky-mimo-mvp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PARAM atributy → budoucí tabulka product_attributes nebo JSON.</li>
+<li>DETAIL dopravy (ceny TOPTRANS) → nyní ignorováno.</li>
+</ul>
+<h3 id="edge-cases-pokryti">Edge cases pokrytí<a class="headerlink" href="#edge-cases-pokryti" title="Permanent link">&para;</a></h3>
+<ul>
+<li>7 chybějících IMGURL → povoleno (NULL)</li>
+<li>545 prázdných DESCRIPTION → povoleno</li>
+<li>Heterogenní EAN délky → no UNIQUE constraint</li>
+<li>Varianty (group_id) – index pro listingy</li>
+<li>Prázdné DELIVERY_DATE → map na Neznámo</li>
+</ul>
+<h3 id="aktualizace-planovanych-kroku">Aktualizace plánovaných kroků<a class="headerlink" href="#aktualizace-planovanych-kroku" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fáze 1.1 doplnit: category_hash, hash_payload, časové sloupce změn.</li>
+<li>Fáze 2 generuje category_hash + hash_payload + sleduje price delty.</li>
+<li>Fáze 3 jen availability_code / stock_quantity + audit availability.</li>
+</ul>
+<h3 id="dalsi-akce">Další akce<a class="headerlink" href="#dalsi-akce" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Připravit migration skeleton dle výše.</li>
+<li>Vytvořit config/products.php s availability map.</li>
+<li>Implementovat stream parser s převodem PRICE_VAT do cents.</li>
+<li>Přidat helper pro category_hash.</li>
+<li>Připravit unit testy (price parsing, category normalize, availability map).</li>
+</ol>
 
 
 
 
 
 
+
+  
+  
 
 
 

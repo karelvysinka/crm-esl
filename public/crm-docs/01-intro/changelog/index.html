@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
       
       
 
@@ -47,7 +47,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -85,12 +85,12 @@
     <a href="../.." title="CRM Documentation" class="md-header__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -110,38 +110,36 @@
     </div>
     
     
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Vyhledávání">
         
         <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Inicializace vyhledávání
@@ -152,7 +150,6 @@
     </div>
   </div>
 </div>
-      
     
     
   </nav>
@@ -183,7 +180,7 @@
     <a href="../.." title="CRM Documentation" class="md-nav__button md-logo" aria-label="CRM Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     CRM Documentation
@@ -201,10 +198,8 @@
       <a href="../.." class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Index
-    
   </span>
   
 
@@ -232,10 +227,8 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
-  
   <span class="md-ellipsis">
     Changelog
-    
   </span>
   
 
@@ -245,10 +238,8 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
-  
   <span class="md-ellipsis">
     Changelog
-    
   </span>
   
 
@@ -289,13 +280,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2025-09-04-v011-fixed" class="md-nav__link">
+  <a href="#2025-09-06-v017-changed-ui-security" class="md-nav__link">
     <span class="md-ellipsis">
-      [2025-09-04] v0.1.1 (FIXED)
+      [2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="[2025-09-04] v0.1.1 (FIXED)">
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -326,6 +317,246 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-06-v016-added-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-06] v0.1.6 (ADDED / CHANGED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.6 (ADDED / CHANGED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-06-v015-fixed-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-06] v0.1.5 (FIXED / DOCS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.5 (FIXED / DOCS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-05-v014-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-05] v0.1.4 (FIXED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-05] v0.1.4 (FIXED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v013-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.3 (DOCS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.3 (DOCS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#migrace-kroky" class="md-nav__link">
     <span class="md-ellipsis">
       Migrace / Kroky
@@ -335,7 +566,127 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#odkazy" class="md-nav__link">
+  <a href="#odkazy_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v012-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.2 (CHANGED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.2 (CHANGED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v011-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.1 (FIXED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.1 (FIXED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_6" class="md-nav__link">
     <span class="md-ellipsis">
       Odkazy
     </span>
@@ -371,10 +722,8 @@
       <a href="../how-it-works/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Jak CRM funguje
-    
   </span>
   
 
@@ -393,7 +742,6 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
@@ -404,10 +752,8 @@
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
-  
   <span class="md-ellipsis">
     Architektura
-    
   </span>
   
 
@@ -431,10 +777,8 @@
       <a href="../../02-architecture/overview/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Přehled
-    
   </span>
   
 
@@ -461,10 +805,28 @@
       <a href="../../02-architecture/infrastructure/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Infrastruktura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-architecture/adminto-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adminto Šablona
   </span>
   
 
@@ -483,10 +845,8 @@
       <a href="../../02-architecture/git-publishing/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Git Publikace
-    
   </span>
   
 
@@ -505,10 +865,8 @@
       <a href="../../02-architecture/testing-strategy/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Testovací Strategie
-    
   </span>
   
 
@@ -527,29 +885,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Doména
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Doména
           </label>
@@ -565,10 +920,8 @@
       <a href="../../03-domain/domain-model/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Model
-    
   </span>
   
 
@@ -595,10 +948,8 @@
       <a href="../../16-generated/erd/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     ERD (gen)
-    
   </span>
   
 
@@ -617,10 +968,8 @@
       <a href="../../16-generated/model-fields/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Model Fields (gen)
-    
   </span>
   
 
@@ -639,29 +988,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
         
           
-          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Moduly
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_11">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
             <span class="md-nav__icon md-icon"></span>
             Moduly
           </label>
@@ -677,10 +1023,8 @@
       <a href="../../04-modules/ops/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Ops
-    
   </span>
   
 
@@ -707,29 +1051,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
         
           
-          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Integrace
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_12">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
             <span class="md-nav__icon md-icon"></span>
             Integrace
           </label>
@@ -745,10 +1086,8 @@
       <a href="../../05-integrations/activecampaign/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     ActiveCampaign
-    
   </span>
   
 
@@ -768,10 +1107,8 @@
       <a href="../../05-integrations/qdrant/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Qdrant
-    
   </span>
   
 
@@ -791,10 +1128,8 @@
       <a href="../../05-integrations/embeddings-providers/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Embeddings
-    
   </span>
   
 
@@ -821,29 +1156,110 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
         
           
-          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
             
   
-  
   <span class="md-ellipsis">
-    Runtime
-    
+    Produkty
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_13">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Produkty
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-products/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Přehled
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-products/implementation-plan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Implementační plán
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Runtime
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
             <span class="md-nav__icon md-icon"></span>
             Runtime
           </label>
@@ -859,10 +1275,8 @@
       <a href="../../16-generated/routes/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Routy (gen)
-    
   </span>
   
 
@@ -882,10 +1296,8 @@
       <a href="../../16-generated/schedule/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Schedule (gen)
-    
   </span>
   
 
@@ -905,10 +1317,8 @@
       <a href="../../16-generated/jobs/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Job Katalog (gen)
-    
   </span>
   
 
@@ -928,10 +1338,8 @@
       <a href="../../16-generated/env-matrix/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     ENV Matrix (gen)
-    
   </span>
   
 
@@ -958,10 +1366,8 @@
       <a href="../../16-generated/navigation/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Navigace (gen)
-    
   </span>
   
 
@@ -980,10 +1386,8 @@
       <a href="../../16-generated/db-schema/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     DB Schema (gen)
-    
   </span>
   
 
@@ -1002,10 +1406,8 @@
       <a href="../../16-generated/permissions/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Permissions (gen)
-    
   </span>
   
 
@@ -1024,10 +1426,8 @@
       <a href="../../16-generated/backup-report-latest/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Backup Report (latest)
-    
   </span>
   
 
@@ -1046,29 +1446,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
         
           
-          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Runbook
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_18">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
             <span class="md-nav__icon md-icon"></span>
             Runbook
           </label>
@@ -1084,10 +1481,8 @@
       <a href="../../13-runbooks/ops-runbook/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Ops
-    
   </span>
   
 
@@ -1114,29 +1509,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
         
           
-          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     ADR
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_19">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
             <span class="md-nav__icon md-icon"></span>
             ADR
           </label>
@@ -1152,10 +1544,8 @@
       <a href="../../12-adr/ADR-20250904-mkdocs-adopce/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     MkDocs Adopce
-    
   </span>
   
 
@@ -1182,10 +1572,8 @@
       <a href="../../12-adr/ADR-20250904-ops-modul/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Ops Modul
-    
   </span>
   
 
@@ -1204,10 +1592,8 @@
       <a href="../../12-adr/ADR-20250904-knowledge-subsystem/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Knowledge Subsystem
-    
   </span>
   
 
@@ -1226,10 +1612,8 @@
       <a href="../../12-adr/ADR-20250904-permissions-model/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Permissions Model
-    
   </span>
   
 
@@ -1248,29 +1632,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_23" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_25" >
         
           
-          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_25" id="__nav_25_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Checklists
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_23">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_25">
             <span class="md-nav__icon md-icon"></span>
             Checklists
           </label>
@@ -1286,10 +1667,8 @@
       <a href="../../14-checklists/pr-checklist/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     PR Checklist
-    
   </span>
   
 
@@ -1316,29 +1695,26 @@
     
     
     
-    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_24" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_26" >
         
           
-          <label class="md-nav__link" for="__nav_24" id="__nav_24_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_26" id="__nav_26_label" tabindex="0">
             
-  
   
   <span class="md-ellipsis">
     Templates
-    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_24_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_24">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_26_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_26">
             <span class="md-nav__icon md-icon"></span>
             Templates
           </label>
@@ -1354,10 +1730,8 @@
       <a href="../../15-templates/adr-template/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     ADR Template
-    
   </span>
   
 
@@ -1377,10 +1751,8 @@
       <a href="../../15-templates/module/" class="md-nav__link">
         
   
-  
   <span class="md-ellipsis">
     Module Template
-    
   </span>
   
 
@@ -1443,13 +1815,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#2025-09-04-v011-fixed" class="md-nav__link">
+  <a href="#2025-09-06-v017-changed-ui-security" class="md-nav__link">
     <span class="md-ellipsis">
-      [2025-09-04] v0.1.1 (FIXED)
+      [2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="[2025-09-04] v0.1.1 (FIXED)">
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1480,6 +1852,246 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-06-v016-added-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-06] v0.1.6 (ADDED / CHANGED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.6 (ADDED / CHANGED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-06-v015-fixed-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-06] v0.1.5 (FIXED / DOCS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-06] v0.1.5 (FIXED / DOCS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-05-v014-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-05] v0.1.4 (FIXED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-05] v0.1.4 (FIXED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky-po-nasazeni_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky po nasazení
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v013-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.3 (DOCS)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.3 (DOCS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#migrace-kroky" class="md-nav__link">
     <span class="md-ellipsis">
       Migrace / Kroky
@@ -1489,7 +2101,127 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#odkazy" class="md-nav__link">
+  <a href="#odkazy_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v012-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.2 (CHANGED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.2 (CHANGED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odkazy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2025-09-04-v011-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-09-04] v0.1.1 (FIXED)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-09-04] v0.1.1 (FIXED)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shrnuti_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shrnutí
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detaily_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detaily
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dopady_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dopady
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrace-kroky_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrace / Kroky
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#odkazy_6" class="md-nav__link">
     <span class="md-ellipsis">
       Odkazy
     </span>
@@ -1522,7 +2254,6 @@
                   
 
 
-
 <h1 id="changelog-release-notes">Changelog &amp; Release Notes<a class="headerlink" href="#changelog-release-notes" title="Permanent link">&para;</a></h1>
 <p>Tento dokument udržuje auditní stopu významných změn aplikace. Každá položka musí být konzistentní s principy dokumentace (aktuálnost, jasná orientace, dopad na uživatele a provoz).</p>
 <h2 id="format-polozky">Formát položky<a class="headerlink" href="#format-polozky" title="Permanent link">&para;</a></h2>
@@ -1551,27 +2282,236 @@ Stručná věta co se změnilo / přibylo / opravilo.
 <p>Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orientaci.</p>
 <hr />
 <h2 id="posledni-zmeny">Poslední změny<a class="headerlink" href="#posledni-zmeny" title="Permanent link">&para;</a></h2>
-<h3 id="2025-09-04-v011-fixed">[2025-09-04] v0.1.1 (FIXED)<a class="headerlink" href="#2025-09-04-v011-fixed" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Planned: Produktový modul (synchronizace Heureka feedů) – bude verzováno jako <code>ADDED</code> po dokončení fáze 1 (datový model). Návrh a implementační plán viz sekce Produkty v dokumentaci.</p>
+</blockquote>
+<h3 id="2025-09-06-v017-changed-ui-security">[2025-09-06] v0.1.7 (CHANGED / UI / SECURITY)<a class="headerlink" href="#2025-09-06-v017-changed-ui-security" title="Permanent link">&para;</a></h3>
 <h4 id="shrnuti">Shrnutí<a class="headerlink" href="#shrnuti" title="Permanent link">&para;</a></h4>
-<p>Opraven 419 (Page Expired) při přihlášení – doplněna web middleware vrstva (session &amp; CSRF).</p>
+<p>Vylepšené UI produktů (table styl jako "Brands Listing" + výchozí zobrazení table) a úprava bezpečnostních hlaviček kvůli načítání externích obrázků.</p>
 <h4 id="detaily">Detaily<a class="headerlink" href="#detaily" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Přidán nový table layout pro <code>/crm/products?view=table</code> inspirovaný komponentou Brands Listing (avatar kruh, status tečka, dropdown akce, kompaktní footer).</li>
+<li>Výchozí mód přepínače grid/table změněn na <code>table</code> (lepší datová hustota pro 2000+ záznamů).</li>
+<li>Odstraněno duplicitní stránkování (ponecháno jen ve footeru karty v table módu).</li>
+<li>Grid mód zachován (karty) – beze změny logiky; pouze kosmetické drobnosti (hover, badge blur) již dříve.</li>
+<li>Dočasně uvolněna politika CORP/COEP (komentováno v <code>crm-headers.yml</code>) kvůli hot-link obrázkům z <code>www.esl.cz</code> (dodavatel nevrací potřebné hlavičky). Plán: později proxy/cache lokálně a obnovit striktní politiky.</li>
+<li>CSP již dříve rozšířeno o <code>img-src https:</code>; toto chování ponecháno.</li>
+</ul>
+<h4 id="dopady">Dopady<a class="headerlink" href="#dopady" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel: Přehlednější tabulkové zobrazení jako default → rychlejší orientace, méně scrollování.</li>
+<li>Provoz: Dočasné snížení izolace (COEP/CORP) – akceptovatelné krátkodobě; nutno sledovat budoucí reintrodukci politik.</li>
+<li>Vývoj: Připravený podklad pro per-user preference view (možno později uložit do session / DB).</li>
+</ul>
+<h4 id="migrace-kroky-po-nasazeni">Migrace / Kroky po nasazení<a class="headerlink" href="#migrace-kroky-po-nasazeni" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Není potřeba spouštět migrace.</li>
+<li>Ověřit načítání produktových obrázků (síť v DevTools bez blokací).</li>
+<li>Později implementovat image proxy a znovu zapnout <code>Cross-Origin-Resource-Policy</code> a <code>Cross-Origin-Embedder-Policy</code>.</li>
+</ol>
+<h4 id="odkazy">Odkazy<a class="headerlink" href="#odkazy" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>resources/views/products/index.blade.php</code></li>
+<li><code>infra/traefik/dynamic/crm-headers.yml</code></li>
+<li><code>docs/01-intro/changelog.md</code></li>
+</ul>
+<h3 id="2025-09-06-v016-added-changed">[2025-09-06] v0.1.6 (ADDED / CHANGED)<a class="headerlink" href="#2025-09-06-v016-added-changed" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_1">Shrnutí<a class="headerlink" href="#shrnuti_1" title="Permanent link">&para;</a></h4>
+<p>Implementace produktového modulu (full import, delta dostupností, audit, plánovač, OpsActivity logování, UI základ).</p>
+<h4 id="detaily_1">Detaily<a class="headerlink" href="#detaily_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Migrace vytvořeny a aplikovány (<code>products</code>, <code>product_price_changes</code>, <code>product_availability_changes</code>).</li>
+<li>Full import (<code>products:import-full</code>) naplnil 2332 produktů (hash-based upsert, audit cen).</li>
+<li>Delta sync (<code>products:sync-availability</code>) s audit tabulkou (nullable <code>new_code</code>).</li>
+<li>Scheduler: full import denně 04:10, availability každých 15 minut (Kernel schedule).</li>
+<li>OpsActivity logování pro oba příkazy (duration, počty new/updated/unchanged, changes).</li>
+<li>UI routy <code>/crm/products</code> + detail; položka v sidenav s permission guard <code>products.view</code>.</li>
+<li>Přidána permissions <code>products.view</code>, <code>products.sync</code> (přes sync command + HasRoles na <code>User</code>).</li>
+<li>Parser opraven (DOMDocument wrap) – původní <code>simplexml_import_dom</code> edge case.</li>
+<li>Changelog + dokumentace (Products overview) aktualizovány o stav implementace.</li>
+</ul>
+<h4 id="dopady_1">Dopady<a class="headerlink" href="#dopady_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel: Základní katalog produktů s historií cen/dostupnosti (MVP) dostupný v CRM.</li>
+<li>Provoz: Metriky běhů importů dostupné v <code>ops_activities</code>; možnost budoucího dashboardu.</li>
+<li>Vývoj: Stabilní základ pro další optimalizace (indexy, rozšíření filtrů, pricing engine integrace).</li>
+</ul>
+<h4 id="migrace-kroky-po-nasazeni_1">Migrace / Kroky po nasazení<a class="headerlink" href="#migrace-kroky-po-nasazeni_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>php artisan migrate --force</code> (již proběhlo v prostředí).</li>
+<li><code>php artisan products:permissions-sync</code> + přiřadit <code>products.view</code> uživatelům (provedeno pro prvního uživatele).</li>
+<li>Ověřit cron běh scheduler kontejneru (jobs se spustí dle definic v Kernelu).</li>
+<li>Monitorovat OpsActivity položky při prvním nočním běhu.</li>
+</ol>
+<h4 id="odkazy_1">Odkazy<a class="headerlink" href="#odkazy_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>app/Console/Commands/ProductsImportFull.php</code></li>
+<li><code>app/Console/Commands/ProductsSyncAvailability.php</code></li>
+<li><code>app/Services/Products/HeurekaProductStream.php</code></li>
+<li><code>app/Services/Products/AvailabilityDeltaStream.php</code></li>
+<li><code>app/Models/OpsActivity.php</code></li>
+<li><code>resources/views/products/</code></li>
+<li><code>routes/web.php</code></li>
+</ul>
+<h3 id="2025-09-06-v015-fixed-docs">[2025-09-06] v0.1.5 (FIXED / DOCS)<a class="headerlink" href="#2025-09-06-v015-fixed-docs" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_2">Shrnutí<a class="headerlink" href="#shrnuti_2" title="Permanent link">&para;</a></h4>
+<p>Další stabilizace přihlášení (intermitentní 419) + rozšíření dokumentace Produktového modulu (analýza reálného Heureka feedu, implementační plán) a přidání do navigace.</p>
+<h4 id="detaily_2">Detaily<a class="headerlink" href="#detaily_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Middleware hardening auth flow:<ul>
+<li>Přidán <code>NoCache</code> middleware (GET /login) – zabraňuje servírování zastaralé stránky s neplatným CSRF tokenem z cache.</li>
+<li>Přidán <code>RotateSessionId</code> middleware (POST /login) – zajišťuje regeneraci session ID (ochrana proti potenciálnímu edge případu opakovaného použití).</li>
+<li>Logout nyní čistí interní flag <code>_rotated</code>.</li>
+<li>Rozšířen debug endpoint <code>/_debug/csrf</code> (dev) o <code>rotated_flag</code> pro sledování regenerace.</li>
+<li>GET /login označen <code>nocache</code> middlewarem; POST /login <code>rotate.session</code>.</li>
+</ul>
+</li>
+<li>Dokumentace:<ul>
+<li>Přidána sekce Produkty → Implementační plán + detailní analýza reálného feedu <code>heureka.xml</code> (frekvence tagů, max délky, návrh DB schématu, transformace, mapování dostupnosti).</li>
+<li>Aktualizována navigace (<code>mkdocs.yml</code>) – zanoření položky Implementační plán.</li>
+<li>Uloženy zdrojové feedy do <code>docs/feeds/</code> pro auditovatelnost analýzy.</li>
+</ul>
+</li>
+<li>Příprava datového modelu: definována cílová tabulka <code>products</code> (price_vat_cents, category_hash, hash_payload, audit timestamps) + audit tabulky price &amp; availability changes.</li>
+</ul>
+<h4 id="dopady_2">Dopady<a class="headerlink" href="#dopady_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel: Přihlášení konzistentnější i po opakovaných cyklech přihlášení/odhlášení.</li>
+<li>Provoz: Snadnější diagnostika (rozšířený debug JSON + explicitní no-store hlavičky).</li>
+<li>Vývoj: Jasný, daty podložený plán Produktového modulu minimalizuje refaktoring později.</li>
+</ul>
+<h4 id="migrace-kroky-po-nasazeni_2">Migrace / Kroky po nasazení<a class="headerlink" href="#migrace-kroky-po-nasazeni_2" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Nasadit kód (nové middleware třídy + úpravy rout). </li>
+<li>Ověřit v prohlížeči (inkognito) 3× cyklus login→logout bez 419.</li>
+<li>Zkontrolovat logy na absenci nových TokenMismatch záznamů.</li>
+<li>Zahájit implementaci migrací pro <code>products</code> dle dokumentace.</li>
+</ol>
+<h4 id="odkazy_2">Odkazy<a class="headerlink" href="#odkazy_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>app/Http/Middleware/NoCache.php</code></li>
+<li><code>app/Http/Middleware/RotateSessionId.php</code></li>
+<li><code>routes/web.php</code></li>
+<li><code>bootstrap/app.php</code></li>
+<li><code>docs/06-products/implementation-plan.md</code></li>
+<li><code>docs/06-products/overview.md</code></li>
+<li><code>docs/feeds/heureka.xml</code></li>
+</ul>
+<h3 id="2025-09-05-v014-fixed">[2025-09-05] v0.1.4 (FIXED)<a class="headerlink" href="#2025-09-05-v014-fixed" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_3">Shrnutí<a class="headerlink" href="#shrnuti_3" title="Permanent link">&para;</a></h4>
+<p>Stabilizace přihlášení za reverzní proxy: přidán TrustProxies middleware, diagnostika CSRF a rozšířené logování token mismatch.</p>
+<h4 id="detaily_3">Detaily<a class="headerlink" href="#detaily_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Přidán <code>app/Http/Middleware/TrustProxies.php</code> (důvěra X-Forwarded-* hlavičkám: správná detekce HTTPS → konzistentní secure cookies / CSRF).</li>
+<li>Aktualizován <code>bootstrap/app.php</code> – zařazení <code>TrustProxies</code> na začátek web stacku.</li>
+<li>Rozšířen <code>VerifyCsrfToken</code> o detailní log záznam při <code>TokenMismatchException</code> (session id, zkrácené tokeny, UA, cookie presence, same-site, secure flag) pro rychlou analýzu sporadických 419.</li>
+<li>Přidána neprodukční diagnostická trasa <code>/_debug/csrf</code> (zobrazuje session_id, csrf token, cookie doménu / flagy) – automaticky vynechána v <code>production</code>.</li>
+<li>Ověřeno automatizovaným prohlížečem: POST /login vrací 302 (správné chování), žádný 419.</li>
+</ul>
+<h4 id="dopady_3">Dopady<a class="headerlink" href="#dopady_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel: Přihlášení nyní konzistentní i za Traefik/Nginx (eliminace náhodných 419).</li>
+<li>Provoz: Snadné ladění budoucích problémů díky strukturovanému logu a debug trase (nižší MTTR).</li>
+<li>Bezpečnost: Zachována ochrana CSRF; žádné otevření výjimek – debug endpoint není v produkci.</li>
+</ul>
+<h4 id="migrace-kroky-po-nasazeni_3">Migrace / Kroky po nasazení<a class="headerlink" href="#migrace-kroky-po-nasazeni_3" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Nasadit změny.</li>
+<li>Vymazat staré cookies (pokud byly nastavovány s nesprávným schématem) – volitelné.</li>
+<li>Zkontrolovat logy na absenci nových "CSRF token mismatch" záznamů po běžném používání.</li>
+<li>Po ověření lze případně odstranit diagnostický endpoint (ponecháno dočasně pro monitoring první týden).</li>
+</ol>
+<h4 id="odkazy_3">Odkazy<a class="headerlink" href="#odkazy_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>app/Http/Middleware/TrustProxies.php</code></li>
+<li><code>app/Http/Middleware/VerifyCsrfToken.php</code></li>
+<li><code>bootstrap/app.php</code></li>
+<li><code>routes/web.php</code></li>
+</ul>
+<h3 id="2025-09-04-v013-docs">[2025-09-04] v0.1.3 (DOCS)<a class="headerlink" href="#2025-09-04-v013-docs" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_4">Shrnutí<a class="headerlink" href="#shrnuti_4" title="Permanent link">&para;</a></h4>
+<p>Rozšířena a zpřesněna dokumentace: nové README, průvodce šablonou Adminto, skript pro build statických docs a validace changelogu v release pipeline.</p>
+<h4 id="detaily_4">Detaily<a class="headerlink" href="#detaily_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Přidán dokument <code>Adminto Šablona</code> (<code>docs/02-architecture/adminto-template.md</code>) – integrace, pluginy, roadmap.</li>
+<li>Přidán skript <code>scripts/build-docs.sh</code> (Docker build MkDocs → <code>public/crm-docs</code>).</li>
+<li>README kompletně přepracováno pro CRM (stack, quick start, release flow, roadmap).</li>
+<li>Release workflow doplněn o krok validace přítomnosti changelog položky pro tag.</li>
+<li>Navigace MkDocs doplněna o položku „Adminto Šablona“.</li>
+<li>Rebuild statických docs (viditelnost nové stránky + v0.1.2 položky).</li>
+</ul>
+<h4 id="dopady_4">Dopady<a class="headerlink" href="#dopady_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel / Tým: Rychlejší onboarding – README a šablonový přehled poskytují kontext.</li>
+<li>Provoz: Jednoznačný postup pro rebuild dokumentace (snížení manuálních chyb).</li>
+<li>Governance: Release proces nyní chrání konzistenci verzí (chybějící položka = selhání workflow).</li>
+</ul>
+<h4 id="migrace-kroky">Migrace / Kroky<a class="headerlink" href="#migrace-kroky" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Není potřeba DB migrace.</li>
+<li>Při další verzi používej <code>scripts/build-docs.sh</code> před nasazením (zajištění aktuálního statického webu).</li>
+<li>Zachovej formát changelogu – validace je striktní.</li>
+</ol>
+<h4 id="odkazy_4">Odkazy<a class="headerlink" href="#odkazy_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>.github/workflows/release.yml</code></li>
+<li><code>scripts/build-docs.sh</code></li>
+<li><code>README.md</code></li>
+<li><code>docs/02-architecture/adminto-template.md</code></li>
+</ul>
+<h3 id="2025-09-04-v012-changed">[2025-09-04] v0.1.2 (CHANGED)<a class="headerlink" href="#2025-09-04-v012-changed" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_5">Shrnutí<a class="headerlink" href="#shrnuti_5" title="Permanent link">&para;</a></h4>
+<p>Zavedena automatizovaná release pipeline, generátor release notes a povinná validace changelogu v CI.</p>
+<h4 id="detaily_5">Detaily<a class="headerlink" href="#detaily_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Přidán příkaz <code>php artisan release:notes</code> pro extrakci poznámek z changelogu.</li>
+<li>Workflow <code>.github/workflows/release.yml</code> publikuje GitHub Release při tagu <code>v*.*.*</code> (SemVer).</li>
+<li>Doplněn krok validace: kontrola existence položky pro daný tag v <code>docs/01-intro/changelog.md</code> (chrání konzistenci historie).</li>
+<li>Rozšířen dokument <code>git-publishing.md</code> (sekce: Automatizovaná Release Akce + validace changelogu).</li>
+<li>Governance changelogu: příkaz <code>changelog:add</code> + skript <code>scripts/validate-changelog.php</code> popsaný již dříve – nyní napojen i na release flow.</li>
+<li>CI (<code>.github/workflows/ci.yml</code>) nadále hlídá aktuálnost dokumentace a strukturu changelogu.</li>
+</ul>
+<h4 id="dopady_5">Dopady<a class="headerlink" href="#dopady_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Uživatel: Transparentnější vydání – každé označené verzí má okamžitě public release notes.</li>
+<li>Provoz / infra: Snížení manuální práce při releasu, menší riziko opomenutí kroků.</li>
+<li>Bezpečnost / compliance: Traceability verzí + auditní stopa změn CI konfigurace.</li>
+</ul>
+<h4 id="migrace-kroky_1">Migrace / Kroky<a class="headerlink" href="#migrace-kroky_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Není potřeba DB migrace.</li>
+<li>Při přípravě další verze nejprve <code>php artisan changelog:add</code>, poté commit &amp; tag.</li>
+<li>Ověřit lokálně <code>php artisan release:notes vX.Y.Z</code> před push tagu.</li>
+</ol>
+<h4 id="odkazy_5">Odkazy<a class="headerlink" href="#odkazy_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>.github/workflows/release.yml</code></li>
+<li><code>app/Console/Commands/ReleaseNotes.php</code></li>
+<li><code>docs/02-architecture/git-publishing.md</code></li>
+<li><code>scripts/validate-changelog.php</code></li>
+<li><code>app/Console/Commands/ChangelogAdd.php</code></li>
+</ul>
+<h3 id="2025-09-04-v011-fixed">[2025-09-04] v0.1.1 (FIXED)<a class="headerlink" href="#2025-09-04-v011-fixed" title="Permanent link">&para;</a></h3>
+<h4 id="shrnuti_6">Shrnutí<a class="headerlink" href="#shrnuti_6" title="Permanent link">&para;</a></h4>
+<p>Opraven 419 (Page Expired) při přihlášení – doplněna web middleware vrstva (session &amp; CSRF).</p>
+<h4 id="detaily_6">Detaily<a class="headerlink" href="#detaily_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Přidány třídy <code>EncryptCookies</code>, <code>VerifyCsrfToken</code>, <code>Authenticate</code>.</li>
 <li>V <code>bootstrap/app.php</code> registrován web middleware stack.</li>
 <li>Alias <code>auth</code> nyní skutečně chrání chráněné routy.</li>
 </ul>
-<h4 id="dopady">Dopady<a class="headerlink" href="#dopady" title="Permanent link">&para;</a></h4>
+<h4 id="dopady_6">Dopady<a class="headerlink" href="#dopady_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Bezpečnost: Aktivní CSRF ochrana.</li>
 <li>Stabilita: Korektní udržení session a redirect po loginu.</li>
 </ul>
-<h4 id="migrace-kroky">Migrace / Kroky<a class="headerlink" href="#migrace-kroky" title="Permanent link">&para;</a></h4>
+<h4 id="migrace-kroky_2">Migrace / Kroky<a class="headerlink" href="#migrace-kroky_2" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Nasadit.</li>
 <li>(Volitelně) Smazat staré cookies domény <code>.opent2.com</code>.</li>
 <li>Retest POST /login (očekávaný 302 na <code>/crm</code>).</li>
 </ol>
-<h4 id="odkazy">Odkazy<a class="headerlink" href="#odkazy" title="Permanent link">&para;</a></h4>
+<h4 id="odkazy_6">Odkazy<a class="headerlink" href="#odkazy_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>app/Http/Middleware/*</code></li>
 <li><code>bootstrap/app.php</code></li>
@@ -1625,12 +2565,10 @@ Stručná věta co se změnilo / přibylo / opravilo.
     </div>
     
     
-    
-      
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
