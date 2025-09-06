@@ -69,7 +69,18 @@ class OrderController extends Controller
             'last_month' => \App\Models\Order::where('order_created_at','>=',$now->copy()->subMonth())->count(),
             'last_week' => \App\Models\Order::where('order_created_at','>=',$now->copy()->subWeek())->count(),
         ];
-        return view('orders.index', compact('orders','filters','runningImports','lastImports','stats'));
+        // Build 12 month series (orders + revenue)
+        $from = $now->copy()->startOfMonth()->subMonths(11);
+        $raw = \App\Models\Order::query()
+            ->selectRaw('DATE_FORMAT(order_created_at, "%Y-%m") as ym, COUNT(*) cnt, SUM(total_vat_cents) sum_cents')
+            ->where('order_created_at','>=',$from)
+            ->groupBy('ym')
+            ->orderBy('ym')
+            ->get()->keyBy('ym');
+        $labels=[]; $ordersSeries=[]; $revenueSeries=[]; $iter=$from->copy();
+        for($i=0;$i<12;$i++) { $ym=$iter->format('Y-m'); $labels[]=$iter->format('m/y'); $ordersSeries[]=(int)($raw[$ym]->cnt ?? 0); $revenueSeries[]=(float)number_format(((int)($raw[$ym]->sum_cents ?? 0))/100,2,'.',''); $iter->addMonth(); }
+        $chart = ['labels'=>$labels,'orders'=>$ordersSeries,'revenue'=>$revenueSeries];
+        return view('orders.index', compact('orders','filters','runningImports','lastImports','stats','chart'));
     }
 
     public function triggerImport(Request $request)

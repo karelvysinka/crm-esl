@@ -24,8 +24,12 @@
 @isset($stats)
 <div class="row g-3 mb-3">
   <div class="col-12">
-    <div class="card shadow-sm border-0 bg-light">
-      <div class="card-body py-2 d-flex flex-wrap gap-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-header border-bottom d-flex justify-content-between align-items-center py-2">
+        <h5 class="header-title mb-0">Přehled objednávek</h5>
+        <span class="text-muted small">12 měsíců</span>
+      </div>
+      <div class="card-body py-3 d-flex flex-wrap gap-4 align-items-end">
         <div>
           <div class="text-muted small text-uppercase">Celkem objednávek</div>
           <div class="fw-semibold fs-5 mb-0">{{ number_format($stats['total'],0,'',' ') }}</div>
@@ -38,6 +42,11 @@
           <div class="text-muted small text-uppercase">Za poslední týden</div>
           <div class="fw-semibold fs-5 mb-0">{{ number_format($stats['last_week'],0,'',' ') }}</div>
         </div>
+        @isset($chart)
+        <div class="flex-grow-1 ms-auto" style="min-width:360px;">
+          <div id="orders-12m-chart" class="apex-charts" style="height:200px;"></div>
+        </div>
+        @endisset
       </div>
     </div>
   </div>
@@ -175,6 +184,30 @@
       if(btn){ btn.disabled=true; btn.dataset.originalText=btn.innerHTML; btn.innerHTML='<span class="spinner-border spinner-border-sm me-1"></span> Queuing...'; }
     });
   })();
+  @if(isset($chart))
+  (function(){
+    if(!window.ApexCharts) return;
+    const options = {
+      chart:{ type:'line', height:200, toolbar:{show:false}, fontFamily:'inherit' },
+      stroke:{ curve:'smooth', width:3 },
+      series:[
+        { name:'Objednávky', type:'column', data:@json($chart['orders']) },
+        { name:'Tržby (CZK)', type:'line', data:@json($chart['revenue']) }
+      ],
+      labels:@json($chart['labels']),
+      xaxis:{ categories:@json($chart['labels']), labels:{ style:{ fontSize:'11px' } } },
+      yaxis:[
+        { labels:{ style:{ fontSize:'11px' } }, title:{ text:'Objednávky', style:{ fontSize:'11px' } }, min:0 },
+        { opposite:true, labels:{ style:{ fontSize:'11px' } }, title:{ text:'CZK', style:{ fontSize:'11px' } }, min:0 }
+      ],
+      colors:['#35b8e0','#188ae2'],
+      legend:{ position:'top', horizontalAlign:'right', fontSize:'11px' },
+      grid:{ strokeDashArray:4 },
+      tooltip:{ shared:true }
+    };
+    try { new ApexCharts(document.querySelector('#orders-12m-chart'), options).render(); } catch(e) { console.error(e); }
+  })();
+  @endif
 </script>
 @endpush
 
