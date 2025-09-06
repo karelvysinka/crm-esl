@@ -14,9 +14,26 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 // Auth routes
-Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login.attempt');
+Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLogin'])->middleware('nocache')->name('login');
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->middleware('rotate.session')->name('login.attempt');
 Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+// Temporary diagnostic route (non-production) to help trace persistent 419 issues: shows session + CSRF token
+if (config('app.env') !== 'production') {
+    Route::get('/_debug/csrf', function(\Illuminate\Http\Request $request) {
+        return response()->json([
+            'env' => config('app.env'),
+            'session_id' => $request->session()->getId(),
+            'session_cookie' => request()->cookie(config('session.cookie')),
+            'csrf_token_session' => $request->session()->token(),
+            'csrf_token_helper' => csrf_token(),
+            'expected_cookie_domain' => config('session.domain'),
+            'secure_cookie_flag' => config('session.secure'),
+            'same_site' => config('session.same_site'),
+            'rotated_flag' => $request->session()->get('_rotated'),
+        ]);
+    });
+}
 
 // CRM Routes (protected)
 Route::middleware('auth')->prefix('crm')->group(function () {

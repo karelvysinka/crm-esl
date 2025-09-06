@@ -22,6 +22,9 @@ nav:
     - ActiveCampaign: 05-integrations/activecampaign.md
     - Qdrant: 05-integrations/qdrant.md
     - Embeddings: 05-integrations/embeddings-providers.md
+  - Produkty:
+    - Přehled: 06-products/overview.md
+    - Implementační plán: 06-products/implementation-plan.md
   - Runtime:
     - Routy (gen): 16-generated/routes.md
     - Schedule (gen): 16-generated/schedule.md

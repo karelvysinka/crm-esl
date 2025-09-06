@@ -40,6 +40,74 @@ Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orienta
 
 ## Poslední změny
 
+> Planned: Produktový modul (synchronizace Heureka feedů) – bude verzováno jako `ADDED` po dokončení fáze 1 (datový model). Návrh a implementační plán viz sekce Produkty v dokumentaci.
+
+### [2025-09-06] v0.1.5 (FIXED / DOCS)
+#### Shrnutí
+Další stabilizace přihlášení (intermitentní 419) + rozšíření dokumentace Produktového modulu (analýza reálného Heureka feedu, implementační plán) a přidání do navigace.
+
+#### Detaily
+- Middleware hardening auth flow:
+	- Přidán `NoCache` middleware (GET /login) – zabraňuje servírování zastaralé stránky s neplatným CSRF tokenem z cache.
+	- Přidán `RotateSessionId` middleware (POST /login) – zajišťuje regeneraci session ID (ochrana proti potenciálnímu edge případu opakovaného použití).
+	- Logout nyní čistí interní flag `_rotated`.
+	- Rozšířen debug endpoint `/_debug/csrf` (dev) o `rotated_flag` pro sledování regenerace.
+	- GET /login označen `nocache` middlewarem; POST /login `rotate.session`.
+- Dokumentace:
+	- Přidána sekce Produkty → Implementační plán + detailní analýza reálného feedu `heureka.xml` (frekvence tagů, max délky, návrh DB schématu, transformace, mapování dostupnosti).
+	- Aktualizována navigace (`mkdocs.yml`) – zanoření položky Implementační plán.
+	- Uloženy zdrojové feedy do `docs/feeds/` pro auditovatelnost analýzy.
+- Příprava datového modelu: definována cílová tabulka `products` (price_vat_cents, category_hash, hash_payload, audit timestamps) + audit tabulky price & availability changes.
+
+#### Dopady
+- Uživatel: Přihlášení konzistentnější i po opakovaných cyklech přihlášení/odhlášení.
+- Provoz: Snadnější diagnostika (rozšířený debug JSON + explicitní no-store hlavičky).
+- Vývoj: Jasný, daty podložený plán Produktového modulu minimalizuje refaktoring později.
+
+#### Migrace / Kroky po nasazení
+1. Nasadit kód (nové middleware třídy + úpravy rout). 
+2. Ověřit v prohlížeči (inkognito) 3× cyklus login→logout bez 419.
+3. Zkontrolovat logy na absenci nových TokenMismatch záznamů.
+4. Zahájit implementaci migrací pro `products` dle dokumentace.
+
+#### Odkazy
+- `app/Http/Middleware/NoCache.php`
+- `app/Http/Middleware/RotateSessionId.php`
+- `routes/web.php`
+- `bootstrap/app.php`
+- `docs/06-products/implementation-plan.md`
+- `docs/06-products/overview.md`
+- `docs/feeds/heureka.xml`
+
+
+### [2025-09-05] v0.1.4 (FIXED)
+#### Shrnutí
+Stabilizace přihlášení za reverzní proxy: přidán TrustProxies middleware, diagnostika CSRF a rozšířené logování token mismatch.
+
+#### Detaily
+- Přidán `app/Http/Middleware/TrustProxies.php` (důvěra X-Forwarded-* hlavičkám: správná detekce HTTPS → konzistentní secure cookies / CSRF).
+- Aktualizován `bootstrap/app.php` – zařazení `TrustProxies` na začátek web stacku.
+- Rozšířen `VerifyCsrfToken` o detailní log záznam při `TokenMismatchException` (session id, zkrácené tokeny, UA, cookie presence, same-site, secure flag) pro rychlou analýzu sporadických 419.
+- Přidána neprodukční diagnostická trasa `/_debug/csrf` (zobrazuje session_id, csrf token, cookie doménu / flagy) – automaticky vynechána v `production`.
+- Ověřeno automatizovaným prohlížečem: POST /login vrací 302 (správné chování), žádný 419.
+
+#### Dopady
+- Uživatel: Přihlášení nyní konzistentní i za Traefik/Nginx (eliminace náhodných 419).
+- Provoz: Snadné ladění budoucích problémů díky strukturovanému logu a debug trase (nižší MTTR).
+- Bezpečnost: Zachována ochrana CSRF; žádné otevření výjimek – debug endpoint není v produkci.
+
+#### Migrace / Kroky po nasazení
+1. Nasadit změny.
+2. Vymazat staré cookies (pokud byly nastavovány s nesprávným schématem) – volitelné.
+3. Zkontrolovat logy na absenci nových "CSRF token mismatch" záznamů po běžném používání.
+4. Po ověření lze případně odstranit diagnostický endpoint (ponecháno dočasně pro monitoring první týden).
+
+#### Odkazy
+- `app/Http/Middleware/TrustProxies.php`
+- `app/Http/Middleware/VerifyCsrfToken.php`
+- `bootstrap/app.php`
+- `routes/web.php`
+
 ### [2025-09-04] v0.1.3 (DOCS)
 #### Shrnutí
 Rozšířena a zpřesněna dokumentace: nové README, průvodce šablonou Adminto, skript pro build statických docs a validace changelogu v release pipeline.

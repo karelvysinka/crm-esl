@@ -13,6 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // Register web middleware stack (sessions, cookies, CSRF, bindings)
         $middleware->web(append: [
+            // Ensure proxy headers are trusted before other middleware rely on scheme/host
+            \App\Http\Middleware\TrustProxies::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -29,6 +31,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+            'nocache' => \App\Http\Middleware\NoCache::class,
+            'rotate.session' => \App\Http\Middleware\RotateSessionId::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
