@@ -34,8 +34,8 @@
             </div>
           </div>
           <div class="col-7 text-end">
-            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['total'] }}</span></h3>
-            <p class="text-muted mb-1 text-truncate">Celkem</p>
+            <h2 class="text-dark my-1 fw-bold display-count"><span data-plugin="counterup">{{ $stats['total'] }}</span></h2>
+            <p class="text-muted mb-1 text-truncate fw-semibold stat-label">Celkem</p>
           </div>
         </div>
         <div class="mt-2">
@@ -55,8 +55,8 @@
             </div>
           </div>
           <div class="col-7 text-end">
-            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['last_month'] }}</span></h3>
-            <p class="text-muted mb-1 text-truncate">Posl. měsíc</p>
+            <h2 class="text-dark my-1 fw-bold display-count"><span data-plugin="counterup">{{ $stats['last_month'] }}</span></h2>
+            <p class="text-muted mb-1 text-truncate fw-semibold stat-label">Posl. měsíc</p>
           </div>
         </div>
         <div class="mt-2">
@@ -76,8 +76,8 @@
             </div>
           </div>
           <div class="col-7 text-end">
-            <h3 class="text-dark my-1"><span data-plugin="counterup">{{ $stats['last_week'] }}</span></h3>
-            <p class="text-muted mb-1 text-truncate">Posl. týden</p>
+            <h2 class="text-dark my-1 fw-bold display-count"><span data-plugin="counterup">{{ $stats['last_week'] }}</span></h2>
+            <p class="text-muted mb-1 text-truncate fw-semibold stat-label">Posl. týden</p>
           </div>
         </div>
         <div class="mt-2">
@@ -98,8 +98,8 @@
             </div>
           </div>
           <div class="col-7 text-end">
-            <h3 class="text-dark my-1">{{ $avgDay }}</h3>
-            <p class="text-muted mb-1 text-truncate">/den (7d)</p>
+            <h2 class="text-dark my-1 fw-bold display-count">{{ $avgDay }}</h2>
+            <p class="text-muted mb-1 text-truncate fw-semibold stat-label">/den (7d)</p>
           </div>
         </div>
         <div class="mt-2">
@@ -248,6 +248,9 @@
   .small-hover:hover { background: rgba(0,0,0,.03); transition: background .2s; }
   #orders-12m-chart .apexcharts-canvas { margin: 0 auto; }
   .avatar-sm { width:48px; height:48px; }
+  .display-count { font-size: 2.1rem; line-height:1.1; }
+  @media (min-width:1400px){ .display-count { font-size:2.4rem; } }
+  .stat-label { font-size: .85rem; letter-spacing:.5px; }
 </style>
 @endpush
 
