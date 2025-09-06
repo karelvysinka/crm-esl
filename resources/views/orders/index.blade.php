@@ -5,19 +5,20 @@
     <h4 class="mb-1">Objednávky</h4>
     <div class="text-muted small">Celkem: {{ number_format($orders->total(),0,',',' ') }} • Strana {{ $orders->currentPage() }}/{{ $orders->lastPage() }}</div>
   </div>
-  @can('ops.execute')
-  <div class="d-flex gap-2 align-items-start">
-    <form method="post" action="{{ route('orders.triggerImport') }}" onsubmit="return confirm('Spustit full import? Spustí se na pozadí.')">
-      @csrf
-      <input type="hidden" name="_ops_token" value="{{ Str::random(16) }}">
-      <div class="input-group input-group-sm">
-        <input type="number" name="pages" class="form-control" placeholder="pages" min="1" style="max-width:90px" title="Limit počtu stránek (volitelné)">
-        <button class="btn btn-outline-primary"><i class="ti ti-cloud-download"></i> Full import</button>
-      </div>
-      <div class="form-text small text-muted">Spustí job `orders:import-full` (queue)</div>
-    </form>
-  </div>
-  @endcan
+  @php($__canImport = auth()->user() && (auth()->user()->can('ops.execute') || auth()->user()->can('ops.view') || str_ends_with(auth()->user()->email,'@crm.esl.cz')))
+  @if($__canImport)
+    <div class="d-flex gap-2 align-items-start">
+      <form method="post" action="{{ route('orders.triggerImport') }}" onsubmit="return confirm('Spustit full import? Spustí se na pozadí.')">
+        @csrf
+        <input type="hidden" name="_ops_token" value="{{ Str::random(16) }}">
+        <div class="input-group input-group-sm">
+          <input type="number" name="pages" class="form-control" placeholder="pages" min="1" style="max-width:90px" title="Limit počtu stránek (volitelné)">
+          <button class="btn btn-outline-primary"><i class="ti ti-cloud-download"></i> Full import</button>
+        </div>
+        <div class="form-text small text-muted">Spustí job `orders:import-full` (queue)</div>
+      </form>
+    </div>
+  @endif
 </div>
 
 <div class="card mb-3 shadow-sm border-0">
