@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <h6 class="text-uppercase small text-muted mb-0">Objednávky</h6>
+          <h6 class="text-uppercase text-muted mb-0 fw-semibold stat-heading-label">Objednávky</h6>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <h6 class="text-uppercase small text-muted mb-0">{{ now()->subMonth()->isoFormat('MMM YYYY') }} →</h6>
+          <h6 class="text-uppercase text-muted mb-0 fw-semibold stat-heading-label">{{ now()->subMonth()->isoFormat('MMM YYYY') }} →</h6>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <h6 class="text-uppercase small text-muted mb-0">7 dní</h6>
+          <h6 class="text-uppercase text-muted mb-0 fw-semibold stat-heading-label">7 dní</h6>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <h6 class="text-uppercase small text-muted mb-0">Průměr</h6>
+          <h6 class="text-uppercase text-muted mb-0 fw-semibold stat-heading-label">Průměr</h6>
         </div>
       </div>
     </div>
@@ -248,9 +248,9 @@
   .small-hover:hover { background: rgba(0,0,0,.03); transition: background .2s; }
   #orders-12m-chart .apexcharts-canvas { margin: 0 auto; }
   .avatar-sm { width:48px; height:48px; }
-  .display-count { font-size: 2.1rem; line-height:1.1; }
-  @media (min-width:1400px){ .display-count { font-size:2.4rem; } }
-  .stat-label { font-size: .85rem; letter-spacing:.5px; }
+  .display-count { font-size: clamp(2.6rem, 4.2vw, 4.2rem); font-weight: 700; line-height: 1.05; letter-spacing:-1px; }
+  .stat-label { font-size: clamp(.85rem, .9vw, 1rem); font-weight:600; letter-spacing:.5px; text-transform:uppercase; }
+  .stat-heading-label { font-size: clamp(.95rem, 1.15vw, 1.15rem); letter-spacing: .6px; }
 </style>
 @endpush
 
