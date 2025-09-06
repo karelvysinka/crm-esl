@@ -55,9 +55,11 @@ class OrderController extends Controller
 
     public function triggerImport(Request $request)
     {
-        if ($request->user() && !$request->user()->can('ops.execute')) {
-            abort(403);
-        }
+    $user = $request->user();
+    if (!$user) { abort(401); }
+    $emailOk = str_ends_with($user->email, '@crm.esl.cz');
+    $allowed = $user->can('ops.execute') || ($user->can('orders.view') && $emailOk);
+    if (!$allowed) { abort(403, 'User not allowed to trigger import'); }
         $token = $request->input('_ops_token');
         $used = session()->get('orders.used_tokens', []);
         if (!$token || in_array($token, $used, true)) {
