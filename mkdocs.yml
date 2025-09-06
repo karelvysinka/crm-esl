@@ -53,7 +53,8 @@ theme:
   name: material
   language: cs
 extra_javascript:
-  - assets/js/docs-build-button.js
+  # Cache-bust query param (update when script changes)
+  - assets/js/docs-build-button.js?v=147abd3
 markdown_extensions:
   - admonition
   - toc:
