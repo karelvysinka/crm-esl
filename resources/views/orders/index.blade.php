@@ -113,4 +113,30 @@
   .table tbody tr:hover { background: rgba(0,0,0,.03); }
 </style>
 @endpush
+
+@push('scripts')
+<script>
+  (function(){
+    const form = document.querySelector('form[action*="trigger-import"]');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      const btn = form.querySelector('button[type="submit"],button:not([type])');
+      if(btn){ btn.disabled=true; btn.dataset.originalText=btn.innerHTML; btn.innerHTML='<span class="spinner-border spinner-border-sm me-1"></span> Queuing...'; }
+    });
+  })();
+</script>
+@endpush
+
+@if(session('status'))
+  <div class="alert alert-success mt-3 d-flex justify-content-between align-items-center">
+    <div>
+      <strong>{{ session('status') }}</strong>
+      @if(session('activity_id')) – Aktivita #{{ session('activity_id') }} (<a href="{{ route('ops.history.index') }}" class="alert-link">Historie</a>) @endif
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif
+@if($errors->any())
+  <div class="alert alert-danger mt-3">{{ $errors->first() }}</div>
+@endif
 @endsection

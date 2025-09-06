@@ -73,7 +73,9 @@ class OrderController extends Controller
             'meta'=>['ip'=>$request->ip(),'ua'=>substr($request->userAgent() ?? '',0,120),'pages'=>$pages]
         ]);
         \App\Jobs\Orders\RunFullImportJob::dispatch($activity->id, $pages ? (int)$pages : null);
-        return redirect()->route('orders.index')->with('status','Import zařazen do fronty. Aktivita #'.$activity->id);
+        return redirect()->route('orders.index')
+            ->with('status','Import zařazen do fronty')
+            ->with('activity_id',$activity->id);
     }
 
     public function show(Order $order): View
