@@ -117,6 +117,9 @@ Route::middleware('auth')->prefix('crm')->group(function () {
     Route::prefix('orders')->middleware(env('ORDERS_BYPASS_PERMISSION', false) ? [] : ['can:orders.view'])->group(function(){
         Route::get('/', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders.index');
         Route::get('{order}', [\App\Http\Controllers\OrderController::class, 'show'])->name('orders.show');
+        Route::post('trigger-import', [\App\Http\Controllers\OrderController::class, 'triggerImport'])
+            ->middleware(['can:ops.execute','throttle:ops-actions'])
+            ->name('orders.triggerImport');
     });
 
     // Search (AJAX)
