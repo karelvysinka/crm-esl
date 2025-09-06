@@ -52,6 +52,8 @@ nav:
 theme:
   name: material
   language: cs
+extra_javascript:
+  - assets/js/docs-build-button.js
 markdown_extensions:
   - admonition
   - toc:
