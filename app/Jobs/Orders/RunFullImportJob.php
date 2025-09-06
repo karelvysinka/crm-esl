@@ -28,6 +28,21 @@ class RunFullImportJob implements ShouldQueue
         $activity = OpsActivity::find($this->activityId);
         if (!$activity) { return; }
         $meta = $activity->meta ?? [];
+        // Concurrency guard: if another full import (web or cli) queued/running in last 60 min (excluding self), skip
+        $recent = OpsActivity::query()
+            ->whereIn('type',[ 'orders.full_import.web','orders.full_import','orders.full_import.manual' ])
+            ->whereIn('status',['queued','running'])
+            ->where('id','<>',$activity->id)
+            ->where('created_at','>=',now()->subHour())
+            ->exists();
+        if ($recent) {
+            $activity->status = 'skipped';
+            $meta['skipped_reason'] = 'another_import_in_progress';
+            $activity->meta = $meta; $activity->save();
+            return;
+        }
+        // Mark running before launching external process
+        $activity->status='running'; $activity->save();
         $cmd = ['php','artisan','orders:import-full'];
         if ($this->pagesLimit) { $cmd[] = '--pages='.$this->pagesLimit; }
         $proc = new Process($cmd, base_path());
