@@ -25,6 +25,9 @@ nav:
   - Produkty:
     - Přehled: 06-products/overview.md
     - Implementační plán: 06-products/implementation-plan.md
+  - Objednávky:
+    - Přehled: 07-orders/overview.md
+    - Implementační plán: 07-orders/implementation-plan.md
   - Runtime:
     - Routy (gen): 16-generated/routes.md
     - Schedule (gen): 16-generated/schedule.md
