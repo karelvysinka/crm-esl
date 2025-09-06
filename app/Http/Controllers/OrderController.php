@@ -62,7 +62,14 @@ class OrderController extends Controller
             ->orderByDesc('id')
             ->limit(5)
             ->get();
-        return view('orders.index', compact('orders','filters','runningImports','lastImports'));
+        // Stats summary: total, last month, last week
+        $now = now();
+        $stats = [
+            'total' => \App\Models\Order::count(),
+            'last_month' => \App\Models\Order::where('order_created_at','>=',$now->copy()->subMonth())->count(),
+            'last_week' => \App\Models\Order::where('order_created_at','>=',$now->copy()->subWeek())->count(),
+        ];
+        return view('orders.index', compact('orders','filters','runningImports','lastImports','stats'));
     }
 
     public function triggerImport(Request $request)

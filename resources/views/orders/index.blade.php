@@ -21,6 +21,29 @@
   @endif
 </div>
 
+@isset($stats)
+<div class="row g-3 mb-3">
+  <div class="col-12">
+    <div class="card shadow-sm border-0 bg-light">
+      <div class="card-body py-2 d-flex flex-wrap gap-4">
+        <div>
+          <div class="text-muted small text-uppercase">Celkem objednávek</div>
+          <div class="fw-semibold fs-5 mb-0">{{ number_format($stats['total'],0,'',' ') }}</div>
+        </div>
+        <div>
+          <div class="text-muted small text-uppercase">Za poslední měsíc</div>
+          <div class="fw-semibold fs-5 mb-0">{{ number_format($stats['last_month'],0,'',' ') }}</div>
+        </div>
+        <div>
+          <div class="text-muted small text-uppercase">Za poslední týden</div>
+          <div class="fw-semibold fs-5 mb-0">{{ number_format($stats['last_week'],0,'',' ') }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endisset
+
 <div class="card mb-3 shadow-sm border-0">
   <div class="card-body py-2">
     <form class="row g-2 align-items-end" method="get">
