@@ -178,3 +178,86 @@ Fáze 4 – reporting & notifikace (nové velké objednávky, zpožděné platby
 - Rozšíření adres lze přidat non-breaking migrací.
 - Přesnější timestamps stavů: potřebné reverse engineering detailu (pending).
 - Budoucí odstranění fallback heuristiky položek po delším provozu.
+
+---
+
+## Zbývající kroky k dokončení (Roadmap)
+
+Níže konsolidovaný seznam toho, co ještě potřebujeme dokončit pro plnou verzi modulu (beyond MVP). Rozděleno do tematických bloků + priorita.
+
+### Prioritní TOP 5 (doporučené pořadí)
+1. Historický import + následný `orders:backfill-items` + `orders:integrity-check` s uloženým baseline reportem.
+2. Rozšířený parser položek (typy: product / shipping / payment / discount / coupon / tax) + `parse_version` sloupec (orders + order_items) a vypnutí fallbacku po ověření.
+3. Hash v2: normalizace whitespace, měnových symbolů a přidání `items_fingerprint` (samostatný hash položek) + version marker.
+4. Observabilita & locking: metriky (počty requestů, průměrná doba, chybovost), per-command mutex (full import / backfill / integrity) a centralizovaný retry wrapper.
+5. Testovací balíček: unit (parser), hash diff test, integrity mismatch scénář, command smoke/dry-run.
+
+### 1. Kompletní naplnění dat
+- Spustit historický import (možná po dávkách dle stránkování) a uložit checkpoint (poslední `order_number`).
+- Po dokončení backfill skriptem doplnit položky starších objednávek (kontrola prázdných / nekompletních).
+- Integrity baseline: počet objednávek, počet položek, % položek s line_type=shipping/payment, mismatch ratio.
+
+### 2. Parser & fallback
+- Feature flag pro úplné vypnutí fallbacku (default OFF v produkci po validaci).
+- Log strukturované anomálie (0 structured items) se snapshot ID (ne surový HTML v logu).
+
+### 3. Datový model rozšíření
+- `parse_version` (SMALLINT) v `orders` a `order_items`.
+- `items_fingerprint` (CHAR(40) SHA1) v `orders`.
+- Index `(updated_at)` pro rychlý výběr kandidátů incrementalu (pokud chybí).
+- Unique `(order_id, external_item_id)` – zamezí duplicitám.
+
+### 4. Hash & změny
+- Hash v2 = SHA1(normalized_header + states_block + normalized_items_dom).
+- Normalizace: trim, collapse whitespace, decimal unify, strip měnových symbolů před výpočtem.
+- Oddělený hash pro položky (rychlejší zjištění pouze položkových změn).
+
+### 5. Retry & error layer
+- Centrální `ScrapeExecutor` s exponenciálním backoff (1s, 3s, 9s, jitter) a klasifikací: Network | Auth | Parse.
+- Tabulka `order_scrape_failures` (order_number nullable) pro posledních N záznamů.
+
+### 6. Observabilita
+- Command metriky: pages_fetched, details_fetched, changed, unchanged, avg_latency_ms.
+- Jednoduchý artisan `orders:metrics` nebo JSON endpoint (interní) pro dashboard.
+- Varování: žádná nová objednávka > 24h (OpsActivity alert).
+
+### 7. Integrita a reconciliace
+- Rozšířit integrity check: (sum(product+shipping+payment+discount+tax) == order.total) ± 1 minor unit.
+- Auto-fix režim (flag): označit objednávku `integrity_flag='mismatch'` místo pouze logování.
+- Reconcile summary se snapshotem denní počty / sumy totals (detekce chybějících objednávek).
+
+### 8. Plánování & concurrency
+- Mutex (Redis / DB advisory) pro dlouhé běhy (import / backfill / integrity) – brání duplicitnímu spuštění.
+- Graceful stop: kontrola existence stop souboru každých X stránek.
+
+### 9. Výkon
+- Paralelní detail fetch pool (konfigurovatelná velikost, max 5–8) s interním throttlem.
+- Rate limit adaptivní: při 429 / specifických kódech spánek + backoff.
+
+### 10. Testy
+- HTML fixtures (listing, detail, položky varianty) – snapshoty.
+- Parser varianty: sleva, doprava, platba, kombinovaná DPH.
+- Hash diff test: změna jedné položky → změněný items_fingerprint i main hash.
+- Integrity mismatch fixture (ručně upravené total) → flag.
+
+### 11. Dokumentace
+- Lifecycle sekce (import → sync → reconcile → backfill → integrity → alerting).
+- Runbook: reimport jedné objednávky (`orders:reimport --number=...`).
+- Troubleshooting: žádné nové objednávky, vysoké mismatch %, parse error.
+- Popsat `parse_version` a verzi hash algoritmu.
+
+### 12. Bezpečnost & PII
+- ENV default vypnout debug dumps; rotace session při změně hesla.
+- Retence snapshotů (cron purge > X dní).
+
+### 13. Refactoring
+- Oddělit HTML fetch vs. transform (čisté funkce pro testy).
+- Konsolidace názvů (`external_edit_id` vs interní ID v adminu – glosář).
+- Odstranit deprecated fallback logiku po validaci.
+
+### 14. Budoucí rozšíření (low priority)
+- Webhook / push integrace (pokud zdroj umí emitovat změny).
+- Export do BI / analytics pipeline.
+- Alerty (Slack / e-mail) pro anomálie (objem, chybovost, integrita).
+
+---

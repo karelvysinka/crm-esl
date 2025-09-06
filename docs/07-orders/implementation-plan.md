@@ -127,3 +127,25 @@ processDetailQueue();
 
 ---
 Aktuální stav: Fáze 1–3 + části Fáze 4 a 6 hotové; zbývají adresy, přesné timestamps stavů, plná observabilita a odstranění fallback heuristik.
+
+---
+## Rozšířená roadmapa (doplnění)
+
+Viz také sekce "Zbývající kroky" v `overview.md`. Tento blok mapuje nové práce na existující fáze:
+
+| Oblast | Nové úkoly | Fáze (rozšíření) |
+|--------|-----------|------------------|
+| Data completeness | Historický import baseline report, backfill audit | 2 / 4 |
+| Parser evoluce | line_type rozšíření, parse_version, vypnutí fallbacku | 2 / 4 |
+| Hash v2 | items_fingerprint, normalizace, versioning | 4 |
+| Observabilita | metriky, retry wrapper, failures log | 6 |
+| Integrita | auto-flag mismatch, rozšířený výpočet | 6 |
+| Concurrency | mutex, graceful stop | 4 |
+| Výkon | paralelní fetch pool, adaptivní rate limit | 4 |
+| Testy | fixtures, hash diff, integrity edge cases | 6 |
+| Dokumentace | lifecycle, runbook reimport, troubleshooting | 5 |
+| Bezpečnost | retence snapshotů, PII sanitizace | 4 |
+| Refactoring | separace fetch/transform, názvosloví | 4 |
+
+Další detailní body jsou přeneseny 1:1 do přehledu (`overview.md`).
+
