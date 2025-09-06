@@ -2097,6 +2097,13 @@
 <td>OrderController@index</td>
 </tr>
 <tr>
+<td>POST</td>
+<td>crm/orders/trigger-import</td>
+<td>orders.triggerImport</td>
+<td>web,auth,can:orders.view,throttle:ops-actions</td>
+<td>OrderController@triggerImport</td>
+</tr>
+<tr>
 <td>GET</td>
 <td>crm/orders/{order}</td>
 <td>orders.show</td>
