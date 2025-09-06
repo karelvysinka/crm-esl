@@ -123,4 +123,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // Custom service providers
+    'providers' => array_filter(array_merge(
+        config('app.providers', []), [\App\Providers\OpsServiceProvider::class]
+    )),
+
 ];
