@@ -15,23 +15,29 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 | `mkdocs.yml` | Konfigurace navigace, theme, pluginy |
 | `scripts/docs/build.sh` (pokud existuje) | Wrapper pro CI (volitelně) |
 
-## Lokální Build
-1. Vytvoř a aktivuj Python virtualenv (volitelné):
-   ```bash
-   python3 -m venv .venv
-   . .venv/bin/activate
-   pip install -U pip
-   pip install mkdocs mkdocs-material
-   ```
-2. Regeneruj dynamické sekce (routy, env, atd.) přes Laravel command:
-   ```bash
-   php artisan docs:refresh
-   ```
-3. Spusť build:
-   ```bash
-   mkdocs build --clean
-   ```
-4. Zkopíruj nebo nasměruj výstup (`site/`) do `public/crm-docs` pokud není konfigurováno přímo (aktuálně výstup jde implicitně do `site/`; nasazení může používat symlink nebo kopii).
+## Lokální Build (Docker – preferováno)
+Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
+
+```bash
+./scripts/build-docs.sh
+```
+
+Co skript dělá:
+1. Spustí `php artisan docs:refresh` (ignoruje chyby, aby build nepadl kvůli částečnému selhání).
+2. Spustí `docker run squidfunk/mkdocs-material:<verze> build --strict --site-dir public/crm-docs`.
+3. Výstup jde přímo do `public/crm-docs` (nepoužíváme výchozí `site/`).
+
+## Alternativa (lokální Python prostředí)
+Pouze pokud Docker není k dispozici:
+```bash
+python3 -m venv .venv_docs
+. .venv_docs/bin/activate
+pip install -U pip
+pip install mkdocs mkdocs-material pymdown-extensions
+php artisan docs:refresh
+mkdocs build --clean --site-dir public/crm-docs
+```
+Pozn: `--site-dir public/crm-docs` zarovná výstup s produkční strukturou.
 
 ## Rychlý Náhled
 ```bash
@@ -66,7 +72,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material
       - name: Build docs
-        run: mkdocs build --clean
+        run: mkdocs build --clean --site-dir public/crm-docs
       - name: Deploy (Pages / artifact)
         if: github.ref == 'refs/heads/main'
         run: |
@@ -85,9 +91,10 @@ jobs:
 | Duplicitní položky v nav | Ruční edit + generátor přidal znovu | Slouč nebo uprav `mkdocs.yml` |
 
 ## Doporučení
-- Commituj i generované `16-generated` markdowny (auditní stopa).
-- V produkci servíruj statickou složku s dlouhými cache headers + hashované assety MkDocs.
+- Commituj generované `16-generated` markdowny (auditní stopa + reproducibilita).
+- Commituj také `public/crm-docs` (instantní publikace bez dalšího build kroku na serveru).
 - Při větších úpravách přidej položku do changelogu (`DOCS`).
+- Udržuj verzi Docker image v synchronu s dokumentací (případně pin na minor).
 
 ## Plánované Rozšíření
 - Automatická validace odkazů (plugin `linkcheck`).

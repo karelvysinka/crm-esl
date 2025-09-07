@@ -10,6 +10,9 @@ public/build/
 public/hot
 public/storage
 
+# Local Python virtualenv for docs (not committed)
+.venv_docs/
+
 # Composer
 vendor/
 composer.lock
