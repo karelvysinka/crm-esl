@@ -177,12 +177,24 @@
 
             <li class="side-nav-title mt-2">Ecommerce</li>
 
-            <!-- Orders (moved) -->
+            <!-- Orders (submenu) -->
+            @php($ordersActive = request()->routeIs('orders.*'))
             <li class="side-nav-item">
-                <a href="{{ route('orders.index') }}" class="side-nav-link {{ request()->routeIs('orders.*') ? 'active' : '' }} {{ !auth()->user() || !auth()->user()->can('orders.view') ? 'disabled' : '' }}">
+                <a data-bs-toggle="collapse" href="#sidebarOrders" aria-expanded="{{ $ordersActive ? 'true':'false' }}" aria-controls="sidebarOrders" class="side-nav-link {{ $ordersActive ? 'active' : '' }} {{ !auth()->user() || !auth()->user()->can('orders.view') ? 'disabled' : '' }}">
                     <span class="menu-icon"><i class="ti ti-shopping-cart"></i></span>
                     <span class="menu-text"> Objednávky </span>
+                    <span class="menu-arrow"></span>
                 </a>
+                <div class="collapse {{ $ordersActive ? 'show' : '' }}" id="sidebarOrders">
+                    <ul class="sub-menu">
+                        <li class="side-nav-item">
+                            <a href="{{ route('orders.index') }}" class="side-nav-link {{ request()->routeIs('orders.index') ? 'active' : '' }}">Přehled</a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('orders.sync.settings') }}" class="side-nav-link {{ request()->routeIs('orders.sync.settings') ? 'active' : '' }}">Nastavení synchronizace</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
 
             @can('products.view')

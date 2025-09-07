@@ -117,6 +117,9 @@ Route::middleware('auth')->prefix('crm')->group(function () {
         Route::post('trigger-import', [\App\Http\Controllers\OrderController::class, 'triggerImport'])
             ->middleware(['auth','throttle:ops-actions'])
             ->name('orders.triggerImport');
+    // Sync settings
+    Route::get('sync/settings', [\App\Http\Controllers\OrderSyncSettingsController::class, 'index'])->name('orders.sync.settings');
+    Route::put('sync/settings', [\App\Http\Controllers\OrderSyncSettingsController::class, 'update'])->name('orders.sync.settings.update');
     });
 
     // Search (AJAX)
