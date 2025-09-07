@@ -42,7 +42,28 @@ class ContactController extends Controller
 
         // Paginate to prevent memory exhaustion on large datasets
         $contacts = $q->paginate(50)->withQueryString();
-        return view('crm.contacts.index', compact('contacts', 'qText', 'status', 'onlyAc'));
+
+        // Stats panels
+        $totalContacts = \App\Models\Contact::count();
+        $newThisMonth = \App\Models\Contact::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+        $statusCounts = \App\Models\Contact::select('status')
+            ->selectRaw('COUNT(*) as c')
+            ->groupBy('status')
+            ->pluck('c','status');
+        $acCount = \App\Models\Contact::whereNotNull('ac_id')->count();
+        $stats = [
+            'total' => $totalContacts,
+            'new_month' => $newThisMonth,
+            'statuses' => [
+                'active' => (int) ($statusCounts['active'] ?? 0),
+                'inactive' => (int) ($statusCounts['inactive'] ?? 0),
+                'lead' => (int) ($statusCounts['lead'] ?? 0),
+                'prospect' => (int) ($statusCounts['prospect'] ?? 0),
+            ],
+            'ac' => $acCount,
+        ];
+
+        return view('crm.contacts.index', compact('contacts', 'qText', 'status', 'onlyAc', 'stats'));
     }
 
     /**

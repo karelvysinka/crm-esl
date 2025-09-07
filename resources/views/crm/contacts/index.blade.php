@@ -18,6 +18,95 @@
     </div>
     <!-- end page title -->
 
+    @if(!empty($stats))
+    <div class="row g-3 mb-3">
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-primary rounded"><i class="ri-contacts-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['total'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Celkem</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Kontakty</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-success rounded"><i class="ri-calendar-event-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['new_month'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Tento měsíc</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Nové kontakty</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-success rounded"><i class="ri-checkbox-circle-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['statuses']['active'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Aktivní</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Status</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-warning rounded"><i class="ri-user-add-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['statuses']['lead'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Lead</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Status</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-info rounded"><i class="ri-user-search-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['statuses']['prospect'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Prospect</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Status</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-secondary rounded"><i class="ri-exchange-line avatar-title text-white font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['statuses']['inactive'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">Neaktivní</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Status</div>
+            </div></div>
+        </div>
+        <div class="col-6 col-md-4 col-xl-2">
+            <div class="card h-100"><div class="card-body py-3">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="avatar-sm bg-primary-subtle rounded"><i class="ri-database-2-line avatar-title text-primary font-22"></i></div>
+                    <div class="text-end">
+                        <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['ac'],0,',',' ') }}</h4>
+                        <p class="text-muted mb-0 small">AC import</p>
+                    </div>
+                </div>
+                <div class="mt-2 small text-muted">Contacts z ActiveCampaign</div>
+            </div></div>
+        </div>
+    </div>
+    @endif
+
     @include('layouts.partials.flash')
 
     <div class="row">
