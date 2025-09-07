@@ -19,8 +19,7 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
 
 Pinned base image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
-Lokálně se derivovaný image staví z `Dockerfile.docs` – tag obsahuje hash (např. `crm-mkdocs:9.5.18-<hash>`), takže změna Dockerfile vždy vynutí rebuild a eliminuje problém se zastaralou vrstvou.
-Výhoda: deterministický build bez runtime instalací uvnitř kontejneru.
+Link checking se spouští jen v CI pomocí separátního konfigu `mkdocs-linkcheck.yml` – lokální build je rychlý (bez pluginu). To zabraňuje problémům s lokální instalací pluginů uvnitř kontejneru.
 
 ```bash
 ./scripts/build-docs.sh
@@ -100,14 +99,19 @@ jobs:
 - Při větších úpravách přidej položku do changelogu (`DOCS`).
 - Udržuj verzi Docker image v synchronu s dokumentací (případně pin na minor).
 
-## Link Checking
-Aktivní plugin `linkcheck` (fail_on_warning: true) – build selže při nalezení nefunkčních odkazů nebo kotvení. Pokud potřebuješ dočasně obejít, můžeš lokálně spustit:
+## Link Checking (pouze CI)
+Používáme separátní konfigurační soubor:
 
-```bash
-IGNORE_LINK_CHECK=1 mkdocs build --clean --site-dir public/crm-docs
+```
+mkdocs-linkcheck.yml (INHERIT: mkdocs.yml + plugin linkcheck)
 ```
 
-nebo dočasně odstranit blok pluginu před commitem (nedoporučeno pro main).
+Pipeline provede:
+```bash
+pip install mkdocs-linkcheck
+mkdocs build -f mkdocs-linkcheck.yml --strict
+```
+Lokálně plugin není vyžadován (rychlejší iterace). Chyby odkazů se objeví pouze v CI.
 
 ## Plánované Rozšíření
 - Automatická validace odkazů (plugin `linkcheck`).

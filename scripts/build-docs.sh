@@ -10,16 +10,11 @@ cd "$ROOT_DIR"
 echo "[build-docs] Refreshing generated references (artisan)" >&2
 php artisan docs:refresh || echo "(warning) docs:refresh failed – continuing to static build" >&2
 
-HASH=$(sha256sum Dockerfile.docs | cut -c1-12)
-IMAGE_TAG="crm-mkdocs:9.5.18-${HASH}"
-echo "[build-docs] Building local image $IMAGE_TAG (Dockerfile.docs)" >&2
-docker build -q -f Dockerfile.docs -t "$IMAGE_TAG" . >/dev/null
-
-echo "[build-docs] Building MkDocs site → public/crm-docs (image $IMAGE_TAG)" >&2
+echo "[build-docs] Building MkDocs site → public/crm-docs (base image squidfunk/mkdocs-material:9.5.18)" >&2
 docker run --rm \
   -u $(id -u):$(id -g) \
   -v "$ROOT_DIR":/docs \
   -e CI=1 \
-  "$IMAGE_TAG" build --strict --site-dir public/crm-docs
+  squidfunk/mkdocs-material:9.5.18 build --strict --site-dir public/crm-docs
 
 echo "[build-docs] Done. Open /crm-docs/ in browser (ensure web server serves public/)." >&2

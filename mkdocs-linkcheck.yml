@@ -1,0 +1,8 @@
+INHERIT: mkdocs.yml
+plugins:
+  - search
+  - linkcheck:
+      fail_on_warning: true
+      timeout: 5
+      retry_count: 2
+      anchors: true
