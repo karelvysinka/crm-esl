@@ -11,6 +11,7 @@ nav:
   - Infrastruktura: 02-architecture/infrastructure.md
   - Adminto Šablona: 02-architecture/adminto-template.md
   - Git Publikace: 02-architecture/git-publishing.md
+  - MkDocs Build: 02-architecture/mkdocs-build.md
   - Testovací Strategie: 02-architecture/testing-strategy.md
   - Doména:
     - Model: 03-domain/domain-model.md

@@ -68,6 +68,29 @@ Stabilizace přihlášení dokončena – odstraněn alias `rotate.session`, zje
 #### Poznámky
 Middleware třída `RotateSessionId` byla v této verzi odstraněna (nebyla již volána) – rollback je snadný přes git historii pokud by byla znovu potřeba.
 
+### [2025-09-07] v0.1.15 (DOCS)
+#### Shrnutí
+Přidána dokumentační sekce pro proces MkDocs buildu + zařazena do navigace.
+
+#### Detaily
+- Nový soubor `docs/02-architecture/mkdocs-build.md` (lokální build, CI pipeline, troubleshooting, doporučení).
+- Aktualizace `mkdocs.yml` – přidána položka "MkDocs Build" pod sekcí Architektura.
+
+#### Dopady
+- Vývoj: Sjednocený postup generování dokumentace, snížení rizika nekonzistence `16-generated` vs. publikovaný statický web.
+- Provoz: Jasný návod pro CI job / ruční rebuild.
+
+#### Migrace / Kroky po nasazení
+1. Není potřeba migrace.
+2. (Volitelně) Přidat GitHub Actions job podle ukázky.
+
+#### Odkazy
+- `mkdocs.yml`
+- `docs/02-architecture/mkdocs-build.md`
+
+#### Poznámky
+Sekce bude rozšířena o linkcheck a ERD pipeline po jejich zavedení.
+
 ### [2025-09-06] v0.1.13 (ADDED / CHANGED)
 #### Shrnutí
 Analytics & UI rozšíření modulu objednávek: KPI karty, 12měsíční graf, větší typografie, rozšířená telemetrie importu + navýšení délky `order_number`.
