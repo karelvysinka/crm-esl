@@ -131,7 +131,7 @@ Plánované další kroky (mimo scope této verze): procentuální trend indiká
 Stabilizace modulu objednávek: přesné parsování položek z dedikované záložky, perzistence interního edit ID, nové příkazy pro zpětné doplnění položek a integritní kontrolu, volitelné plánování a úklid fallback logiky.
 
 #### Detaily
-- Přidán sloupec / podpora `external_edit_id` (interní ID z odkazu `/admin/order/edit/{id}`) – spolehlivý klíč pro detail.
+- Přidán sloupec / podpora `external_edit_id` (interní ID z odkazu `/admin/order/edit/{id}`) – spolehlivivý klíč pro detail.
 - `OrderScrapeClient`: dvojfázové načtení detailu (hlavní stránka + `/tab-ite`) → strukturované parsování tabulky položek.
 - Odstraněno duplicitní počítání položek (gating fallback logiky pouze když structured parse vrátí 0 položek).
 - Dedup klíč položek: md5(name|line_type|unit_price|qty|total) + `external_item_id` pokud dostupné.
@@ -479,3 +479,15 @@ Opraven 419 (Page Expired) při přihlášení – doplněna web middleware vrst
 #### Odkazy
 - `app/Http/Middleware/*`
 - `bootstrap/app.php`
+
+## [Unreleased]
+### Přidáno
+- Konzolová komenda `esl:import-users` pro hromadný import ESL kontaktů z `esl-kontakty.md`, generování unikátních hesel a export CSV s přihlašovacími údaji.
+- Automatický import (nebo aktualizace) uživatelských účtů v databázi (bez odesílání uvítacích e‑mailů).
+
+### Změněno
+- CSV export nově zapisován do `storage/app/esl-users-import.csv` namísto `docs/` kvůli oprávněním k zápisu.
+- Odstraněno odesílání uvítacích e‑mailů z příkazu importu uživatelů.
+
+### Dokum​entace
+- Přidán plán importu v `docs/17-external/plan_user.md` pro proces generování uživatelských účtů ze seznamu ESL kontaktů.
