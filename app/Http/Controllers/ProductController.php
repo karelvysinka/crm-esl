@@ -17,9 +17,31 @@ class ProductController extends Controller
             $q->filterCategory($hash);
         }
         $products = $q->orderByDesc('id')->paginate(25)->withQueryString();
+
+        // Stats for header panels
+        $totalProducts = Product::count();
+        $addedThisMonth = Product::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+        $availabilityCountsRaw = Product::select('availability_code')
+            ->selectRaw('COUNT(*) as c')
+            ->groupBy('availability_code')
+            ->pluck('c','availability_code');
+        $availabilityMap = config('products.availability_map');
+        $availabilityStats = collect($availabilityMap)->map(function($label,$code) use ($availabilityCountsRaw){
+            return [
+                'code' => $code,
+                'label' => $label === '' ? 'Neznámo' : $label,
+                'count' => (int) ($availabilityCountsRaw[$code] ?? 0),
+            ];
+        })->values();
+
         return view('products.index', [
             'products' => $products,
-            'filters' => $request->only(['q','manufacturer','availability','category_hash'])
+            'filters' => $request->only(['q','manufacturer','availability','category_hash']),
+            'stats' => [
+                'total' => $totalProducts,
+                'added_this_month' => $addedThisMonth,
+                'availability' => $availabilityStats,
+            ]
         ]);
     }
 

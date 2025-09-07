@@ -17,6 +17,60 @@
   </div>
 </div>
 
+@if(!empty($stats))
+  <div class="row g-3 mb-3">
+    <!-- Total products -->
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card shadow-sm h-100">
+        <div class="card-body py-3">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="avatar-sm bg-primary rounded"><i class="ri-archive-2-line avatar-title text-white font-22"></i></div>
+            <div class="text-end">
+              <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['total'],0,',',' ') }}</h4>
+              <p class="text-muted mb-0 small text-truncate">Produkty celkem</p>
+            </div>
+          </div>
+          <div class="mt-2 small text-muted">Záznamy v systému</div>
+        </div>
+      </div>
+    </div>
+    <!-- Added this month -->
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card shadow-sm h-100">
+        <div class="card-body py-3">
+          <div class="d-flex justify-content-between align-items-start">
+            <div class="avatar-sm bg-success rounded"><i class="ri-calendar-event-line avatar-title text-white font-22"></i></div>
+            <div class="text-end">
+              <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($stats['added_this_month'],0,',',' ') }}</h4>
+              <p class="text-muted mb-0 small text-truncate">Tento měsíc</p>
+            </div>
+          </div>
+          <div class="mt-2 small text-muted">Nově přidané</div>
+        </div>
+      </div>
+    </div>
+    <!-- Availability cards -->
+    @foreach($stats['availability'] as $av)
+      @php($codeLower = Str::lower($av['label']))
+      @php($color = str_contains($codeLower,'sklad') ? 'success' : (str_contains($codeLower,'3') ? 'info' : (str_contains($codeLower,'objed') ? 'warning' : 'secondary')))
+      <div class="col-6 col-md-4 col-xl-2">
+        <div class="card shadow-sm h-100">
+          <div class="card-body py-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div class="avatar-sm bg-{{ $color }} rounded"><i class="ri-stack-line avatar-title text-white font-22"></i></div>
+              <div class="text-end">
+                <h4 class="my-0 text-dark" data-plugin="counterup">{{ number_format($av['count'],0,',',' ') }}</h4>
+                <p class="text-muted mb-0 small text-truncate">{{ $av['label'] }}</p>
+              </div>
+            </div>
+            <div class="mt-2 small text-muted">Dostupnost</div>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+@endif
+
 <div class="card mb-3 shadow-sm border-0">
   <div class="card-body py-2">
     <form class="row g-2 align-items-end" method="get">
