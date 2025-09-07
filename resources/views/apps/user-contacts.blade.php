@@ -26,6 +26,17 @@
 </div>
 <!-- end row -->
 
+@if(!empty($stats))
+<div class="row g-3 mb-3">
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-primary rounded"><i class="ri-team-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['total'] }}</h4><p class="text-muted mb-0 small">Celkem</p></div></div><div class="mt-2 small text-muted">Uživatelů</div></div></div></div>
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success rounded"><i class="ri-shield-user-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['admins'] }}</h4><p class="text-muted mb-0 small">Admini</p></div></div><div class="mt-2 small text-muted">Role</div></div></div></div>
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-secondary rounded"><i class="ri-user-3-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['nonAdmins'] }}</h4><p class="text-muted mb-0 small">Standard</p></div></div><div class="mt-2 small text-muted">Role</div></div></div></div>
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-info rounded"><i class="ri-calendar-event-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['createdMonth'] }}</h4><p class="text-muted mb-0 small">Noví M</p></div></div><div class="mt-2 small text-muted">Tento měsíc</div></div></div></div>
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success-subtle rounded"><i class="ri-refresh-line avatar-title text-success font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['updatedMonth'] }}</h4><p class="text-muted mb-0 small">Upraveno M</p></div></div><div class="mt-2 small text-muted">Tento měsíc</div></div></div></div>
+    <div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body py-3"><div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-warning rounded"><i class="ri-key-2-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['withPasswordOld'] }}</h4><p class="text-muted mb-0 small">Staré heslo</p></div></div><div class="mt-2 small text-muted">>1 rok</div></div></div></div>
+</div>
+@endif
+
 <div class="row">
     @forelse($users as $user)
         <div class="col-xl-3 col-sm-6">

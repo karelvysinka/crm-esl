@@ -18,8 +18,23 @@ class TaskController extends Controller
      */
     public function index(): View
     {
-        $tasks = Task::with(['assignedTo', 'createdBy', 'taskable'])->orderByDesc('due_date')->get();
-        return view('crm.tasks.index', compact('tasks'));
+    $tasks = Task::with(['assignedTo', 'createdBy', 'taskable'])->orderByDesc('due_date')->get();
+
+    // Stats
+    $total = Task::count();
+    $newMonth = Task::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+    $statusCounts = Task::select('status')->selectRaw('COUNT(*) as c')->groupBy('status')->pluck('c','status');
+    $pending = (int) ($statusCounts['pending'] ?? 0);
+    $inProgress = (int) ($statusCounts['in_progress'] ?? 0);
+    $completed = (int) ($statusCounts['completed'] ?? 0);
+    $cancelled = (int) ($statusCounts['cancelled'] ?? 0);
+    $overdue = Task::whereNotIn('status',['completed','cancelled'])->where('due_date','<', now())->count();
+    $dueNext7 = Task::whereNotIn('status',['completed','cancelled'])->whereBetween('due_date',[now(), now()->addDays(7)])->count();
+    $highPriorityOpen = Task::whereIn('priority',['high','urgent'])->whereNotIn('status',['completed','cancelled'])->count();
+    $completedMonth = Task::where('status','completed')->whereBetween('updated_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+    $stats = compact('total','newMonth','pending','inProgress','completed','cancelled','overdue','dueNext7','highPriorityOpen','completedMonth');
+
+    return view('crm.tasks.index', compact('tasks','stats'));
     }
 
     /**

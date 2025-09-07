@@ -4,16 +4,6 @@
 
 | Permission | Guard |
 |------------|-------|
-| ops.execute | web |
-| ops.release | web |
-| ops.view | web |
-| orders.view | web |
-| products.sync | web |
-| products.view | web |
+| _žádná data_ | |
 
-## Role a jejich oprávnění
-
-### admin
-
-orders.view
-
+> Poznámka: Nepodařilo se získat runtime data (`SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for db failed: Temporary failure in name resolution (Connection: mysql, SQL: select * from `permissions` order by `name` asc)`). Spusťte v běžícím aplikačním kontejneru.

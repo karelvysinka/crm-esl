@@ -60,11 +60,7 @@ Route::middleware('auth')->prefix('crm')->group(function () {
     // Order items AJAX
     Route::get('orders/{order}/items', [\App\Http\Controllers\OrderItemsController::class, 'show']);
     // Dashboard
-    Route::get('/', function () {
-        // Pass AC availability flag for UI components that might rely on it
-        $acEnabled = (bool) json_decode((string) optional(\App\Models\SystemSetting::where('key','ac_sync_enabled')->first())->value ?: 'false');
-        return view('crm.dashboard', ['acEnabled' => $acEnabled]);
-    })->name('crm.dashboard');
+    Route::get('/', [\App\Http\Controllers\CrmDashboardController::class, 'index'])->name('crm.dashboard');
 
     // Companies
     Route::resource('companies', CompanyController::class);

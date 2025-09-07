@@ -1,6 +1,9 @@
 <!-- Topbar Start -->
 <header class="app-topbar" id="header">
     <div class="page-container topbar-menu">
+        <style>
+            .app-topbar .logo .logo-lg img { height:54px; max-height:54px; width:auto; }
+        </style>
         <div class="d-flex align-items-center gap-2">
 
             <!-- Brand Logo -->
@@ -35,7 +38,11 @@
                 </div>
                 @else
                 <div>
-                    <h4 class="page-title fs-20 fw-semibold mb-0">Welcome!</h4>
+                    @php
+                        \Carbon\Carbon::setLocale('cs');
+                        $__todayLocalized = now()->translatedFormat('l j. F Y');
+                    @endphp
+                    <h4 class="page-title fs-20 fw-semibold mb-0">Vítejte! Dnes je {{ $__todayLocalized }}</h4>
                 </div>
                 @endif
             </div>

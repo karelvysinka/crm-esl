@@ -31,6 +31,7 @@
 
     <!-- Custom CRM Menu Styles -->
     <style>
+    .sidenav-menu .logo .logo-lg img { height:60px; max-height:60px; width:auto; }
         .side-nav-item .side-nav-link.disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -72,44 +73,7 @@
     </style>
 
     <div data-simplebar>
-
-        <!-- User -->
-        <div class="sidenav-user">
-            <div class="dropdown-center text-center">
-                <a class="topbar-link dropdown-toggle text-reset drop-arrow-none px-2" data-bs-toggle="dropdown"
-                    type="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="/images/users/avatar-1.jpg" width="46" class="rounded-circle" alt="user-image">
-                    <span class="d-flex gap-1 sidenav-user-name my-2">
-                        <span>
-                            <span class="mb-0 fw-semibold lh-base fs-15">
-                                {{ auth()->user() ? auth()->user()->name : 'Uživatel' }}
-                            </span>
-                            <p class="my-0 fs-13 text-muted">
-                                {{ auth()->user() && auth()->user()->role ? __(auth()->user()->role) : 'Přihlášen' }}
-                            </p>
-                        </span>
-                        <i class="ri-arrow-down-s-line d-block sidenav-user-arrow align-middle"></i>
-                    </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end">
-                    <div class="dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Vítejte v CRM!</h6>
-                    </div>
-                    <a href="{{ route('apps.me.show') }}" class="dropdown-item">
-                        <i class="ri-account-circle-line me-1 fs-16 align-middle"></i>
-                        <span class="align-middle">Můj profil</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <form method="POST" action="{{ route('logout') }}" class="px-2">
-                        @csrf
-                        <button type="submit" class="dropdown-item fw-semibold text-danger">
-                            <i class="ri-logout-box-line me-1 fs-16 align-middle"></i>
-                            <span class="align-middle">Odhlásit se</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <!-- User panel removed (duplicated with topbar user menu) -->
 
         <!--- Sidenav Menu -->
         <ul class="side-nav">
@@ -122,7 +86,7 @@
             </li>
 
             <li class="side-nav-title mt-2">
-                CRM Moduly
+                CRM
             </li>
 
             <!-- Companies -->
@@ -157,14 +121,6 @@
                 </a>
             </li>
 
-            <!-- Projects -->
-            <li class="side-nav-item">
-                <a href="{{ route('projects.index') }}" class="side-nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}">
-                    <span class="menu-icon"><i class="ti ti-briefcase"></i></span>
-                    <span class="menu-text"> Projekty </span>
-                </a>
-            </li>
-
             @can('ops.view')
             <!-- Ops (Git & Zálohy) -->
             <li class="side-nav-item">
@@ -183,15 +139,35 @@
             </li>
             @endcan
 
-            <!-- Orders (always visible; access enforced by route middleware) -->
+
+            <!-- Deals -->
             <li class="side-nav-item">
-                <a href="{{ route('orders.index') }}" class="side-nav-link {{ request()->routeIs('orders.*') ? 'active' : '' }} {{ !auth()->user() || !auth()->user()->can('orders.view') ? 'disabled' : '' }}">
-                    <span class="menu-icon"><i class="ti ti-shopping-cart"></i></span>
-                    <span class="menu-text"> Objednávky </span>
+                <a href="{{ route('deals.index') }}" class="side-nav-link {{ request()->routeIs('deals.*') ? 'active' : '' }}">
+                    <span class="menu-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="M16 16l-2.5 2.5a2.8 2.8 0 0 1-4 0l-3.2-3.2a1.8 1.8 0 0 1 2.6-2.6l1.6 1.6" />
+                            <path d="M8 8l2.5-2.5a2.8 2.8 0 0 1 4 0l3.2 3.2a1.8 1.8 0 0 1-2.6 2.6l-1.6-1.6" />
+                            <path d="M3 8h2" />
+                            <path d="M19 16h2" />
+                            <path d="M3 16h2" />
+                            <path d="M19 8h2" />
+                        </svg>
+                    </span>
+                    <span class="menu-text"> Obchody </span>
                 </a>
             </li>
 
-            <!-- Tasks -->
+            <li class="side-nav-title mt-2">Řízení projektů</li>
+
+            <!-- Projects (moved) -->
+            <li class="side-nav-item">
+                <a href="{{ route('projects.index') }}" class="side-nav-link {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                    <span class="menu-icon"><i class="ti ti-briefcase"></i></span>
+                    <span class="menu-text"> Projekty </span>
+                </a>
+            </li>
+
+            <!-- Tasks (moved) -->
             <li class="side-nav-item">
                 <a href="{{ route('tasks.index') }}" class="side-nav-link {{ request()->routeIs('tasks.*') ? 'active' : '' }}">
                     <span class="menu-icon"><i class="ti ti-layout-kanban"></i></span>
@@ -199,17 +175,27 @@
                 </a>
             </li>
 
-            <!-- Deals -->
+            <li class="side-nav-title mt-2">Ecommerce</li>
+
+            <!-- Orders (moved) -->
             <li class="side-nav-item">
-                <a href="{{ route('deals.index') }}" class="side-nav-link {{ request()->routeIs('deals.*') ? 'active' : '' }}">
-                    <span class="menu-icon"><i class="ti ti-handshake"></i></span>
-                    <span class="menu-text"> Obchody </span>
+                <a href="{{ route('orders.index') }}" class="side-nav-link {{ request()->routeIs('orders.*') ? 'active' : '' }} {{ !auth()->user() || !auth()->user()->can('orders.view') ? 'disabled' : '' }}">
+                    <span class="menu-icon"><i class="ti ti-shopping-cart"></i></span>
+                    <span class="menu-text"> Objednávky </span>
                 </a>
             </li>
 
-            <li class="side-nav-title mt-2">
-                Nástroje
+            @can('products.view')
+            <!-- Products (moved) -->
+            <li class="side-nav-item">
+                <a href="{{ route('products.index') }}" class="side-nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
+                    <span class="menu-icon"><i class="ti ti-package"></i></span>
+                    <span class="menu-text"> Produkty </span>
+                </a>
             </li>
+            @endcan
+
+            <li class="side-nav-title mt-2">Znalosti</li>
 
             <!-- Knowledge: Notes -->
             <li class="side-nav-item">
@@ -228,13 +214,7 @@
             </li>
 
             @can('products.view')
-            <!-- Products Catalog -->
-            <li class="side-nav-item">
-                <a href="{{ route('products.index') }}" class="side-nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}">
-                    <span class="menu-icon"><i class="ti ti-package"></i></span>
-                    <span class="menu-text"> Produkty </span>
-                </a>
-            </li>
+                <!-- Products Catalog (moved to CRM section) -->
             @endcan
 
             <!-- Marketing -->

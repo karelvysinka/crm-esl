@@ -3,7 +3,6 @@
 | Metoda | URI | Název | Middleware | Akce |
 |--------|-----|-------|------------|-------|
 | GET | / | root | web | RoutingController@index |
-| GET | _debug/csrf |  | web | Closure |
 | GET | apps/user-contacts | apps.users.index | web,auth | UserManagementController@index |
 | GET | apps/user-profile | apps.me.show | web,auth | ProfileController@show |
 | POST | apps/user-profile | apps.me.update | web,auth | ProfileController@update |

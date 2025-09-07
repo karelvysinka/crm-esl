@@ -17,8 +17,25 @@ class DealController extends Controller
      */
     public function index(): View
     {
-        $deals = Deal::with(['opportunity', 'signedByContact'])->orderByDesc('created_at')->get();
-        return view('crm.deals.index', compact('deals'));
+    $deals = Deal::with(['opportunity', 'signedByContact'])->orderByDesc('created_at')->get();
+
+    // Stats
+    $total = Deal::count();
+    $newMonth = Deal::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+    $statusCounts = Deal::select('status')->selectRaw('COUNT(*) as c')->groupBy('status')->pluck('c','status');
+    $pending = (int) ($statusCounts['pending'] ?? 0);
+    $won = (int) ($statusCounts['won'] ?? 0);
+    $lost = (int) ($statusCounts['lost'] ?? 0);
+    $totalValue = (float) Deal::sum('amount');
+    $pipelineValue = (float) Deal::where('status','pending')->sum('amount');
+    $wonMonthValue = (float) Deal::where('status','won')->whereBetween('updated_at',[now()->startOfMonth(), now()->endOfMonth()])->sum('amount');
+    $closingNext30 = Deal::whereBetween('close_date',[now(), now()->addDays(30)])->count();
+    $closingNext30Value = (float) Deal::whereBetween('close_date',[now(), now()->addDays(30)])->sum('amount');
+    $winRate = $won + $lost > 0 ? round(($won / ($won + $lost)) * 100, 1) : 0;
+    $avgDeal = $total > 0 ? round($totalValue / $total, 2) : 0;
+    $stats = compact('total','newMonth','pending','won','lost','totalValue','pipelineValue','wonMonthValue','closingNext30','closingNext30Value','winRate','avgDeal');
+
+    return view('crm.deals.index', compact('deals','stats'));
     }
 
     /**

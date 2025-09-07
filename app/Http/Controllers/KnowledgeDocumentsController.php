@@ -18,7 +18,7 @@ class KnowledgeDocumentsController extends Controller
     public function index(Request $request): View
     {
         $q = trim((string) $request->get('q', ''));
-        $docs = KnowledgeDocument::query()
+        $base = KnowledgeDocument::query()
             ->when($q !== '', function($w) use ($q){
                 $w->where('title','like',"%$q%")
                   ->orWhereJsonContains('tags', $q);
@@ -27,9 +27,25 @@ class KnowledgeDocumentsController extends Controller
                 $w->where('visibility','public');
                 if (auth()->check()) { $w->orWhere('user_id', auth()->id()); }
             })
-            ->orderByDesc('updated_at')
-            ->paginate(20);
-        return view('crm.knowledge.docs.index', compact('docs','q'));
+            ->orderByDesc('updated_at');
+
+        $docs = $base->clone()->paginate(20);
+
+        // Stats
+        $total = $base->clone()->count();
+        $public = $base->clone()->where('visibility','public')->count();
+        $private = auth()->check() ? $base->clone()->where('visibility','private')->where('user_id', auth()->id())->count() : 0;
+        $ready = $base->clone()->where('status','ready')->count();
+        $processing = $base->clone()->where('status','processing')->count();
+        $failed = $base->clone()->where('status','failed')->count();
+        $vectorized = $base->clone()->whereNotNull('vectorized_at')->count();
+        $vectorsTotal = (int) $base->clone()->sum('vectors_count');
+        $avgVectors = $total > 0 ? round($vectorsTotal / $total, 1) : 0;
+        $newMonth = $base->clone()->whereBetween('created_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $updatedMonth = $base->clone()->whereBetween('updated_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $stats = compact('total','public','private','ready','processing','failed','vectorized','vectorsTotal','avgVectors','newMonth','updatedMonth');
+
+        return view('crm.knowledge.docs.index', compact('docs','q','stats'));
     }
 
     public function create(): View

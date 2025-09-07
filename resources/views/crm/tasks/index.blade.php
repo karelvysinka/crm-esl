@@ -16,6 +16,83 @@
     </div>
   </div>
 
+  @if(!empty($stats))
+  <div class="row g-3 mb-3">
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-primary rounded"><i class="ri-task-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['total'] }}</h4><p class="text-muted mb-0 small">Celkem</p></div>
+        </div><div class="mt-2 small text-muted">Úkoly</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-success rounded"><i class="ri-calendar-event-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['newMonth'] }}</h4><p class="text-muted mb-0 small">Tento měsíc</p></div>
+        </div><div class="mt-2 small text-muted">Nové</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-warning rounded"><i class="ri-time-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['pending'] }}</h4><p class="text-muted mb-0 small">Čeká</p></div>
+        </div><div class="mt-2 small text-muted">Status</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-info rounded"><i class="ri-loader-4-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['inProgress'] }}</h4><p class="text-muted mb-0 small">Probíhá</p></div>
+        </div><div class="mt-2 small text-muted">Status</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-success rounded"><i class="ri-check-double-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['completed'] }}</h4><p class="text-muted mb-0 small">Hotové</p></div>
+        </div><div class="mt-2 small text-muted">Status</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-danger rounded"><i class="ri-alarm-warning-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['overdue'] }}</h4><p class="text-muted mb-0 small">Po termínu</p></div>
+        </div><div class="mt-2 small text-muted">Aktivní</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-primary-subtle rounded"><i class="ri-calendar-schedule-line avatar-title text-primary font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['dueNext7'] }}</h4><p class="text-muted mb-0 small">Do 7 dnů</p></div>
+        </div><div class="mt-2 small text-muted">Aktivní</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-secondary rounded"><i class="ri-flashlight-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['highPriorityOpen'] }}</h4><p class="text-muted mb-0 small">Prioritní</p></div>
+  </div><div class="mt-2 small text-muted">Vys./Urgentní</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="avatar-sm bg-dark rounded"><i class="ri-bar-chart-line avatar-title text-white font-22"></i></div>
+          <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $stats['completedMonth'] }}</h4><p class="text-muted mb-0 small">Dokončeno M</p></div>
+        </div><div class="mt-2 small text-muted">Tento měsíc</div>
+      </div></div>
+    </div>
+  </div>
+  @endif
+
   <div class="card">
     <div class="card-header d-flex justify-content-between">
       <h4 class="header-title">Seznam úkolů</h4>

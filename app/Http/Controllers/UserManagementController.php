@@ -18,18 +18,28 @@ class UserManagementController extends Controller
     {
         $this->ensureAdmin();
         $q = trim((string) $request->input('q', ''));
-        $users = User::query()
+        $base = User::query()
             ->when($q, function ($query) use ($q) {
                 $query->where(function ($w) use ($q) {
                     $w->where('name', 'like', "%$q%")
                       ->orWhere('email', 'like', "%$q%");
                 });
             })
-            ->orderBy('id', 'desc')
-            ->paginate(24)
-            ->withQueryString();
+            ->orderBy('id', 'desc');
 
-        return view('apps.user-contacts', compact('users', 'q'));
+        $users = $base->clone()->paginate(24)->withQueryString();
+
+        // Stats
+        $total = $base->clone()->count();
+        $admins = $base->clone()->where('is_admin', true)->count();
+        $nonAdmins = $total - $admins;
+        $createdMonth = $base->clone()->whereBetween('created_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $updatedMonth = $base->clone()->whereBetween('updated_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $withPasswordOld = $base->clone()->where('updated_at','<',now()->subYear())->count();
+        $recentlyActive = method_exists(User::class,'scopeWhere') ? 0 : 0; // placeholder if activity tracking added later
+        $stats = compact('total','admins','nonAdmins','createdMonth','updatedMonth','withPasswordOld','recentlyActive');
+
+        return view('apps.user-contacts', compact('users', 'q','stats'));
     }
 
     public function edit(User $user)

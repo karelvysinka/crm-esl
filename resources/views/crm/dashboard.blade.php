@@ -5,10 +5,17 @@
 @section('css')
 <!-- Chart.js CSS -->
 <link href="{{ asset('libs/chart.js/Chart.min.css') }}" rel="stylesheet" type="text/css" />
+<style>
+    /* Dashboard specifické doplňky (globální unifikace je v head-css) */
+    .crm-dashboard .kpi-grid .card { transition:transform .18s ease, box-shadow .18s ease; }
+    .crm-dashboard .kpi-grid .card:hover { transform:translateY(-3px); }
+    .crm-dashboard .card-body.py-3 { padding-top:0.9rem !important; padding-bottom:0.9rem !important; }
+    @media (max-width: 575.98px){ .crm-dashboard .kpi-grid .col-6 { width:50%; } }
+</style>
 @endsection
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid crm-dashboard">
     @isset($acEnabled)
         @if(!$acEnabled)
         <div class="alert alert-warning d-flex align-items-center" role="alert">
@@ -37,101 +44,287 @@
     </div>
     <!-- end page title -->
 
-    <!-- Stats cards -->
-    <div class="row">
-        <div class="col-xl-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-sm bg-blue rounded">
-                                <i class="ri-building-line avatar-title font-22 text-white"></i>
-                            </div>
+    <!-- KPI: Základní entity -->
+    <!-- KPI: Objednávky (umístěno úplně nahoře) -->
+    <h5 class="section-heading mt-0">Objednávky</h5>
+    <div class="row g-3 mb-4 kpi-grid">
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('orders.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-dark rounded d-flex align-items-center justify-content-center" style="width:70px;height:70px;">
+                            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M6 6h15l-1.5 9h-13z"/>
+                                <path d="M6 6l-2-3H2"/>
+                                <circle cx="9" cy="20" r="1"/>
+                                <circle cx="18" cy="20" r="1"/>
+                            </svg>
                         </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\Company::count() }}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Společnosti</p>
-                            </div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $ordersToday }}</h4>
+                <p class="kpi-label">Objednávky dnes</p>
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <h6 class="text-uppercase">Celkem <span class="text-muted">(aktivní: {{ \App\Models\Company::where('status', 'active')->count() }})</span></h6>
+            <div class="kpi-meta">Počet objednávek vytvořených dnes</div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('orders.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-secondary rounded d-flex align-items-center justify-content-center" style="width:70px;height:70px;">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="13" rx="2" ry="2"/>
+                                <path d="M16 21H8m8 0a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2m8 0a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2" opacity="0.35"/>
+                            </svg>
+                        </div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $ordersWeek }}</h4>
+                <p class="kpi-label">Objednávky tento týden</p>
+                        </div>
                     </div>
+            <div class="kpi-meta">Počet objednávek (Po–Ne)</div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('orders.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-info rounded d-flex align-items-center justify-content-center" style="width:70px;height:70px;">
+                            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 2h8l4 4v12a2 2 0 0 1-2 2H8l-4-4V4a2 2 0 0 1 2-2z"/>
+                                <path d="M14 2v4h4"/>
+                                <path d="M9 12h6"/>
+                                <path d="M9 16h4"/>
+                            </svg>
+                        </div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $ordersMonth }}</h4>
+                <p class="kpi-label">Objednávky tento měsíc</p>
+                        </div>
+                    </div>
+            <div class="kpi-meta">Počet objednávek za kalendářní měsíc</div>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('orders.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-primary rounded d-flex align-items-center justify-content-center" style="width:70px;height:70px;">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"/>
+                                <rect x="7" y="13" width="3" height="5"/>
+                                <rect x="12" y="9" width="3" height="9"/>
+                                <rect x="17" y="5" width="3" height="13"/>
+                            </svg>
+                        </div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $ordersYear }}</h4>
+                <p class="kpi-label">Objednávky tento rok</p>
+                        </div>
+                    </div>
+            <div class="kpi-meta">Počet objednávek od 1.1.</div>
+                </div>
+            </div></a>
+        </div>
+    </div>
+    <h5 class="section-heading">Základní CRM Entity</h5>
+    <div class="row g-3 mb-4 kpi-grid">
+        <!-- Companies -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('companies.index') }}" class="text-decoration-none">
+            <div class="card h-100 hover-shadow">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-primary rounded"><i class="ri-building-line avatar-title text-white font-22"></i></div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $companiesTotal }}</h4>
+                <p class="kpi-label">Společnosti</p>
+                        </div>
+                    </div>
+            <div class="kpi-meta">Aktivní {{ $companiesActive }} | Nové M {{ $companiesNewMonth }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Contacts -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('contacts.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-success rounded"><i class="ri-contacts-line avatar-title text-white font-22"></i></div>
+                        <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $contactsTotal }}</h4><p class="kpi-label">Kontakty</p></div>
+                    </div>
+                    <div class="kpi-meta">Nové M {{ $contactsNewMonth }} | Aktivní {{ ($contactsStatus['active'] ?? 0) }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Leads -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('leads.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-warning rounded"><i class="ri-user-star-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $leadsTotal }}</h4><p class="kpi-label">Leady</p></div></div>
+                    <div class="kpi-meta">Hot {{ $leadsHot }} | Nové M {{ $leadsNewMonth }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Opportunities -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('opportunities.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-info rounded"><i class="ri-money-dollar-circle-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $oppsTotal }}</h4><p class="kpi-label">Příležitosti</p></div></div>
+                    <div class="kpi-meta">Hodnota {{ number_format($oppsValue,0,',',' ') }} Kč | Win {{ $oppsWinRate }}%</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Tasks -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('tasks.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-secondary rounded"><i class="ri-task-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $tasksOpen }}</h4><p class="kpi-label">Otevřené úkoly</p></div></div>
+                    <div class="kpi-meta">Po termínu {{ $tasksOverdue }} | Do 7d {{ $tasksDue7 }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Deals -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('deals.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-dark rounded"><i class="ri-handbag-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $dealsTotal }}</h4><p class="kpi-label">Dealy</p></div></div>
+                    <div class="kpi-meta">Win {{ $dealsWinRate }}% | Pipeline {{ number_format($dealsPipelineValue,0,',',' ') }} Kč</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Projects -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('projects.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-primary-subtle rounded"><i class="ri-folder-line avatar-title text-primary font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $projectsTotal }}</h4><p class="kpi-label">Projekty</p></div></div>
+                    <div class="kpi-meta">Probíhá {{ $projectsInProgress }} | Hotovo {{ $projectsCompleted }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <!-- Products -->
+        <div class="col-6 col-xl-3">
+            <a href="{{ route('products.index') }}" class="text-decoration-none">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success-subtle rounded"><i class="ri-shopping-cart-2-line avatar-title text-success font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $productsTotal }}</h4><p class="kpi-label">Produkty</p></div></div>
+                    <div class="kpi-meta">Nové M {{ $productsNewMonth }} | Skladem {{ $productsAvailable }}</div>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    <!-- end base KPI grid -->
+
+    <!-- KPI: Obchod & Pipeline -->
+    <h5 class="section-heading">Obchod & Pipeline</h5>
+    <div class="row g-3 mb-4 kpi-grid">
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-info rounded"><i class="ri-stack-line avatar-title text-white font-22"></i></div>
+                        <div class="text-end">
+                <h4 class="my-0" data-plugin="counterup">{{ $oppsOpen }}</h4>
+                <p class="kpi-label">Otevřené příležitosti</p>
+                        </div>
+                    </div>
+            <div class="kpi-meta">Prům. hodnota {{ number_format($oppsAvgValue,0,',',' ') }} Kč</div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-sm bg-success rounded">
-                                <i class="ri-contacts-line avatar-title font-22 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\Contact::count() }}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Kontakty</p>
-                            </div>
-                        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-success rounded"><i class="ri-trophy-line avatar-title text-white font-22"></i></div>
+                        <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $oppsWinRate }}</h4><p class="kpi-label">Win Rate %</p></div>
                     </div>
-                    <div class="mt-3">
-                        <h6 class="text-uppercase">Celkem <span class="text-muted">(nové: {{ \App\Models\Contact::whereDate('created_at', today())->count() }})</span></h6>
-                    </div>
+                    <div class="kpi-meta">Ø uzavření {{ $oppsAvgCloseDays }} dnů</div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-sm bg-warning rounded">
-                                <i class="ri-user-star-line avatar-title font-22 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\Lead::count() }}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Leady</p>
-                            </div>
-                        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-dark rounded"><i class="ri-briefcase-4-line avatar-title text-white font-22"></i></div>
+                        <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $dealsPending }}</h4><p class="kpi-label">Aktivní dealy</p></div>
                     </div>
-                    <div class="mt-3">
-                        <h6 class="text-uppercase">Aktivní <span class="text-muted">(hot: {{ \App\Models\Lead::where('status', 'hot')->count() }})</span></h6>
-                    </div>
+                    <div class="kpi-meta">Pipeline {{ number_format($dealsPipelineValue,0,',',' ') }} Kč</div>
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="avatar-sm bg-info rounded">
-                                <i class="ri-money-dollar-circle-line avatar-title font-22 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="text-end">
-                                <h3 class="text-dark my-1"><span data-plugin="counterup">{{ \App\Models\Opportunity::count() }}</span></h3>
-                                <p class="text-muted mb-1 text-truncate">Příležitosti</p>
-                            </div>
-                        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-success-subtle rounded"><i class="ri-medal-line avatar-title text-success font-22"></i></div>
+                        <div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $dealsWon }}</h4><p class="kpi-label">Vyhrané MTD</p></div>
                     </div>
-                    <div class="mt-3">
-                        <h6 class="text-uppercase">Aktivní <span class="text-muted">(hodnota: {{ number_format(\App\Models\Opportunity::sum('value'), 0, ',', ' ') }} Kč)</span></h6>
-                    </div>
+                    <div class="kpi-meta">Hodnota {{ number_format($dealsWonMonthValue,0,',',' ') }} Kč</div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end stats -->
+
+    <!-- KPI: Produkt & Projekty & Úkoly kvalita -->
+    <h5 class="section-heading">Realizace & Výkon</h5>
+    <div class="row g-3 mb-4 kpi-grid">
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-secondary rounded"><i class="ri-task-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $tasksCompletionRate }}</h4><p class="kpi-label">Completion % MTD</p></div></div>
+                    <div class="kpi-meta">Dokončeno {{ $tasksCompletedMonth }} | Po termínu {{ $tasksOverdueRate }}%</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-primary-subtle rounded"><i class="ri-folder-chart-line avatar-title text-primary font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $projectsOnTimeRate }}</h4><p class="kpi-label">On-Time Projekty %</p></div></div>
+                    <div class="kpi-meta">Probíhá {{ $projectsInProgress }} | Hotovo {{ $projectsCompleted }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success-subtle rounded"><i class="ri-shopping-cart-line avatar-title text-success font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $productsInStockRate }}</h4><p class="kpi-label">Produkty skladem %</p></div></div>
+                    <div class="kpi-meta">Celkem {{ $productsTotal }} | Nové M {{ $productsNewMonth }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-dark rounded"><i class="ri-handshake-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ $dealsAvgSize }}</h4><p class="kpi-label">Ø Deal velikost</p></div></div>
+                    <div class="kpi-meta">Ø uzavření {{ $dealsAvgCloseDays }} dnů</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contacts Over Time Chart -->
     <div class="row">

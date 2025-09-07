@@ -12,7 +12,7 @@ class KnowledgeController extends Controller
     public function index(Request $request): View
     {
         $q = trim((string) $request->get('q', ''));
-        $notes = KnowledgeNote::query()
+        $base = KnowledgeNote::query()
             ->when($q !== '', function($w) use ($q) {
                 $w->where('title','like',"%$q%")
                   ->orWhere('content','like',"%$q%")
@@ -24,9 +24,27 @@ class KnowledgeController extends Controller
                     $w->orWhere('user_id', auth()->id());
                 }
             })
-            ->orderByDesc('updated_at')
-            ->paginate(20);
-        return view('crm.knowledge.index', compact('notes','q'));
+            ->orderByDesc('updated_at');
+
+        $notes = $base->clone()->paginate(20);
+
+        // Stats (public + own)
+        $total = $base->clone()->count();
+        $public = $base->clone()->where('visibility','public')->count();
+        $private = auth()->check() ? $base->clone()->where('visibility','private')->where('user_id', auth()->id())->count() : 0;
+        $newMonth = $base->clone()->whereBetween('created_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $updatedMonth = $base->clone()->whereBetween('updated_at',[now()->startOfMonth(), now()->endOfMonth()])->count();
+        $tagUsage = KnowledgeNote::selectRaw('JSON_EXTRACT(tags, "$[*]") as tags_json')->get()->pluck('tags_json')->filter();
+        $tagCounts = [];
+        foreach($tagUsage as $json){
+            $arr = json_decode($json, true) ?? [];
+            foreach($arr as $tag){ $tagCounts[$tag] = ($tagCounts[$tag] ?? 0) + 1; }
+        }
+        arsort($tagCounts);
+        $topTags = array_slice($tagCounts,0,5,true);
+        $stats = compact('total','public','private','newMonth','updatedMonth','topTags');
+
+        return view('crm.knowledge.index', compact('notes','q','stats'));
     }
 
     public function create(): View

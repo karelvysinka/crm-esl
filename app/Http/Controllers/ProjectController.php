@@ -14,8 +14,21 @@ class ProjectController extends Controller
 {
     public function index(): View
     {
-        $projects = Project::with(['company','contact','assignedTo'])->orderByDesc('id')->get();
-        return view('crm.projects.index', compact('projects'));
+    $projects = Project::with(['company','contact','assignedTo'])->orderByDesc('id')->get();
+
+    // Stats panels
+    $total = Project::count();
+    $newMonth = Project::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+    $statusCounts = Project::select('status')->selectRaw('COUNT(*) as c')->groupBy('status')->pluck('c','status');
+    $upcoming = Project::whereNotNull('due_date')->whereBetween('due_date', [now(), now()->addDays(30)])->count();
+    $completed = (int) ($statusCounts['completed'] ?? 0);
+    $inProgress = (int) ($statusCounts['in_progress'] ?? 0);
+    $onHold = (int) ($statusCounts['on_hold'] ?? 0);
+    $planned = (int) ($statusCounts['planned'] ?? 0);
+    $cancelled = (int) ($statusCounts['cancelled'] ?? 0);
+    $stats = compact('total','newMonth','upcoming','completed','inProgress','onHold','planned','cancelled');
+
+    return view('crm.projects.index', compact('projects','stats'));
     }
 
     public function create(): View

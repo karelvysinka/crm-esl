@@ -16,6 +16,71 @@
     </div>
   </div>
 
+  @if(!empty($stats))
+  <div class="row g-3 mb-3">
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-primary rounded"><i class="ri-handbag-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['total'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Celkem</p></div></div><div class="mt-2 small text-muted">Dealů</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success rounded"><i class="ri-calendar-event-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['newMonth'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Tento měsíc</p></div></div><div class="mt-2 small text-muted">Nové dealy</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-warning rounded"><i class="ri-hourglass-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['pending'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Otevřené</p></div></div><div class="mt-2 small text-muted">Stav otevřené</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success rounded"><i class="ri-checkbox-circle-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['won'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Vyhráno</p></div></div><div class="mt-2 small text-muted">Status won</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-danger rounded"><i class="ri-close-circle-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['lost'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Prohráno</p></div></div><div class="mt-2 small text-muted">Status lost</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-secondary rounded"><i class="ri-percent-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0">{{ $stats['winRate'] }}%</h4><p class="text-muted mb-0 small">Úspěšnost</p></div></div><div class="mt-2 small text-muted">Vyhrané/(Vyhr.+Prohr.)</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-info rounded"><i class="ri-exchange-dollar-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['totalValue'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Celkem Kč</p></div></div><div class="mt-2 small text-muted">Hodnota všech</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-primary-subtle rounded"><i class="ri-stack-line avatar-title text-primary font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['pipelineValue'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Pipeline Kč</p></div></div><div class="mt-2 small text-muted">Hodnota otevřených</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-success-subtle rounded"><i class="ri-award-line avatar-title text-success font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['wonMonthValue'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Vyhráno M Kč</p></div></div><div class="mt-2 small text-muted">Tento měsíc</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-warning-subtle rounded"><i class="ri-timer-line avatar-title text-warning font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['closingNext30'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Do 30 dnů</p></div></div><div class="mt-2 small text-muted">Počet uzavření</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-warning rounded"><i class="ri-money-dollar-circle-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0" data-plugin="counterup">{{ number_format($stats['closingNext30Value'],0,',',' ') }}</h4><p class="text-muted mb-0 small">Do 30 dnů Kč</p></div></div><div class="mt-2 small text-muted">Hodnota uzavření</div>
+      </div></div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="card h-100"><div class="card-body py-3">
+  <div class="d-flex justify-content-between align-items-start"><div class="avatar-sm bg-dark rounded"><i class="ri-bar-chart-2-line avatar-title text-white font-22"></i></div><div class="text-end"><h4 class="my-0">{{ number_format($stats['avgDeal'],2,',',' ') }}</h4><p class="text-muted mb-0 small">Průměr Kč</p></div></div><div class="mt-2 small text-muted">Průměrná velikost</div>
+      </div></div>
+    </div>
+  </div>
+  @endif
+
   <div class="card">
     <div class="card-header d-flex justify-content-between">
       <h4 class="header-title">Seznam dealů</h4>

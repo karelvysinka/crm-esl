@@ -255,6 +255,11 @@
                                 <span class="menu-text">Obchody</span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{ route('products.index') }}" class="side-nav-link">
+                                <span class="menu-text">Produkty</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </li>
