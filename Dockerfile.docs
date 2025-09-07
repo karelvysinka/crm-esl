@@ -4,6 +4,6 @@ LABEL org.opencontainers.image.source="crm-esl" \
       maintainer="docs-bot <docs-bot@local>"
 
 # Install required plugins (add more here as needed)
-RUN pip install --no-cache-dir mkdocs-linkcheck==0.9.0
+RUN pip install --no-cache-dir mkdocs-linkcheck==1.0.6
 
 WORKDIR /docs
