@@ -512,6 +512,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#link-checking-pouze-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link Checking (pouze CI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#planovane-rozsireni" class="md-nav__link">
     <span class="md-ellipsis">
       Plánované Rozšíření
@@ -1643,6 +1652,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#link-checking-pouze-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Link Checking (pouze CI)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#planovane-rozsireni" class="md-nav__link">
     <span class="md-ellipsis">
       Plánované Rozšíření
@@ -1703,6 +1721,8 @@
 </table>
 <h2 id="lokalni-build-docker-preferovano">Lokální Build (Docker – preferováno)<a class="headerlink" href="#lokalni-build-docker-preferovano" title="Permanent link">&para;</a></h2>
 <p>Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz <code>scripts/build-docs.sh</code>).</p>
+<p>Pinned base image: <code>squidfunk/mkdocs-material:9.5.18</code> (měň pouze vědomě + changelog poznámka).
+Link checking se spouští jen v CI pomocí separátního konfigu <code>mkdocs-linkcheck.yml</code> – lokální build je rychlý (bez pluginu). To zabraňuje problémům s lokální instalací pluginů uvnitř kontejneru.</p>
 <div class="highlight"><pre><span></span><code>./scripts/build-docs.sh
 </code></pre></div>
 <p>Co skript dělá:
@@ -1799,6 +1819,15 @@ Otevři <code>http://localhost:8001</code>.</p>
 <li>Při větších úpravách přidej položku do changelogu (<code>DOCS</code>).</li>
 <li>Udržuj verzi Docker image v synchronu s dokumentací (případně pin na minor).</li>
 </ul>
+<h2 id="link-checking-pouze-ci">Link Checking (pouze CI)<a class="headerlink" href="#link-checking-pouze-ci" title="Permanent link">&para;</a></h2>
+<p>Používáme separátní konfigurační soubor:</p>
+<div class="highlight"><pre><span></span><code>mkdocs-linkcheck.yml (INHERIT: mkdocs.yml + plugin linkcheck)
+</code></pre></div>
+<p>Pipeline provede:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-linkcheck
+mkdocs<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>mkdocs-linkcheck.yml<span class="w"> </span>--strict
+</code></pre></div>
+Lokálně plugin není vyžadován (rychlejší iterace). Chyby odkazů se objeví pouze v CI.</p>
 <h2 id="planovane-rozsireni">Plánované Rozšíření<a class="headerlink" href="#planovane-rozsireni" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Automatická validace odkazů (plugin <code>linkcheck</code>).</li>
