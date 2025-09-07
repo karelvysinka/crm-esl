@@ -10,6 +10,10 @@ class OrderSyncSettingsController extends Controller
 {
     public function index()
     {
+        // Graceful fallback pokud ještě nejsou migrace nasazeny
+        if (!\Schema::hasTable('order_sync_settings') || !\Schema::hasTable('order_sync_runs')) {
+            return view('orders.sync-settings-missing');
+        }
         $setting = OrderSyncSetting::first();
         if (!$setting) { $setting = OrderSyncSetting::create(['source_url'=>'','interval_minutes'=>15,'enabled'=>true]); }
         $runsTotal = OrderSyncRun::count();

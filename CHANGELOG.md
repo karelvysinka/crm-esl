@@ -7,6 +7,8 @@ Formát vychází z [Keep a Changelog](https://keepachangelog.com/) a verze dodr
 ### Přidáno
 - Panel KPI statistik na stránce příležitostí (win rate, průměrná hodnota, otevřené, prohrané, vyhrané, celková hodnota).
 - Submenu Objednávky s novou stránkou nastavení synchronizace (interval, URL, přihlašovací údaje, log běhů, KPI běhů).
+### Opraveno
+- Guard a fallback view pro stránku nastavení synchronizace objednávek při chybějících migracích.
 
 ## [0.1.0] - 2025-09-07
 ### Přidáno
