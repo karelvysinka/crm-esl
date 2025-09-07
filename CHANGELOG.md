@@ -4,7 +4,8 @@ Všechny významné změny v tomto projektu jsou dokumentovány v tomto souboru.
 Formát vychází z [Keep a Changelog](https://keepachangelog.com/) a verze dodržují [Semantic Versioning](https://semver.org/lang/cz/).
 
 ## [Unreleased]
-- (zatím nic)
+### Přidáno
+- Panel KPI statistik na stránce příležitostí (win rate, průměrná hodnota, otevřené, prohrané, vyhrané, celková hodnota).
 
 ## [0.1.0] - 2025-09-07
 ### Přidáno

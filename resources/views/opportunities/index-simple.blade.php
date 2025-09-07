@@ -19,6 +19,106 @@
     </div>
     <!-- end page title -->
 
+    <!-- Opportunity KPIs -->
+    <div class="row g-3 mb-3">
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-success rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ number_format($stats['win_rate'], 1) }}%</h5>
+                            <p class="kpi-label mb-0">Win Rate</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Podíl vyhraných</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-primary rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ number_format($stats['avg_value'], 0, ',', ' ') }} Kč</h5>
+                            <p class="kpi-label mb-0">Průměr</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Hodnota / příležitost</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-warning rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ $stats['open_count'] }}</h5>
+                            <p class="kpi-label mb-0">Otevřeno</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Aktivní fáze</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-danger rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ $stats['lost_count'] }}</h5>
+                            <p class="kpi-label mb-0">Prohráno</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Ztracené</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-info rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ $stats['won_count'] }}</h5>
+                            <p class="kpi-label mb-0">Vyhráno</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Uzavřené výhry</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2">
+            <div class="card h-100">
+                <div class="card-body py-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="avatar-sm bg-secondary rounded d-flex align-items-center justify-content-center" style="width:54px;height:54px;">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4z"/><path d="M4 12h16v8H4z"/><path d="M4 8v4"/><path d="M20 8v4"/></svg>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="my-0">{{ number_format($stats['total_value'], 0, ',', ' ') }} Kč</h5>
+                            <p class="kpi-label mb-0">Celkem</p>
+                        </div>
+                    </div>
+                    <div class="kpi-meta mt-1">Celková hodnota</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <div class="card">

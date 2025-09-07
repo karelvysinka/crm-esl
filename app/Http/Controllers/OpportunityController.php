@@ -21,14 +21,26 @@ class OpportunityController extends Controller
             ->paginate(20);
 
         // Sales pipeline statistics
+        $totalValue = Opportunity::sum('value');
+        $totalCount = Opportunity::count();
+        $wonValue = Opportunity::where('stage', 'won')->sum('value');
+        $wonCount = Opportunity::where('stage', 'won')->count();
+        $openValue = Opportunity::whereNotIn('stage', ['won', 'lost'])->sum('value');
+        $openCount = Opportunity::whereNotIn('stage', ['won', 'lost'])->count();
+        $avgProbability = Opportunity::whereNotIn('stage', ['won', 'lost'])->avg('probability');
+        $lostCount = Opportunity::where('stage', 'lost')->count();
+
         $stats = [
-            'total_value' => Opportunity::sum('value'),
-            'total_count' => Opportunity::count(),
-            'won_value' => Opportunity::where('stage', 'won')->sum('value'),
-            'won_count' => Opportunity::where('stage', 'won')->count(),
-            'open_value' => Opportunity::whereNotIn('stage', ['won', 'lost'])->sum('value'),
-            'open_count' => Opportunity::whereNotIn('stage', ['won', 'lost'])->count(),
-            'avg_probability' => Opportunity::whereNotIn('stage', ['won', 'lost'])->avg('probability'),
+            'total_value' => $totalValue,
+            'total_count' => $totalCount,
+            'won_value' => $wonValue,
+            'won_count' => $wonCount,
+            'open_value' => $openValue,
+            'open_count' => $openCount,
+            'avg_probability' => $avgProbability,
+            'avg_value' => $totalCount > 0 ? $totalValue / $totalCount : 0,
+            'win_rate' => $totalCount > 0 ? ($wonCount / $totalCount) * 100 : 0,
+            'lost_count' => $lostCount,
         ];
 
         // Pipeline stages
