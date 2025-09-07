@@ -2,197 +2,202 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ce1.opent2.com/crm-docs/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/00-index/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/01-intro/changelog/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/01-intro/how-it-works/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/02-architecture/adminto-template/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/02-architecture/git-publishing/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/02-architecture/infrastructure/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ce1.opent2.com/crm-docs/02-architecture/mkdocs-build/</loc>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/02-architecture/overview/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/02-architecture/testing-strategy/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/03-domain/domain-model/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/04-modules/ops/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/05-integrations/activecampaign/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/05-integrations/embeddings-providers/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/05-integrations/qdrant/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/06-products/implementation-plan/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/06-products/overview/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/07-orders/implementation-plan/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/07-orders/overview/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/07-runtime/jobs-catalog/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/07-runtime/routes/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/07-runtime/schedule/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/12-adr/ADR-20250904-knowledge-subsystem/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/12-adr/ADR-20250904-mkdocs-adopce/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/12-adr/ADR-20250904-ops-modul/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/12-adr/ADR-20250904-permissions-model/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/13-runbooks/ops-runbook/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/14-checklists/pr-checklist/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/15-templates/adr-template/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/15-templates/module/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/backup-report-latest/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/db-schema/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/env-matrix/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/erd/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/jobs/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/model-fields/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/navigation/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/permissions/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/routes/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ce1.opent2.com/crm-docs/16-generated/schedule/</loc>
-         <lastmod>2025-09-06</lastmod>
+         <lastmod>2025-09-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

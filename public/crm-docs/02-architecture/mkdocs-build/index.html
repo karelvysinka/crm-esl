@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/14-checklists/pr-checklist/">
+        <link rel="canonical" href="https://ce1.opent2.com/crm-docs/02-architecture/mkdocs-build/">
       
       
-        <link rel="prev" href="../../12-adr/ADR-20250904-permissions-model/">
+        <link rel="prev" href="../git-publishing/">
       
       
-        <link rel="next" href="../../15-templates/adr-template/">
+        <link rel="next" href="../testing-strategy/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>PR Checklist - CRM Documentation</title>
+        <title>MkDocs Build - CRM Documentation</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pr-checklist" class="md-skip">
+        <a href="#mkdocs-build-publikace" class="md-skip">
           Přeskočit obsah
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PR Checklist
+              MkDocs Build
             
           </span>
         </div>
@@ -288,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/overview/" class="md-nav__link">
+      <a href="../overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -316,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/infrastructure/" class="md-nav__link">
+      <a href="../infrastructure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -336,7 +336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/adminto-template/" class="md-nav__link">
+      <a href="../adminto-template/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/git-publishing/" class="md-nav__link">
+      <a href="../git-publishing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,10 +373,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../02-architecture/mkdocs-build/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MkDocs Build
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -385,6 +405,125 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cíle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slozky-zdroj" class="md-nav__link">
+    <span class="md-ellipsis">
+      Složky &amp; Zdroj
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lokalni-build-docker-preferovano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lokální Build (Docker – preferováno)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternativa-lokalni-python-prostredi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternativa (lokální Python prostředí)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rychly-nahled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rychlý Náhled
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrace-s-artisan-docsrefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrace s Artisan docs:refresh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-pipeline-priklad" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Pipeline (příklad)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aktualizace-cache-assetu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aktualizace Cache / Assetů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doporuceni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doporučení
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planovane-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plánované Rozšíření
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -396,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-architecture/testing-strategy/" class="md-nav__link">
+      <a href="../testing-strategy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1244,19 +1383,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_27" >
         
           
           <label class="md-nav__link" for="__nav_27" id="__nav_27_label" tabindex="0">
@@ -1270,7 +1407,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_27_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_27">
             <span class="md-nav__icon md-icon"></span>
             Checklists
@@ -1281,19 +1418,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../14-checklists/pr-checklist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1302,7 +1430,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1419,6 +1546,113 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cíle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slozky-zdroj" class="md-nav__link">
+    <span class="md-ellipsis">
+      Složky &amp; Zdroj
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lokalni-build-docker-preferovano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lokální Build (Docker – preferováno)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternativa-lokalni-python-prostredi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternativa (lokální Python prostředí)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rychly-nahled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rychlý Náhled
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integrace-s-artisan-docsrefresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrace s Artisan docs:refresh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ci-pipeline-priklad" class="md-nav__link">
+    <span class="md-ellipsis">
+      CI Pipeline (příklad)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aktualizace-cache-assetu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aktualizace Cache / Assetů
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doporuceni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Doporučení
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planovane-rozsireni" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plánované Rozšíření
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1432,13 +1666,143 @@
                   
 
 
-<h1 id="pr-checklist">PR Checklist<a class="headerlink" href="#pr-checklist" title="Permanent link">&para;</a></h1>
+<h1 id="mkdocs-build-publikace">MkDocs Build &amp; Publikace<a class="headerlink" href="#mkdocs-build-publikace" title="Permanent link">&para;</a></h1>
+<p>Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.</p>
+<h2 id="cile">Cíle<a class="headerlink" href="#cile" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] Testy pro změněné kritické části</li>
-<li>[ ] Aktualizované modulové dokumenty</li>
-<li>[ ] Úprava .env.example (pokud nová proměnná)</li>
-<li>[ ] Spuštěno <code>php artisan docs:refresh</code> a commitnuty změny <code>docs/16-generated</code></li>
-<li>[ ] Zváženo / vytvořeno ADR</li>
+<li>Konzistentní reprodukovatelný build.</li>
+<li>Generované artefakty (statický web) dostupné v <code>public/crm-docs</code>.</li>
+<li>Možnost částečné regenerace (artisan <code>docs:refresh</code>) vs. plný MkDocs build.</li>
+</ul>
+<h2 id="slozky-zdroj">Složky &amp; Zdroj<a class="headerlink" href="#slozky-zdroj" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Cesta</th>
+<th>Účel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docs/</code></td>
+<td>Zdrojové markdown + generované podsložky <code>16-generated/</code></td>
+</tr>
+<tr>
+<td><code>public/crm-docs/</code></td>
+<td>Výstup statického webu (build)</td>
+</tr>
+<tr>
+<td><code>mkdocs.yml</code></td>
+<td>Konfigurace navigace, theme, pluginy</td>
+</tr>
+<tr>
+<td><code>scripts/docs/build.sh</code> (pokud existuje)</td>
+<td>Wrapper pro CI (volitelně)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lokalni-build-docker-preferovano">Lokální Build (Docker – preferováno)<a class="headerlink" href="#lokalni-build-docker-preferovano" title="Permanent link">&para;</a></h2>
+<p>Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz <code>scripts/build-docs.sh</code>).</p>
+<div class="highlight"><pre><span></span><code>./scripts/build-docs.sh
+</code></pre></div>
+<p>Co skript dělá:
+1. Spustí <code>php artisan docs:refresh</code> (ignoruje chyby, aby build nepadl kvůli částečnému selhání).
+2. Spustí <code>docker run squidfunk/mkdocs-material:&lt;verze&gt; build --strict --site-dir public/crm-docs</code>.
+3. Výstup jde přímo do <code>public/crm-docs</code> (nepoužíváme výchozí <code>site/</code>).</p>
+<h2 id="alternativa-lokalni-python-prostredi">Alternativa (lokální Python prostředí)<a class="headerlink" href="#alternativa-lokalni-python-prostredi" title="Permanent link">&para;</a></h2>
+<p>Pouze pokud Docker není k dispozici:
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv_docs
+.<span class="w"> </span>.venv_docs/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material<span class="w"> </span>pymdown-extensions
+php<span class="w"> </span>artisan<span class="w"> </span>docs:refresh
+mkdocs<span class="w"> </span>build<span class="w"> </span>--clean<span class="w"> </span>--site-dir<span class="w"> </span>public/crm-docs
+</code></pre></div>
+Pozn: <code>--site-dir public/crm-docs</code> zarovná výstup s produkční strukturou.</p>
+<h2 id="rychly-nahled">Rychlý Náhled<a class="headerlink" href="#rychly-nahled" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span>.0.0.0:8001
+</code></pre></div>
+Otevři <code>http://localhost:8001</code>.</p>
+<h2 id="integrace-s-artisan-docsrefresh">Integrace s Artisan <code>docs:refresh</code><a class="headerlink" href="#integrace-s-artisan-docsrefresh" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>php artisan docs:refresh</code> generuje obsah do <code>docs/16-generated/*.md</code>.</li>
+<li>Poté musí následovat MkDocs build, aby se změny propsaly do statického webu.</li>
+</ul>
+<h2 id="ci-pipeline-priklad">CI Pipeline (příklad)<a class="headerlink" href="#ci-pipeline-priklad" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Docs</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">paths</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;docs/**&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;mkdocs.yml&#39;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;app/Console/Commands/DocsRefresh.php&#39;</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PHP deps</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">composer install --no-interaction --prefer-dist</span>
+<span class="w">          </span><span class="no">php artisan docs:refresh</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Python deps</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">          </span><span class="no">pip install mkdocs mkdocs-material</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build docs</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mkdocs build --clean --site-dir public/crm-docs</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy (Pages / artifact)</span>
+<span class="w">        </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no"># např. rsync /site/ na server nebo upload artefaktu</span>
+</code></pre></div>
+<h2 id="aktualizace-cache-assetu">Aktualizace Cache / Assetů<a class="headerlink" href="#aktualizace-cache-assetu" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pokud upravíš JS/CSS v <code>public/crm-docs/assets</code>, přidej verzi (query param) do <code>mkdocs.yml</code> (<code>extra_javascript</code>).</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problém</th>
+<th>Příčina</th>
+<th>Řešení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chybí generované soubory v navigaci</td>
+<td>Nebyl spuštěn <code>php artisan docs:refresh</code></td>
+<td>Spusť command před buildem</td>
+</tr>
+<tr>
+<td>Staré routy (obsahuje odstraněné middleware)</td>
+<td>Neproběhl re-build MkDocs po změně</td>
+<td>Spusť <code>mkdocs build --clean</code></td>
+</tr>
+<tr>
+<td>404 na assets po deploy</td>
+<td>Nesoulad cesty <code>site_url</code> vs. reverse proxy prefix</td>
+<td>Ověř <code>site_url</code> v <code>mkdocs.yml</code></td>
+</tr>
+<tr>
+<td>Duplicitní položky v nav</td>
+<td>Ruční edit + generátor přidal znovu</td>
+<td>Slouč nebo uprav <code>mkdocs.yml</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="doporuceni">Doporučení<a class="headerlink" href="#doporuceni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Commituj generované <code>16-generated</code> markdowny (auditní stopa + reproducibilita).</li>
+<li>Commituj také <code>public/crm-docs</code> (instantní publikace bez dalšího build kroku na serveru).</li>
+<li>Při větších úpravách přidej položku do changelogu (<code>DOCS</code>).</li>
+<li>Udržuj verzi Docker image v synchronu s dokumentací (případně pin na minor).</li>
+</ul>
+<h2 id="planovane-rozsireni">Plánované Rozšíření<a class="headerlink" href="#planovane-rozsireni" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Automatická validace odkazů (plugin <code>linkcheck</code>).</li>
+<li>Generování ERD pomocí PlantUML (CI krok).</li>
 </ul>
 
 
