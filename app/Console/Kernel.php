@@ -47,8 +47,8 @@ class Kernel extends ConsoleKernel
 
     // Orders module schedules (initial)
     $schedule->command('orders:sync-incremental')->everyFiveMinutes()->withoutOverlapping();
-    // Dynamic auto sync job (respects interval in settings)
-    $schedule->job(new \App\Jobs\Orders\AutoSyncOrdersJob())->everyMinute()->onQueue('default');
+    // Dynamic auto sync job (respects interval in settings) – spouštěn 1× za hodinu
+    $schedule->job(new \App\Jobs\Orders\AutoSyncOrdersJob())->hourly()->onQueue('default');
     // Full import manual / or weekly safety run (disabled by default unless env flag)
     if (env('ORDERS_FULL_IMPORT_WEEKLY', false)) {
         $schedule->command('orders:import-full')->weeklyOn(7, '03:40')->withoutOverlapping();

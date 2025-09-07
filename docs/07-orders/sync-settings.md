@@ -21,7 +21,7 @@ Tato stránka popisuje UI stránku `Objednávky > Nastavení synchronizace` a in
 `password_encrypted` je ukládáno přes Laravel `encrypt()`. Zobrazení hesla zpět v UI není podporováno (write-only).
 
 ## Interval
-Skutečný interval hlídá job `AutoSyncOrdersJob`, který běží každou minutu a kontroluje:
+Skutečný interval hlídá job `AutoSyncOrdersJob`, který se plánovaně spouští jednou za hodinu a při běhu kontroluje:
 1. Zda jsou k dispozici tabulky.
 2. Zda je synchronizace povolena (`enabled`).
 3. Zda od posledního běhu uplynulo alespoň `interval_minutes`.

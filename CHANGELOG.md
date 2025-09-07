@@ -21,6 +21,7 @@ Formát vychází z [Keep a Changelog](https://keepachangelog.com/) a verze dodr
 - Globální unifikace stylů: černá typografie, jednotné rámečky karet, odstranění šedých textů.
 
 ### Změněno
+- AutoSyncOrdersJob spouštěn nově 1× za hodinu (dříve každou minutu) – interval v DB stále respektován.
 - Navigační struktura: "CRM Moduly" → "CRM", "Nástroje" → "Znalosti".
 - Přesuny v menu: Projekty a Úkoly do sekce "Řízení projektů"; Objednávky a Produkty do sekce "Ecommerce".
 - Vizuální vylepšení dashboardu (větší ikony, hover efekty, jasnější popisky KPI).
