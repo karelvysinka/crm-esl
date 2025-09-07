@@ -18,8 +18,9 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 ## Lokální Build (Docker – preferováno)
 Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
 
-Pinned verze image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
-Instalace pluginů (např. `mkdocs-linkcheck`) probíhá ve skriptu přes `--entrypoint /bin/sh` + `pip install -r docs/requirements.txt`.
+Pinned base image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
+Lokálně stavíme derivovaný image `crm-mkdocs:9.5.18` z `Dockerfile.docs` (obsahuje plugin `mkdocs-linkcheck`).
+Výhoda: deterministický build bez runtime instalací uvnitř kontejneru.
 
 ```bash
 ./scripts/build-docs.sh
