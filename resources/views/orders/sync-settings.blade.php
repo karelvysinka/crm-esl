@@ -21,7 +21,7 @@
             <div class="card h-100">
                 <div class="card-body py-3">
                     <div class="d-flex justify-content-between align-items-start">
-                        <div class="avatar-sm bg-dark rounded d-flex align-items-center justify-content-center" style="width:62px;height:62px;">
+                            <div class="avatar-sm bg-info rounded d-flex align-items-center justify-content-center" style="width:62px;height:62px;">
                             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 9 9"/><path d="M3 3v5h5"/></svg>
                         </div>
                         <div class="text-end">
@@ -73,6 +73,11 @@
                 <div class="card-header"><h5 class="mb-0">Konfigurace</h5></div>
                 <div class="card-body">
                     @if(session('status')) <div class="alert alert-success py-2 mb-3">{{ session('status') }}</div> @endif
+                        @if($errors->any()) <div class="alert alert-danger py-2 mb-3">{{ $errors->first() }}</div> @endif
+                        <div class="mb-3 small">
+                            <strong>Poslední běh:</strong> {{ $lastRun? ($lastRun->started_at? $lastRun->started_at->format('H:i:s d.m.'):'—') .' ('.$lastRun->status.')':'—' }}<br>
+                            <strong>Poslední úspěch:</strong> {{ $lastSuccess? $lastSuccess->started_at->format('H:i:s d.m.'):'—' }}
+                        </div>
                     <form method="post" action="{{ route('orders.sync.settings.update') }}">
                         @csrf
                         @method('put')
@@ -107,8 +112,10 @@
                             </div>
                         </div>
                         <div class="mt-3 d-flex gap-2">
-                            <button class="btn btn-primary" type="submit"><i class="ti ti-device-floppy me-1"></i> Uložit</button>
-                            <a href="{{ route('orders.index') }}" class="btn btn-secondary">Zpět na objednávky</a>
+                                <button class="btn btn-primary" type="submit"><i class="ti ti-device-floppy me-1"></i> Uložit</button>
+                                <a href="{{ route('orders.index') }}" class="btn btn-secondary">Zpět</a>
+                                <form method="post" action="{{ route('orders.sync.settings.run') }}" class="d-inline">@csrf <button class="btn btn-outline-success" type="submit"><i class="ti ti-play me-1"></i> Run Now</button></form>
+                                <form method="post" action="{{ route('orders.sync.settings.test') }}" class="d-inline">@csrf <button class="btn btn-outline-info" type="submit"><i class="ti ti-plug-connected me-1"></i> Test</button></form>
                         </div>
                     </form>
                 </div>

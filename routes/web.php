@@ -120,6 +120,8 @@ Route::middleware('auth')->prefix('crm')->group(function () {
     // Sync settings
     Route::get('sync/settings', [\App\Http\Controllers\OrderSyncSettingsController::class, 'index'])->name('orders.sync.settings');
     Route::put('sync/settings', [\App\Http\Controllers\OrderSyncSettingsController::class, 'update'])->name('orders.sync.settings.update');
+    Route::post('sync/run-now', [\App\Http\Controllers\OrderSyncSettingsController::class, 'runNow'])->name('orders.sync.settings.run');
+    Route::post('sync/test', [\App\Http\Controllers\OrderSyncSettingsController::class, 'testConnection'])->name('orders.sync.settings.test');
     });
 
     // Search (AJAX)
