@@ -66,8 +66,27 @@ class CompanyController extends Controller
         }
 
     $companies = $query->paginate(20)->withQueryString();
+        // Stats panels
+        $totalCompanies = Company::count();
+        $newThisMonth = Company::whereBetween('created_at', [now()->startOfMonth(), now()->endOfMonth()])->count();
+        $statusCounts = Company::select('status')
+            ->selectRaw('COUNT(*) as c')
+            ->groupBy('status')
+            ->pluck('c','status');
+        $totalTurnoverAll = SalesOrder::sum('total_amount');
+        $stats = [
+            'total' => $totalCompanies,
+            'new_month' => $newThisMonth,
+            'statuses' => [
+                'active' => (int) ($statusCounts['active'] ?? 0),
+                'prospect' => (int) ($statusCounts['prospect'] ?? 0),
+                'inactive' => (int) ($statusCounts['inactive'] ?? 0),
+                'lost' => (int) ($statusCounts['lost'] ?? 0),
+            ],
+            'turnover_total' => $totalTurnoverAll,
+        ];
 
-    return view('crm.companies.index', compact('companies', 'sort', 'dir', 'qText', 'status', 'size', 'industry', 'minTurnover', 'maxTurnover'));
+        return view('crm.companies.index', compact('companies', 'sort', 'dir', 'qText', 'status', 'size', 'industry', 'minTurnover', 'maxTurnover', 'stats'));
     }
 
     public function create()
