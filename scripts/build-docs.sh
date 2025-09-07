@@ -21,6 +21,6 @@ docker run --rm \
   -u $(id -u):$(id -g) \
   -v "$ROOT_DIR":/docs \
   -e CI=1 \
-  "$IMAGE_TAG" mkdocs build --strict --site-dir public/crm-docs
+  "$IMAGE_TAG" build --strict --site-dir public/crm-docs
 
 echo "[build-docs] Done. Open /crm-docs/ in browser (ensure web server serves public/)." >&2
