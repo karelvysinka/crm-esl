@@ -19,7 +19,7 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
 
 Pinned base image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
-Lokálně stavíme derivovaný image `crm-mkdocs:9.5.18` z `Dockerfile.docs` (obsahuje plugin `mkdocs-linkcheck`).
+Lokálně se derivovaný image staví z `Dockerfile.docs` – tag obsahuje hash (např. `crm-mkdocs:9.5.18-<hash>`), takže změna Dockerfile vždy vynutí rebuild a eliminuje problém se zastaralou vrstvou.
 Výhoda: deterministický build bez runtime instalací uvnitř kontejneru.
 
 ```bash
