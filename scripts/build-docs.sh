@@ -15,6 +15,7 @@ docker run --rm \
   -u $(id -u):$(id -g) \
   -v "$ROOT_DIR":/docs \
   -e CI=1 \
-  squidfunk/mkdocs-material:9.5.18 bash -c 'if [ -f docs/requirements.txt ]; then pip install --no-cache-dir -r docs/requirements.txt >/dev/null 2>&1; fi; mkdocs build --strict --site-dir public/crm-docs'
+  --entrypoint /bin/sh \
+  squidfunk/mkdocs-material:9.5.18 -c 'if [ -f docs/requirements.txt ]; then pip install --no-cache-dir -r docs/requirements.txt >/dev/null 2>&1; fi; mkdocs build --strict --site-dir public/crm-docs'
 
 echo "[build-docs] Done. Open /crm-docs/ in browser (ensure web server serves public/)." >&2

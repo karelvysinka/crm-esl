@@ -19,6 +19,7 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
 
 Pinned verze image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
+Instalace pluginů (např. `mkdocs-linkcheck`) probíhá ve skriptu přes `--entrypoint /bin/sh` + `pip install -r docs/requirements.txt`.
 
 ```bash
 ./scripts/build-docs.sh
