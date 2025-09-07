@@ -3352,7 +3352,7 @@ Stručná věta co se změnilo / přibylo / opravilo.
 <li>Přidán <code>RotateSessionId</code> middleware (POST /login) – zajišťuje regeneraci session ID (ochrana proti potenciálnímu edge případu opakovaného použití).</li>
 <li>Logout nyní čistí interní flag <code>_rotated</code>.</li>
 <li>Rozšířen debug endpoint <code>/_debug/csrf</code> (dev) o <code>rotated_flag</code> pro sledování regenerace.</li>
-<li>GET /login označen <code>nocache</code> middlewarem; POST /login <code>rotate.session</code>.</li>
+<li>GET /login označen <code>nocache</code> middlewarem; POST /login již nepoužívá alias <code>rotate.session</code> (odstraněno po fixu dvojité regenerace).</li>
 </ul>
 </li>
 <li>Dokumentace:<ul>

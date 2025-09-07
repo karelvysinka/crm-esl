@@ -183,6 +183,14 @@
             </li>
             @endcan
 
+            <!-- Orders (always visible; access enforced by route middleware) -->
+            <li class="side-nav-item">
+                <a href="{{ route('orders.index') }}" class="side-nav-link {{ request()->routeIs('orders.*') ? 'active' : '' }} {{ !auth()->user() || !auth()->user()->can('orders.view') ? 'disabled' : '' }}">
+                    <span class="menu-icon"><i class="ti ti-shopping-cart"></i></span>
+                    <span class="menu-text"> Objednávky </span>
+                </a>
+            </li>
+
             <!-- Tasks -->
             <li class="side-nav-item">
                 <a href="{{ route('tasks.index') }}" class="side-nav-link {{ request()->routeIs('tasks.*') ? 'active' : '' }}">

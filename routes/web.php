@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Auth;
 
 // Auth routes
 Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLogin'])->middleware('nocache')->name('login');
-Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->middleware('rotate.session')->name('login.attempt');
+// Removed rotate.session middleware (double session regeneration caused sporadic 419). Now single regenerate inside controller.
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login.attempt');
 Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 // Temporary diagnostic route (non-production) to help trace persistent 419 issues: shows session + CSRF token
@@ -30,7 +31,7 @@ if (config('app.env') !== 'production') {
             'expected_cookie_domain' => config('session.domain'),
             'secure_cookie_flag' => config('session.secure'),
             'same_site' => config('session.same_site'),
-            'rotated_flag' => $request->session()->get('_rotated'),
+            // rotated_flag removed after stabilization of 419 issue
         ]);
     });
 }

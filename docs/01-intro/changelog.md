@@ -39,6 +39,35 @@ Nové položky přidávejte NAHORU (nejnovější první) kvůli rychlé orienta
 ---
 
 ## Poslední změny
+### [2025-09-07] v0.1.14 (CHANGED / CLEANUP)
+#### Shrnutí
+Stabilizace přihlášení dokončena – odstraněn alias `rotate.session`, zjednodušen `AuthController`, vyčištěny diagnostické prvky a aktualizována dokumentace.
+
+#### Detaily
+- Odebrán middleware alias `rotate.session` z `bootstrap/app.php` (nepoužíván po fixu dvojité regenerace).
+- Odstraněn debug marker `_rotated` a dočasný log z `AuthController` (ponechána standardní regenerace session po úspěšném `Auth::attempt`).
+- Úprava debug endpointu `/_debug/csrf` – odstraněn klíč `rotated_flag` (již není potřeba sledovat).
+- Regenerována dokumentace rout; odstraněny zbytky `rotate.session` v generovaných souborech.
+- Changelog položka v0.1.5 aktualizována (poznámka, že POST /login už alias nepoužívá).
+
+#### Dopady
+- Uživatel: Žádná změna chování (transparentní). 
+- Provoz: Menší šum v logu (odstraněn debug záznam), jednodušší auth stack.
+- Vývoj: Snížená komplexita – jeden zdroj regenerace session.
+
+#### Migrace / Kroky po nasazení
+1. Není potřeba DB migrace.
+2. (Doporučeno) Nastavit `SESSION_SECURE_COOKIE=true` v `.env` (produkce) a redeploy.
+3. Monitorovat 24h logy pro případné návraty 419 (neměly by se objevit).
+
+#### Odkazy
+- `bootstrap/app.php`
+- `routes/web.php`
+- `app/Http/Controllers/AuthController.php`
+
+#### Poznámky
+Middleware třída `RotateSessionId` byla v této verzi odstraněna (nebyla již volána) – rollback je snadný přes git historii pokud by byla znovu potřeba.
+
 ### [2025-09-06] v0.1.13 (ADDED / CHANGED)
 #### Shrnutí
 Analytics & UI rozšíření modulu objednávek: KPI karty, 12měsíční graf, větší typografie, rozšířená telemetrie importu + navýšení délky `order_number`.
@@ -293,7 +322,7 @@ Další stabilizace přihlášení (intermitentní 419) + rozšíření dokument
 	- Přidán `RotateSessionId` middleware (POST /login) – zajišťuje regeneraci session ID (ochrana proti potenciálnímu edge případu opakovaného použití).
 	- Logout nyní čistí interní flag `_rotated`.
 	- Rozšířen debug endpoint `/_debug/csrf` (dev) o `rotated_flag` pro sledování regenerace.
-	- GET /login označen `nocache` middlewarem; POST /login `rotate.session`.
+	- GET /login označen `nocache` middlewarem; POST /login nyní bez `rotate.session` (odstraněno kvůli dvojité regeneraci session způsobující sporadické 419; ponechána jediná regenerace v controlleru).
 - Dokumentace:
 	- Přidána sekce Produkty → Implementační plán + detailní analýza reálného feedu `heureka.xml` (frekvence tagů, max délky, návrh DB schématu, transformace, mapování dostupnosti).
 	- Aktualizována navigace (`mkdocs.yml`) – zanoření položky Implementační plán.

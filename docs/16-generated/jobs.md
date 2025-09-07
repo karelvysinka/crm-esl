@@ -12,3 +12,4 @@
 | Jobs\Ops\RunDbBackupJob | ops |  |
 | Jobs\Ops\RunStorageSnapshotJob | ops |  |
 | Jobs\Ops\RunVerifyRestoreJob | ops |  |
+| Jobs\Orders\RunFullImportJob | default |  |

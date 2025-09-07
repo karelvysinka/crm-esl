@@ -3,6 +3,7 @@
 | Metoda | URI | Název | Middleware | Akce |
 |--------|-----|-------|------------|-------|
 | GET | / | root | web | RoutingController@index |
+| GET | _debug/csrf |  | web | Closure |
 | GET | apps/user-contacts | apps.users.index | web,auth | UserManagementController@index |
 | GET | apps/user-profile | apps.me.show | web,auth | ProfileController@show |
 | POST | apps/user-profile | apps.me.update | web,auth | ProfileController@update |
@@ -93,9 +94,13 @@
 | PUT,PATCH | crm/opportunities/{opportunity} | opportunities.update | web,auth | OpportunityController@update |
 | GET | crm/opportunities/{opportunity}/edit | opportunities.edit | web,auth | OpportunityController@edit |
 | GET | crm/ops | ops.dashboard | web,auth,can:ops.view | DashboardController@index |
+| POST | crm/ops/actions/docs-build | ops.docs.build | web,auth,can:ops.execute,throttle:ops-actions | ActionController@docsBuild |
 | POST | crm/ops/actions/{action} | ops.action | web,auth,can:ops.execute,throttle:ops-actions | ActionController@run |
 | GET | crm/ops/history | ops.history.index | web,auth,can:ops.view | HistoryController@index |
 | GET | crm/ops/metrics | ops.metrics | web,auth,can:ops.view | MetricsController |
+| GET | crm/orders | orders.index | web,auth,can:orders.view | OrderController@index |
+| POST | crm/orders/trigger-import | orders.triggerImport | web,auth,can:orders.view,throttle:ops-actions | OrderController@triggerImport |
+| GET | crm/orders/{order} | orders.show | web,auth,can:orders.view | OrderController@show |
 | GET | crm/orders/{order}/items |  | web,auth | OrderItemsController@show |
 | GET | crm/products | products.index | web,auth,can:products.view | ProductController@index |
 | GET | crm/products/{product} | products.show | web,auth,can:products.view | ProductController@show |
@@ -152,7 +157,7 @@
 | GET | crm/tasks/{task}/edit | tasks.edit | web,auth | TaskController@edit |
 | GET | index | index | web,auth | Closure |
 | GET | login | login | web,nocache | AuthController@showLogin |
-| POST | login | login.attempt | web,rotate.session | AuthController@login |
+| POST | login | login.attempt | web | AuthController@login |
 | POST | logout | logout | web | AuthController@logout |
 | GET | storage/{path} | storage.local |  | Closure |
 | GET | up |  |  | Closure |

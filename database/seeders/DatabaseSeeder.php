@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             OpportunitySeeder::class,
             AppLinkSeeder::class,
+            RolePermissionSeeder::class,
         ]);
     }
 }

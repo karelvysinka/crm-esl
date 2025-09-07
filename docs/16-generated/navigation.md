@@ -188,6 +188,8 @@ Admin konfigurace (ActiveCampaign, Backup, Qdrant, Tools, Chat, integrace).
 
 | Cesta | Route name | Popis |
 |-------|------------|-------|
+| `/orders` | orders.index | _(popis chybí)_ |
+| `/orders/{order}` | orders.show | _(popis chybí)_ |
 | `/orders/{order}/items` |  | _(popis chybí)_ |
 
 ## Products

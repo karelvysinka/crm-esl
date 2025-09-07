@@ -193,6 +193,37 @@ _Heuristický výpis na základě $fillable a $casts. Skutečné DB typy ověřt
 | eshop_url |  |
 | parent_id |  |
 
+## OrderItem
+
+| Pole | Typ (cast) |
+|------|-----------|
+| order_id |  |
+| external_item_id |  |
+| name |  |
+| product_code |  |
+| variant_code |  |
+| specification |  |
+| quantity | integer |
+| unit |  |
+| unit_price_vat_cents | integer |
+| vat_rate_percent | integer |
+| discount_percent | integer |
+| total_ex_vat_cents | integer |
+| total_vat_cents | integer |
+| line_type |  |
+| currency |  |
+
+## OrderStateChange
+
+| Pole | Typ (cast) |
+|------|-----------|
+| order_id |  |
+| old_code |  |
+| new_code |  |
+| changed_at | datetime |
+| detected_at | datetime |
+| source_snapshot_hash |  |
+
 ## AppLink
 
 | Pole | Typ (cast) |
@@ -211,6 +242,20 @@ _Heuristický výpis na základě $fillable a $casts. Skutečné DB typy ověřt
 | email |  |
 | password |  |
 | is_admin |  |
+
+## Order
+
+| Pole | Typ (cast) |
+|------|-----------|
+| order_number |  |
+| order_created_at | datetime |
+| total_vat_cents |  |
+| currency |  |
+| fetched_at | datetime |
+| source_raw_hash |  |
+| is_completed | boolean |
+| last_state_code |  |
+| external_edit_id |  |
 
 ## ContactCustomField
 

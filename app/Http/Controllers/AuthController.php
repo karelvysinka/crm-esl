@@ -40,9 +40,7 @@ class AuthController extends Controller
     {
         Auth::logout();
         $request->session()->invalidate();
-        $request->session()->regenerateToken();
-    // remove rotate marker to allow next login to rotate again
-    $request->session()->forget('_rotated');
+    $request->session()->regenerateToken();
         return redirect('/login');
     }
 
