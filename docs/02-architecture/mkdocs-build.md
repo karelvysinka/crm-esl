@@ -18,6 +18,8 @@ Tato sekce popisuje jak lokálně i v CI postavit a publikovat dokumentaci.
 ## Lokální Build (Docker – preferováno)
 Používáme oficiální image Material MkDocs pro konzistentní výsledek (viz `scripts/build-docs.sh`).
 
+Pinned verze image: `squidfunk/mkdocs-material:9.5.18` (měň pouze vědomě + changelog poznámka).
+
 ```bash
 ./scripts/build-docs.sh
 ```
@@ -95,6 +97,15 @@ jobs:
 - Commituj také `public/crm-docs` (instantní publikace bez dalšího build kroku na serveru).
 - Při větších úpravách přidej položku do changelogu (`DOCS`).
 - Udržuj verzi Docker image v synchronu s dokumentací (případně pin na minor).
+
+## Link Checking
+Aktivní plugin `linkcheck` (fail_on_warning: true) – build selže při nalezení nefunkčních odkazů nebo kotvení. Pokud potřebuješ dočasně obejít, můžeš lokálně spustit:
+
+```bash
+IGNORE_LINK_CHECK=1 mkdocs build --clean --site-dir public/crm-docs
+```
+
+nebo dočasně odstranit blok pluginu před commitem (nedoporučeno pro main).
 
 ## Plánované Rozšíření
 - Automatická validace odkazů (plugin `linkcheck`).

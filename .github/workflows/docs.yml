@@ -1,0 +1,77 @@
+name: Docs Build
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+      - 'scripts/build-docs.sh'
+      - '.github/workflows/docs.yml'
+      - 'app/Console/Commands/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs-build
+  cancel-in-progress: false
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, pdo_mysql
+          coverage: none
+
+      - name: Install Composer deps
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Refresh generated markdown
+        run: php artisan docs:refresh || echo "(warning) docs:refresh failed"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install MkDocs toolchain
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs-material==9.5.18 mkdocs-linkcheck
+
+      - name: Build MkDocs (with link check)
+        run: mkdocs build --clean --strict --site-dir public/crm-docs
+
+      - name: Detect changes in static site
+        run: |
+          git add public/crm-docs || true
+          if git diff --cached --quiet; then
+            echo "No changes in public/crm-docs"
+            echo "has_changes=false" >> $GITHUB_ENV
+          else
+            echo "Detected changes in public/crm-docs"
+            echo "has_changes=true" >> $GITHUB_ENV
+          fi
+
+      - name: Commit & push updated static site
+        if: env.has_changes == 'true'
+        run: |
+          git config user.name "docs-bot"
+            git config user.email "docs-bot@local"
+            git commit -m "docs(build): automated site regen [skip ci]"
+            git push
+
+      - name: Upload artifact (site)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: crm-docs-site
+          path: public/crm-docs
