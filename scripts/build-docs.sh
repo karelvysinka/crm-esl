@@ -14,6 +14,6 @@ echo "[build-docs] Building MkDocs site → public/crm-docs" >&2
 docker run --rm \
   -u $(id -u):$(id -g) \
   -v "$ROOT_DIR":/docs \
-  squidfunk/mkdocs-material:9.5.18 sh -c "pip install --no-cache-dir mkdocs-linkcheck >/dev/null 2>&1 && mkdocs build --strict --site-dir public/crm-docs"
+  squidfunk/mkdocs-material:9.5.18 sh -c 'pip install --no-cache-dir mkdocs-linkcheck >/dev/null 2>&1 && mkdocs build --strict --site-dir public/crm-docs'
 
 echo "[build-docs] Done. Open /crm-docs/ in browser (ensure web server serves public/)." >&2
